@@ -1,0 +1,7 @@
+how to connect external db
+get proper flow chart and work flow of the project
+work on different case scenarios 
+Data base whole connective with vs code (mysql servers) LINQ
+In depth knowlendge of each every entity
+check all operations regarding
+Github full workflow with team mate
