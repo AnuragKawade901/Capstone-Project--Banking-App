@@ -1,0 +1,445 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CapstoneProject_BankingApp\\code\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\approvalworkflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\approvalworkflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\approvalstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\approvalstep.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enums\\audittype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enums\\audittype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\auditlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enums\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enums\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\salarypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\salarypayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enums\\disbursementstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enums\\disbursementstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\salarydisbursement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\salarydisbursement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enums\\transactiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enums\\transactiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enums\\paymentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enums\\paymentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enums\\paymenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enums\\paymenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\beneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\beneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enums\\verificationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enums\\verificationstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\models\\enitites\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\models\\enitites\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApprovalWorkflow.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\ApprovalWorkflow.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\ApprovalWorkflow.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\ApprovalWorkflow.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\ApprovalWorkflow.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T16:01:29.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\UserRole.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enums\\UserRole.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\UserRole.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enums\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:44:54.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApprovalStep.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\ApprovalStep.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\ApprovalStep.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\ApprovalStep.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\ApprovalStep.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T16:01:58.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Notification.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Notification.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Notification.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T16:00:43.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Account.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Account.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Account.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:49:41.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuditType.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\AuditType.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enums\\AuditType.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\AuditType.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enums\\AuditType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T16:00:37.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuditLog.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\AuditLog.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\AuditLog.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\AuditLog.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\AuditLog.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T16:00:13.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Report.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Report.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Report.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Report.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Report.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:59:58.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DocumentType.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\DocumentType.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enums\\DocumentType.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\DocumentType.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enums\\DocumentType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:59:53.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Document.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Document.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Document.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Document.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Document.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:59:38.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SalaryPayment.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\SalaryPayment.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\SalaryPayment.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\SalaryPayment.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\SalaryPayment.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:57:08.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DisbursementStatus.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\DisbursementStatus.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enums\\DisbursementStatus.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\DisbursementStatus.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enums\\DisbursementStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:57:01.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SalaryDisbursement.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\SalaryDisbursement.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\SalaryDisbursement.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\SalaryDisbursement.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\SalaryDisbursement.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:56:45.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TransactionType.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\TransactionType.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enums\\TransactionType.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\TransactionType.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enums\\TransactionType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:53:14.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Transaction.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Transaction.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Transaction.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Transaction.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:52:23.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PaymentStatus.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\PaymentStatus.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enums\\PaymentStatus.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\PaymentStatus.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enums\\PaymentStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:52:17.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PaymentType.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\PaymentType.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enums\\PaymentType.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\PaymentType.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enums\\PaymentType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:52:13.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Payment.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Payment.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Payment.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Payment.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:51:48.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Employee.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Employee.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Employee.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Employee.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:51:27.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Beneficiary.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Beneficiary.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Beneficiary.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Beneficiary.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Beneficiary.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA3wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:51:01.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Client.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Client.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Client.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Client.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Client.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:48:44.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "VerificationStatus.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\VerificationStatus.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enums\\VerificationStatus.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enums\\VerificationStatus.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enums\\VerificationStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:48:10.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Customer.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Customer.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Customer.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Customer.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:47:22.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Bank.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Bank.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\Bank.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\Bank.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\Bank.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA3wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:45:49.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\User.cs",
+              "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\User.cs",
+              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\User.cs",
+              "RelativeToolTip": "Payment_Project_AP\\Models\\Enitites\\User.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAwwC4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T13:21:19.493Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
