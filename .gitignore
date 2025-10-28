@@ -1,0 +1,12 @@
+# Visual Studio
+.vs/
+
+# Binaries
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.suo
+*.user
+
+# (Add any other folders you want to ignore, like 'node_modules/' if you're using Angular/React)
