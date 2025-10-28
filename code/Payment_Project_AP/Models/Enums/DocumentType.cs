@@ -2,10 +2,16 @@
 {
     public enum DocumentType
     {
-        IdProof,
+        PAN,
+        Aadhar,
+        GST,
+        CIN,
+        BankStatement,
         AddressProof,
-        BusinessRegistration,
-        TransactionInvoice,
+        IdentityProof,
+        IncorporationCertificate,
+        SalarySlip,
+        PaymentReceipt,
         Other
     }
 }

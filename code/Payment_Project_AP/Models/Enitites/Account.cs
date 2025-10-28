@@ -7,7 +7,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
   public class Account
     {
-        public int Id { get; set; }
+        public int AccountId { get; set; }
 
         [Required]
         [MaxLength(20)]

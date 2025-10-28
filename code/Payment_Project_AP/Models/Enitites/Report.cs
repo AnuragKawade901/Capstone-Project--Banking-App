@@ -5,7 +5,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class Report //represents the metadata for a generated report, such as its type, status, and download link.
     {
-        public int Id { get; set; }
+        public int ReportId { get; set; }
 
         [Required]
         [MaxLength(150)]

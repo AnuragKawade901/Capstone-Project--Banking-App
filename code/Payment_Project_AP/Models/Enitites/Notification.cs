@@ -5,7 +5,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class Notification //Represents an in-app notification for a user.
     {
-        public int Id { get; set; }
+        public int NotificationId { get; set; }
 
         [Required]
         [MaxLength(500)]

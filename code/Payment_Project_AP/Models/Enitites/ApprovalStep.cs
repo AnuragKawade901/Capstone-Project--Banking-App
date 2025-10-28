@@ -5,7 +5,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class ApprovalStep //represents a single, ordered step within an ApprovalWorkflow, defining who needs to approve and how many approvals are required
     {
-        public int Id { get; set; }
+        public int ApprovalStepId { get; set; }
 
         [Required]
         [MaxLength(100)]

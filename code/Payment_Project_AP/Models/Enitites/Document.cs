@@ -6,7 +6,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class Document //Represents metadata for a document uploaded to a cloud storage provider.
     {
-            public int Id { get; set; }
+            public int DocumentId { get; set; }
 
             [Required]
             [MaxLength(255)]

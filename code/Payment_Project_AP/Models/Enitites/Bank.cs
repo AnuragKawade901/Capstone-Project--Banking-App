@@ -12,7 +12,7 @@ namespace Payment_Project_AP.Models.Enitites
 
             [Required]
             [MaxLength(20)]
-            public string SwiftCode { get; set; } // also known as BIC
+            public string IFC { get; set; } // also known as BIC
 
             [MaxLength(255)]
             public string Address { get; set; }

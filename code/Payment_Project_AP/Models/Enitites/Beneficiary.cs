@@ -20,7 +20,7 @@ namespace Payment_Project_AP.Models.Enitites
 
         [Required]
         [MaxLength(20)]
-        public string BankSwiftCode { get; set; } // the SWIFT/BIC code of the beneficiary's bank
+        public string BankIFC { get; set; } // the SWIFT/BIC code of the beneficiary's bank
 
         [MaxLength(100)]
         public string BankName { get; set; }

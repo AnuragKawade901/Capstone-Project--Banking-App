@@ -5,7 +5,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class Employee //represents an employee of a corporate client, used for salary disbursement.
     {
-        public int Id { get; set; }
+        public int EmployeeId { get; set; }
 
         [Required]
         [MaxLength(50)]

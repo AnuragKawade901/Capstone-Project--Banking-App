@@ -6,7 +6,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class Client
     {
-        public int Id { get; set; }
+        public int ClientId { get; set; }
 
         [Required]
         [MaxLength(150)]

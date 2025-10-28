@@ -5,7 +5,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class AuditLog
     {
-        public long Id { get; set; } // using long for high-volume audit tables
+        public long AuditLogId { get; set; } // using long for high-volume audit tables
 
         [Required]
         public int UserId { get; set; } // the ID of the user who performed the action

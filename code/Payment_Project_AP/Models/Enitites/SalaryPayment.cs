@@ -7,7 +7,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class SalaryPayment //represents the individual payment to a single employee as part of a larger SalaryDisbursement batch.
     {
-        public int Id { get; set; }
+        public int SalaryPaymentId { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]

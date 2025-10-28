@@ -2,10 +2,12 @@
 {
     public enum DisbursementStatus
     {
+        Draft,
         Pending,
+        Approved,
         Processing,
         Completed,
-        PartiallyCompleted, // in case some payments fail
+        PartiallyCompleted,
         Failed
     }
 }

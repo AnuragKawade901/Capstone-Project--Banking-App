@@ -6,7 +6,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class SalaryDisbursement //represents a batch salary disbursement process for multiple employees.
     {
-        public int Id { get; set; }
+        public int SalaryDisbursementId { get; set; }
 
         public DateTime DisbursementDate { get; set; }
 

@@ -5,7 +5,7 @@ namespace Payment_Project_AP.Models.Enitites
     public class ApprovalWorkflow // defines a template for a multi-step approval process.
                                   // this can be configured per client for different types of operations.
     {
-        public int Id { get; set; }
+        public int ApprovalWorkflowId { get; set; }
 
         [Required]
         [MaxLength(100)]

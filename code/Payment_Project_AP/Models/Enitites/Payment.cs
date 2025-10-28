@@ -7,7 +7,7 @@ namespace Payment_Project_AP.Models.Enitites
 {
     public class Payment //represents a single payment instruction that requires approval before processing.
     {
-        public int Id { get; set; }
+        public int PaymentId { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(18, 2)")]

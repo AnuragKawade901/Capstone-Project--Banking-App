@@ -8,7 +8,7 @@ namespace Payment_Project_AP.Models.Enitites
     /// represents an immutable financial transaction record in the ledger.
     /// this is created upon the successful processing of a payment.
     {
-        public int Id { get; set; }
+        public int TransactionId { get; set; }
 
         // a unique reference number for tracking and auditing
         [Required]
