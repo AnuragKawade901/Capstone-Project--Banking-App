@@ -21,6 +21,6 @@ namespace Payment_Project_AP.Service
         public Task<Bank?> Update(Bank bank);
 
         public Task DeleteById(int id);
-        public Task<List<BankUsersPerBankDTO>> GetUsersByBank();
+        public Task<List<BankUsersDetailDTO>> GetUsersByBank();
     }
 }

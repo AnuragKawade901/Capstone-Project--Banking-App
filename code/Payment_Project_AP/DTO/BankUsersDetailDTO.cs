@@ -2,7 +2,7 @@
 
 namespace Payment_Project_AP.DTO
 {
-    public class BankUsersPerBankDTO
+    public class BankUsersDetailDTO
     {
         public int BankId { get; set; }
         public string BankName { get; set; } = string.Empty;

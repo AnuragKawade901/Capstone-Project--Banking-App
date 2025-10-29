@@ -1,4 +1,5 @@
-﻿using Payment_Project_AP.DTO;
+﻿using Microsoft.EntityFrameworkCore;
+using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Repositories;
 
@@ -71,10 +72,10 @@ namespace Payment_Project_AP.Service
             await _bankRepository.DeleteById(id);
         }
 
-        public async Task<List<BankUsersPerBankDTO>> GetUsersByBank()
+        public async Task<List<BankUsersDetailDTO>> GetUsersByBank()
         {
             var banks = _bankRepository.GetAll();
-            var result = banks.Select(b => new BankUsersPerBankDTO
+            var result = banks.Select(b => new BankUsersDetailDTO
             {
                 BankId = b.BankId,
                 BankName = b.BankName,
