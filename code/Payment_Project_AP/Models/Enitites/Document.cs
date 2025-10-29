@@ -1,34 +1,28 @@
 ﻿using Payment_Project_AP.Models.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
 
 namespace Payment_Project_AP.Models.Enitites
 {
-    public class Document //Represents metadata for a document uploaded to a cloud storage provider.
+    public class Document
     {
-            public int DocumentId { get; set; }
+        [Key]
+        public int DocumentId { get; set; }
+        [Required(ErrorMessage = "DocumentURL is Required!")]
+        public string DocumentURL { get; set; }
+        [Required(ErrorMessage = "Document Name is Required!")]
+        public string DocumentName { get; set; }
+        [Required(ErrorMessage = "Document Type is Required!")]
+        [ForeignKey("ProofType")]
+        public int ProofTypeId { get; set; }
+        public virtual DocumentType? DocumentType { get; set; }
 
-            [Required]
-            [MaxLength(255)]
-            public string FileName { get; set; } // the original name of the file
+        public string PublicId { get; set; }
 
-            [Required]
-            public string Url { get; set; } // the secure URL where the file is stored (from Cloudinary)
-
-            [Required]
-            public string PublicId { get; set; } // the unique identifier from Cloudinary, needed for file management (e.g., deletion)
-
-            [Required]
-            public DocumentType DocumentType { get; set; }
-
-            public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-            // relationship
-
-            // the customer this document belongs to, primarily for onboarding
-            [Required]
-            public int CustomerId { get; set; }
-            public Customer Customer { get; set; }
-        }
+        [ForeignKey("Account")]
+        public int ClientId { get; set; }
+        public virtual Client? Account { get; set; }
     }
+}
 

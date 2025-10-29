@@ -5,46 +5,41 @@ using System.Transactions;
 
 namespace Payment_Project_AP.Models.Enitites
 {
-  public class Account
+    public class Account
     {
-        public int AccountId { get; set; }
+        [Key]
+        public int AccountId { get; set; }                  // unique id for each account
 
-        [Required]
-        [MaxLength(20)]
-        public string AccountNumber { get; set; }
+        [Required(ErrorMessage = "Account Number is Required!")]
+        [RegularExpression(@"^BAC\d{8}[A-Z0-9]{6}$", ErrorMessage = "Account Number is Not Valid")]
+        public string AccountNumber { get; set; }           // unique account number following BAC format
 
-        [Required]
-        public AccountType AccountType { get; set; }
+        [ForeignKey("Client")]
+        public int? ClientId { get; set; }                  // linked client id (nullable if not assigned yet)
+        public virtual Client? Client { get; set; }         // navigation property to client details
 
-        [Required]
-        [Column(TypeName = "decimal(18, 2)")] // specifies precision for financial data in the database
-        public decimal Balance { get; set; }
+        [ForeignKey("Bank")]
+        public int BankId { get; set; }                     // foreign key to bank table
+        public virtual Bank? Bank { get; set; }             // navigation property for bank info
 
-        [Required]
-        [MaxLength(3)]
-        public string Currency { get; set; } //inr, usd
+        [Required(ErrorMessage = "Balance in Required!")]
+        [DataType(DataType.Currency)]
+        public double Balance { get; set; } = 0;            // current account balance (default 0)
 
-        public Enums.AccountStatus Status { get; set; } = Enums.AccountStatus.Active;
+        [Required(ErrorMessage = "Account Type is Required!")]
+        [ForeignKey("AccountType")]
+        public int AccountTypeId { get; set; }              // foreign key for account type
+        public virtual AccountType? AccountType { get; set; } // navigation property for type details
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        [Required(ErrorMessage = "Account Status is Required!")]
+        [ForeignKey("AccountStatus")]
+        public int AccountStatusId { get; set; }            // foreign key for account status
+        public virtual AccountStatus? AccountStatus { get; set; } // navigation property for status
 
-        public DateTime? UpdatedAt { get; set; }
-        //realtionships
-        // an account must belong to one corporate client
-        [Required]
-        public int ClientId { get; set; }
-        public Client Client { get; set; }
+        [Required(ErrorMessage = "Account Creation Date is Required!")]
+        [DataType(DataType.Date)]
+        public DateTime CreatedAt { get; set; } = DateTime.Now.Date; // date when account was created
 
-        // an account can be the source for many transactions
-        public ICollection<Transaction> SourceTransactions { get; set; }
-
-        // an account can be the destination for many transactions
-        public ICollection<Transaction> DestinationTransactions { get; set; }
-
-        public Account()
-        {
-            SourceTransactions = new HashSet<Transaction>();
-            DestinationTransactions = new HashSet<Transaction>();
-        }
+        public virtual List<int>? TransactionIds { get; set; } = new List<int>(); // holds ids of related transactions
     }
-}
+    }
