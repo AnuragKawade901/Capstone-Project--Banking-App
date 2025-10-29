@@ -1,48 +1,40 @@
-﻿using Payment_Project_AP.Models.Enitites;
+﻿using Microsoft.EntityFrameworkCore;
+using Payment_Project_AP.Data;
+using Payment_Project_AP.Models.Enitites;
 
 namespace Payment_Project_AP.Repositories
 {
     public class AccountRepository : IAccountRepository
     {
-        private readonly BankingPaymentsDBContext _dbContext;
-        private static readonly Random _random = new();
-
-        public AccountRepository(BankingPaymentsDBContext dbContext)
+        private readonly CorporateBankingDBContext _dbContext;
+        public AccountRepository(CorporateBankingDBContext dBContext)
         {
-            _dbContext = dbContext;
+            _dbContext = dBContext;
         }
 
         public IQueryable<Account> GetAll()
         {
-            return _dbContext.Accounts
-                .Include(a => a.ClientUser)
-                .Include(a => a.Bank)
-                .Include(a => a.AccountType)
-                .Include(a => a.AccountStatus)
-                .AsQueryable();
+            return _dbContext.Accounts.Include(a => a.Client).Include(a => a.Bank).Include(a => a.AccountType).Include(a => a.AccountStatus).AsQueryable();
         }
 
-        public async Task<Account> AddAsync(Account account, CancellationToken cancellationToken = default)
+        public async Task<Account> Add(Account account)
         {
-            await _dbContext.Accounts.AddAsync(account, cancellationToken);
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.Accounts.AddAsync(account);
+            await _dbContext.SaveChangesAsync();
             return account;
         }
 
-        public async Task<Account?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<Account?> GetById(int id)
         {
-            return await _dbContext.Accounts
-                .Include(a => a.ClientUser)
-                .Include(a => a.AccountStatus)
-                .Include(a => a.AccountType)
-                .Include(a => a.Bank)
-                .FirstOrDefaultAsync(u => u.AccountId == id, cancellationToken);
+            return await _dbContext.Accounts.Include(a => a.Client).Include(a => a.AccountStatus).Include(a => a.AccountType).Include(a => a.Bank).FirstOrDefaultAsync(u => u.AccountId.Equals(id));
         }
 
-        public async Task<Account?> UpdateAsync(Account account, CancellationToken cancellationToken = default)
+        public async Task<Account?> Update(Account account)
         {
-            var existingAccount = await GetByIdAsync(account.AccountId, cancellationToken);
-            if (existingAccount == null) return null;
+            Account? existingAccount = await GetById(account.AccountId);
+
+            if (existingAccount == null)
+                return null;
 
             existingAccount.Balance = account.Balance;
             existingAccount.AccountStatusId = account.AccountStatusId;
@@ -50,40 +42,41 @@ namespace Payment_Project_AP.Repositories
             existingAccount.AccountTypeId = account.AccountTypeId;
             existingAccount.ClientId = account.ClientId;
 
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
             return existingAccount;
         }
 
-        public async Task DeleteByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task DeleteById(int id)
         {
-            var existingAccount = await GetByIdAsync(id, cancellationToken);
+            Account? existingAccount = await GetById(id);
+
             if (existingAccount == null) return;
 
             _dbContext.Accounts.Remove(existingAccount);
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<string> GenerateAccountNumberAsync(int maxRetries = 5)
+        public async Task<string> GenerateAccountNumber()
         {
+
             string prefix = "BPA";
-            string datePart = DateTime.UtcNow.ToString("yyyyMMdd");
+            string datePart = DateTime.Now.ToString("yyyyMMdd");
+
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            string randomPart = new string(Enumerable.Repeat(chars, 6)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
 
-            for (int i = 0; i < maxRetries; i++)
+            string accountNumber = $"{prefix}{datePart}{randomPart}";
+
+            bool exists = await _dbContext.Accounts.AnyAsync(a => a.AccountNumber == accountNumber);
+            if (exists)
             {
-                string randomPart = new string(Enumerable.Repeat(chars, 6)
-                    .Select(s => s[_random.Next(s.Length)]).ToArray());
-
-                string accountNumber = $"{prefix}{datePart}{randomPart}";
-
-                bool exists = await _dbContext.Accounts.AnyAsync(a => a.AccountNumber == accountNumber);
-                if (!exists)
-                {
-                    return accountNumber;
-                }
+                return await GenerateAccountNumber();
             }
 
-            throw new InvalidOperationException("Failed to generate a unique account number after multiple attempts.");
+            return accountNumber;
+
         }
     }
 }

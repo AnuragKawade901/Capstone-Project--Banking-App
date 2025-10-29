@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Payment_Project_AP.DTO
 {
-    public class AccountDto
+    public class AccountDTO
     {
         public int AccountId { get; set; }
         public string AccountNumber { get; set; }

@@ -9,8 +9,6 @@ namespace Payment_Project_AP.Data
     public class CorporateBankingDBContext : DbContext
     {
         public CorporateBankingDBContext(DbContextOptions options) : base(options) { }
-        //public BankingPaymentsDBContext() { }
-
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountStatus> AccountStatuses { get; set; }
         public DbSet<AccountType> AccountTypes { get; set; }

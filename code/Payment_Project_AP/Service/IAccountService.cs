@@ -1,54 +1,31 @@
-﻿//using Payment_Project_AP.Models.Enitites;
+﻿using Payment_Project_AP.DTO;
+using Payment_Project_AP.Models.Enitites;
 
-//namespace Payment_Project_AP.Service
-//{
-//    /// <summary>
-//    /// Service interface to manage banking accounts with business operations.
-//    /// </summary>
-//    public interface IAccountService
-//    {
-//        /// <summary>
-//        /// Retrieves paged accounts matching filters.
-//        /// </summary>
-//        Task<PagedResultDTO<Account>> GetAllAsync(
-//            string? accountNumber = null,
-//            int? clientId = null,
-//            int? bankId = null,
-//            int? accountTypeId = null,
-//            int? accountStatusId = null,
-//            decimal? minBalance = null,
-//            decimal? maxBalance = null,
-//            DateTime? createdFrom = null,
-//            DateTime? createdTo = null,
-//            int pageNumber = 1,
-//            int pageSize = 10,
-//            CancellationToken cancellationToken = default);
+namespace Payment_Project_AP.Service
+{
+    public interface IAccountService
+    {
+        Task<PagedResultDTO<Account>> GetAll(
+            string? accountNumber,
+            int? clientId,
+            int? bankId,
+            int? accountTypeId,
+            int? accountStatusId,
+            double? minBalance,
+            double? maxBalance,
+            DateTime? createdFrom,
+            DateTime? createdTo,
+            int pageNumber = 1,
+            int pageSize = 10);
+        Task<Account> Add(Account account);
+        Task<Account?> GetById(int id);
+        Task<Account?> Update(Account account);
+        Task DeleteById(int id);
+        public Task<Transaction> CreditAccount(int accountId, double amount, int? paymentId, int? disbursementId, string toFrom);
+        public Task<Transaction> DebitAccount(int accountId, double amount, int? paymentId, int? disbursementId, string toFrom);
+        Task<string> GenerateAccountNumber();
+        public Task<Account?> AccountExistsWithAccountNumber(string accountNumber);
+        public Task<bool?> CheckAccountBalance(int accountId, double amount);
 
-//        /// <summary>Adds a new account.</summary>
-//        Task<Account> AddAsync(Account account, CancellationToken cancellationToken = default);
-
-//        /// <summary>Finds existing account by Id.</summary>
-//        Task<Account?> GetByIdAsync(int accountId, CancellationToken cancellationToken = default);
-
-//        /// <summary>Updates account details.</summary>
-//        Task<Account?> UpdateAsync(Account account, CancellationToken cancellationToken = default);
-
-//        /// <summary>Deletes account by Id.</summary>
-//        Task DeleteByIdAsync(int accountId, CancellationToken cancellationToken = default);
-
-//        /// <summary>Credits an amount to an account, with optional payment/disbursement refs.</summary>
-//        Task<Transaction> CreditAccountAsync(int accountId, decimal amount, int? paymentId, int? disbursementId, string sourceInfo, CancellationToken cancellationToken = default);
-
-//        /// <summary>Debits an amount from an account, with optional payment/disbursement refs.</summary>
-//        Task<Transaction> DebitAccountAsync(int accountId, decimal amount, int? paymentId, int? disbursementId, string destinationInfo, CancellationToken cancellationToken = default);
-
-//        /// <summary>Generates a valid new unique account number.</summary>
-//        Task<string> GenerateAccountNumberAsync(CancellationToken cancellationToken = default);
-
-//        /// <summary>Checks account existence by account number.</summary>
-//        Task<Account?> GetByAccountNumberAsync(string accountNumber, CancellationToken cancellationToken = default);
-
-//        /// <summary>Checks if account balance suffices for a given amount.</summary>
-//        Task<bool> HasSufficientBalanceAsync(int accountId, decimal amount, CancellationToken cancellationToken = default);
-//    }
-//}
+    }
+}

@@ -1,5 +1,6 @@
 ﻿using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Repositories;
 
 namespace Payment_Project_AP.Service
 {
@@ -78,7 +79,7 @@ namespace Payment_Project_AP.Service
                 BankId = b.BankId,
                 BankName = b.BankName,
                 BankUsers = b.Users.OfType<BankUser>().ToList(),
-                ClientUsers = b.Users.OfType<ClientUser>().ToList()
+                Clients = b.Users.OfType<Client>().ToList()
             }).ToList();
 
             return result;

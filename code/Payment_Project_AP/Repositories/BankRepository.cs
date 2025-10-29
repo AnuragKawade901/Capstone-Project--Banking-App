@@ -1,12 +1,14 @@
-﻿using Payment_Project_AP.Models.Enitites;
+﻿using Microsoft.EntityFrameworkCore;
+using Payment_Project_AP.Data;
+using Payment_Project_AP.Models.Enitites;
 
 namespace Payment_Project_AP.Repositories
 {
     public class BankRepository : IBankRepository
     {
-        private readonly BankingPaymentsDBContext _dbContext;
+        private readonly CorporateBankingDBContext _dbContext;
 
-        public BankRepository(BankingPaymentsDBContext dbContext)
+        public BankRepository(CorporateBankingDBContext dbContext)
         {
             _dbContext = dbContext;
         }
