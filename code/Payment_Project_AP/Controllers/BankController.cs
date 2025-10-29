@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Models.Enums;
-using Payment_Project_AP.Service;
+using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Controllers
 {

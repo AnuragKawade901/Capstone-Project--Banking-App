@@ -2,7 +2,7 @@
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Repositories;
-using Payment_Project_AP.Service;
+using Payment_Project_AP.Service.Interface;
 namespace Payment_Project_AP.Service
 {
     public class AccountService : IAccountService
@@ -97,7 +97,7 @@ namespace Payment_Project_AP.Service
             return await _accountRepository.GenerateAccountNumber();
         }
 
-        public async Task<Transaction> CreditAccountAsync(int accountId, decimal amount, int? paymentId, int? disbursementId, string sourceInfo)
+        public async Task<TransactionService> CreditAccountAsync(int accountId, decimal amount, int? paymentId, int? disbursementId, string sourceInfo)
         {
             if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be positive");
 
@@ -106,7 +106,7 @@ namespace Payment_Project_AP.Service
 
             account.Balance += amount;
 
-            var creditTransaction = new Transaction
+            var creditTransaction = new TransactionService
             {
                 TransactionTypeId = 1, // Assuming 1 = Credit
                 AccountId = accountId,
@@ -131,7 +131,7 @@ namespace Payment_Project_AP.Service
             return addedTransaction;
         }
 
-        public async Task<Transaction> DebitAccountAsync(int accountId, decimal amount, int? paymentId, int? disbursementId, string destinationInfo)
+        public async Task<TransactionService> DebitAccountAsync(int accountId, decimal amount, int? paymentId, int? disbursementId, string destinationInfo)
         {
             if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be positive");
 
@@ -143,7 +143,7 @@ namespace Payment_Project_AP.Service
 
             account.Balance -= amount;
 
-            var debitTransaction = new Transaction
+            var debitTransaction = new TransactionService
             {
                 TransactionTypeId = 2, // Assuming 2 = Debit
                 AccountId = accountId,

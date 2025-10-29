@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Service
 {

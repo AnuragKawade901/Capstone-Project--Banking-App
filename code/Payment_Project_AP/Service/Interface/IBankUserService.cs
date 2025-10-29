@@ -1,6 +1,6 @@
 ﻿using Payment_Project_AP.Models.Enitites;
 
-namespace Payment_Project_AP.Service
+namespace Payment_Project_AP.Service.Interface
 {
     public interface IBankUserService
     {
