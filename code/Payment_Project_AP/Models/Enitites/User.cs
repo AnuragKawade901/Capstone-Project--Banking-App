@@ -1,52 +1,57 @@
 ﻿using Payment_Project_AP.Models.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Payment_Project_AP.Models.Enitites
 {
-        public class User
-        {
-            public int UserId { get; set; }
+    public class User
+    {
+    [Key]
+    public int UserId { get; set; }                              // unique id for each user
 
-            [Required]
-            [MaxLength(50)]
-            public string Username { get; set; }
+    [Required(ErrorMessage = "User full name is required!")]
+    [StringLength(100, ErrorMessage = "Full name cannot exceed 100 characters.")]
+    public string UserFullName { get; set; } = null!;            // user's complete name
 
-            [Required]
-            [EmailAddress]
-            [MaxLength(100)]
-            public string Email { get; set; }
+    [Required(ErrorMessage = "Username is required!")]
+    [StringLength(50, MinimumLength = 3, ErrorMessage = "Username must be between 3 and 50 characters.")]
+    public string UserName { get; set; } = null!;                // username used for login
 
-            // store the hashed password, never the plain text
-            [Required]
-            public byte[] PasswordHash { get; set; }
+    [Required(ErrorMessage = "Password is required!")]
+    [DataType(DataType.Password)]
+    [StringLength(255, ErrorMessage = "Password cannot exceed 255 characters.")]
+    public string Password { get; set; } = null!;                // hashed or plain password (to be hashed later)
 
-            // the salt used for hashing the password
-            [Required]
-            public byte[] PasswordSalt { get; set; }
+    [Required(ErrorMessage = "User role is required!")]
+    [ForeignKey("Role")]
+    public int UserRoleId { get; set; }                          // foreign key for user role
+    public virtual UserRole? Role { get; set; }                  // navigation property for user role
 
-            [MaxLength(50)]
-            public string FirstName { get; set; }
+    [Required(ErrorMessage = "User email is required!")]
+    [EmailAddress(ErrorMessage = "Invalid email format.")]
+    [StringLength(100)]
+    public string UserEmail { get; set; } = null!;               // user's email address
 
-            [MaxLength(50)]
-            public string LastName { get; set; }
+    [Required(ErrorMessage = "User phone is required!")]
+    [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Phone number must be exactly 10 digits.")]
+    public string UserPhone { get; set; } = null!;               // user's contact number
 
-            [Required]
-            public UserRole Role { get; set; }
+    [ForeignKey("Bank")]
+    public int BankId { get; set; }                              // foreign key to bank entity
+    public virtual Bank? Bank { get; set; }                      // navigation property for bank info
 
-            public bool IsActive { get; set; } = true;
+    [Required(ErrorMessage = "User joining date is required!")]
+    [DataType(DataType.Date)]
+    public DateTime UserJoiningDate { get; set; } = DateTime.Now.Date; // date when user joined the system
 
-            public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public bool IsActive { get; set; } = true;                   // indicates if user account is active
 
-            public DateTime? LastLogin { get; set; }
+    [DataType(DataType.DateTime)]
+    public DateTime CreatedAt { get; set; } = DateTime.Now;      // record creation timestamp
 
-        //relationships
-        // a Bank User belongs to one Bank
-            public int? BankId { get; set; }
-            public Bank Bank { get; set; }
-
-            // a Client User belongs to one Client
-            public int? ClientId { get; set; }
-            public Client Client { get; set; }
-        }
+    [DataType(DataType.DateTime)]
+    public DateTime? UpdatedAt { get; set; }                     // record update timestamp
+}
     }
+
 

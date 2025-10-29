@@ -2,12 +2,12 @@
 {
     public enum DisbursementStatus
     {
-        Draft,
-        Pending,
-        Approved,
-        Processing,
-        Completed,
-        PartiallyCompleted,
-        Failed
+        Draft = 0,
+        Pending = 1,
+        Approved = 2,
+        Processing = 3,
+        Completed = 4,
+        PartiallyCompleted = 5,
+        Failed = 6
     }
 }

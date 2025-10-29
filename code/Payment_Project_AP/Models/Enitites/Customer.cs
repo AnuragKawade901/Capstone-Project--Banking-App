@@ -1,54 +1,38 @@
-﻿using Payment_Project_AP.Models.Enums;
-using System.ComponentModel.DataAnnotations;
-using System.Reflection.Metadata;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Payment_Project_AP.Models.Enitites
 {
     public class Customer
     {
-        public int CustomerId { get; set; }
+        [Key]
+        public int CustomerId { get; set; }                         // unique id for each customer
 
-        [Required]
-        [MaxLength(150)]
-        public string CompanyName { get; set; }
+        [Required(ErrorMessage = "User reference is required!")]
+        [ForeignKey("User")]
+        public int UserId { get; set; }                             // linked user id
+        public virtual User? User { get; set; }                     // navigation property to user details
 
-        [Required]
-        [MaxLength(50)]
-        public string RegistrationNumber { get; set; }
+        [Required(ErrorMessage = "Bank reference is required!")]
+        [ForeignKey("Bank")]
+        public int BankId { get; set; }                             // linked bank id
+        public virtual Bank? Bank { get; set; }                     // navigation property to bank details
 
-        [Required]
-        [EmailAddress]
-        [MaxLength(100)]
-        public string ContactEmail { get; set; }
+        [Required(ErrorMessage = "Onboarding date is required!")]
+        [DataType(DataType.Date)]
+        public DateTime OnboardingDate { get; set; } = DateTime.Now.Date; // date when customer was onboarded
 
-        [MaxLength(20)]
-        public string ContactPhone { get; set; }
+        [Required(ErrorMessage = "Verification status is required!")]
+        [ForeignKey("VerificationStatus")]
+        public int VerificationStatusId { get; set; }               // foreign key for verification status (e.g., pending, verified)
+        public virtual VerificationStatus? VerificationStatus { get; set; } // navigation property for verification status
 
-        [MaxLength(255)]
-        public string Address { get; set; }
+        public bool IsActive { get; set; } = true;                  // indicates if customer account is active
 
-        // tracks the status of the onboarding application
-        public VerificationStatus Status { get; set; } = VerificationStatus.Pending;
+        [DataType(DataType.DateTime)]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;     // record creation timestamp
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime? UpdatedAt { get; set; }
-
-        //relationships
-        // the Bank that is onboarding this customer
-        [Required]
-        public int BankId { get; set; }
-        public Bank Bank { get; set; }
-
-        // the BankUser who submitted this onboarding request
-        public int SubmittedByUserId { get; set; }
-        public User SubmittedByUser { get; set; }
-
-        // documents submitted for verification like adhar card, pan card
-        public ICollection<Document> Documents { get; set; }
-
-        public Customer()
-        {
-            Documents = new HashSet<Document>();
-        }
+        [DataType(DataType.DateTime)]
+        public DateTime? UpdatedAt { get; set; }                    // record last updated timestamp
     }
 }
