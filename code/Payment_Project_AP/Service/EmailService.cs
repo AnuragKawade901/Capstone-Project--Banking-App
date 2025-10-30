@@ -1,4 +1,4 @@
-﻿using Payment_Project_AP.Repositories;
+﻿using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Service

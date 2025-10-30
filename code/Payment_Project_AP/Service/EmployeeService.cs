@@ -1,4 +1,7 @@
-﻿using Payment_Project_AP.Models.Enitites;
+﻿using CsvHelper;
+using Payment_Project_AP.DTO;
+using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
 using System.ComponentModel.DataAnnotations;
 using System.Formats.Asn1;
@@ -8,9 +11,9 @@ namespace Payment_Project_AP.Service
     public class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeRepository _employeeRepository;
-        private readonly IClientUserRepository _userRepository;
+        private readonly IClientRepository _userRepository;
 
-        public EmployeeService(IEmployeeRepository employeeRepository, IClientUserRepository clientUserRepository)
+        public EmployeeService(IEmployeeRepository employeeRepository, IClientRepository clientUserRepository)
         {
             _employeeRepository = employeeRepository;
             _userRepository = clientUserRepository;
@@ -100,7 +103,7 @@ namespace Payment_Project_AP.Service
             if (file == null || file.Length == 0)
                 return null;
 
-            var employeeCSVDto = new List<EmployeeCSVDto>();
+            var employeeCSVDto = new List<EmployeeDataDTO>();
 
             using (var stream = new StreamReader(file.OpenReadStream()))
             using (var csv = new CsvReader(stream, new CsvHelper.Configuration.CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)
@@ -112,7 +115,7 @@ namespace Payment_Project_AP.Service
             {
                 try
                 {
-                    employeeCSVDto = csv.GetRecords<EmployeeCSVDto>().ToList();
+                    employeeCSVDto = csv.GetRecords<EmployeeDataDTO>().ToList();
                 }
                 catch (Exception ex)
                 {

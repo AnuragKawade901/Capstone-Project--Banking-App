@@ -1,4 +1,5 @@
 ﻿using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -6,9 +7,9 @@ namespace Payment_Project_AP.Service
 {
     public class SupportService : ISupportService
     {
-        private readonly IQueryRepository _queryRepository;
+        private readonly ISupportRepository _queryRepository;
         private readonly IEmailService _emailService;
-        public SupportService(IQueryRepository queryRepository)
+        public SupportService(ISupportRepository queryRepository)
         {
             _queryRepository = queryRepository;
         }

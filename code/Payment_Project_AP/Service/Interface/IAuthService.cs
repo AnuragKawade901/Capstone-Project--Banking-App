@@ -1,4 +1,6 @@
-﻿namespace Payment_Project_AP.Service.Interface
+﻿using Payment_Project_AP.DTO;
+
+namespace Payment_Project_AP.Service.Interface
 {
     public interface IAuthService
     {

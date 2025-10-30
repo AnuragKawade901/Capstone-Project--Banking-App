@@ -2,22 +2,23 @@
 using Microsoft.AspNetCore.Identity;
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Service
 {
     public class ClientService : IClientService
     {
-        private readonly IClientUserRepository _clientUserRepository;
+        private readonly IClientRepository _clientRepository;
         private readonly IBankUserService _bankUserService;
         private readonly IAccountService _accountService;
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly IEmailService _emailService;
         private readonly IMapper _mapper;
 
-        public ClientService(IClientUserRepository clientUserRepository, IAccountService accountService, IMapper mapper, IPasswordHasher<User> passwordHasher, IEmailService emailService, IBankUserService bankUserService)
+        public ClientService(IClientRepository clientRepository, IAccountService accountService, IMapper mapper, IPasswordHasher<User> passwordHasher, IEmailService emailService, IBankUserService bankUserService)
         {
-            _clientUserRepository = clientUserRepository;
+            _clientRepository = clientRepository;
             _accountService = accountService;
             _mapper = mapper;
             _passwordHasher = passwordHasher;
@@ -39,7 +40,7 @@ namespace Payment_Project_AP.Service
             int? pageNumber,
             int? pageSize)
         {
-            var query = _clientUserRepository.GetAll();
+            var query = _clientRepository.GetAll();
 
             if (!string.IsNullOrEmpty(fullName))
                 query = query.Where(cu => cu.UserFullName.Contains(fullName));
@@ -76,7 +77,7 @@ namespace Payment_Project_AP.Service
 
         public async Task<Client> Add(Client user)
         {
-            var query = _clientUserRepository.GetAll();
+            var query = _clientRepository.GetAll();
             if (query.Any(cu => cu.UserEmail == user.UserEmail))
             {
                 throw new InvalidOperationException("A Client User with this email already exists!");
@@ -93,7 +94,7 @@ namespace Payment_Project_AP.Service
 
             user.Password = _passwordHasher.HashPassword(user, user.Password);
 
-            Client addedUser = await _clientUserRepository.Add(user);
+            Client addedUser = await _clientRepository.Add(user);
 
             string subject = "Client User awaits your Action";
             string body =
@@ -109,17 +110,17 @@ namespace Payment_Project_AP.Service
 
         public async Task<Client?> GetById(int id)
         {
-            return await _clientUserRepository.GetById(id);
+            return await _clientRepository.GetById(id);
         }
 
         public async Task<Client?> Update(Client user)
         {
-            return await _clientUserRepository.Update(user);
+            return await _clientRepository.Update(user);
         }
 
         public async Task DeleteById(int id)
         {
-            await _clientUserRepository.DeleteById(id);
+            await _clientRepository.DeleteById(id);
         }
 
         public async Task<Client> ApproveClient(Client clientUser)
@@ -140,7 +141,7 @@ namespace Payment_Project_AP.Service
 
             clientUser.AccountId = newAccount.AccountId;
 
-            Client? updatedUser = await _clientUserRepository.Update(clientUser);
+            Client? updatedUser = await _clientRepository.Update(clientUser);
 
             if (updatedUser == null) throw new KeyNotFoundException($"Client user with userId: {clientUser.UserId} was Not Found");
 
@@ -166,11 +167,11 @@ namespace Payment_Project_AP.Service
 
         public async Task SoftDelete(int id)
         {
-            Client? client = await _clientUserRepository.GetById(id);
+            Client? client = await _clientRepository.GetById(id);
             if (client == null) throw new KeyNotFoundException("No such User");
 
             client.KycVierified = false;
-            await _clientUserRepository.Update(client);
+            await _clientRepository.Update(client);
         }
 
 

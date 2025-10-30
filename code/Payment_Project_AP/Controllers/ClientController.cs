@@ -1,0 +1,186 @@
+﻿using AutoMapper;
+using Payment_Project_AP.DTO;
+using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Models.Enums;
+using Payment_Project_AP.Service.Interface;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Payment_Project_AP.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ClientController : ControllerBase
+    {
+        private readonly IClientService _service;
+        private readonly ILogger<ClientController> _logger;
+        private readonly IMapper _mapper;
+
+        public ClientController(IClientService service, IMapper mapper, ILogger<ClientController> logger)
+        {
+            _service = service;
+            _mapper = mapper;
+            _logger = logger;
+        }
+
+        // GET: api/Client
+        [HttpGet]
+        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+        public async Task<IActionResult> GetAllClientUsers(
+            [FromQuery] string? fullName,
+            [FromQuery] string? userName,
+            [FromQuery] string? email,
+            [FromQuery] string? phone,
+            [FromQuery] int? bankId,
+            [FromQuery] DateTime? dobFrom,
+            [FromQuery] DateTime? dobTo,
+            [FromQuery] string? address,
+            [FromQuery] bool? kycVerified,
+            [FromQuery] int? bankUserId,
+            [FromQuery] int? pageNumber,
+            [FromQuery] int? pageSize)
+        {
+            _logger.LogInformation("GetAllCLientUsers started!");
+
+            var response = await _service.GetAll(fullName, userName, email, phone, bankId, dobFrom, dobTo, address, kycVerified, bankUserId, pageNumber, pageSize);
+
+            if (!response.Any())
+                return Ok(response);
+
+            _logger.LogInformation($"{response.Count()} client users were displayed!");
+
+            return Ok(response);
+        }
+
+
+        // GET: api/Client/{id}
+        [HttpGet("{id}")]
+        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+        public async Task<IActionResult> GetClientUserById(int id)
+        {
+            _logger.LogInformation("GetClientUserById started!");
+
+            var clientUser = await _service.GetById(id);
+            if (clientUser == null)
+                return NotFound($"No Client User found with id: {id}");
+
+            _logger.LogInformation("Client user was Dispalyed");
+
+            return Ok(clientUser);
+        }
+
+        // POST: api/Client
+        [HttpPost]
+        public async Task<IActionResult> CreateClientUser([FromBody] ClientRegisterDTO dto)
+        {
+            _logger.LogInformation("CreateClientUser started!");
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (dto.Password != dto.ConfirmPassword)
+                return BadRequest("Password and Confirm Password should match!");
+
+            try
+            {
+                var newClientUser = _mapper.Map<Client>(dto);
+                var addedClientUser = await _service.Add(newClientUser);
+
+                if (addedClientUser == null)
+                    return BadRequest("Unable to add Client User!");
+
+                var response = _mapper.Map<ClientResponseDTO>(addedClientUser);
+                _logger.LogInformation("Creation Successful!");
+                return Ok(response);
+            }
+            catch (InvalidOperationException ex)  
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error while creating client user.");
+                return StatusCode(500, "An unexpected error occurred.");
+            }
+        }
+
+
+        // PUT: api/Client/{id}
+        [HttpPut("{id}")]
+        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
+        public async Task<IActionResult> UpdateClientUser(int id, [FromBody] ClientResponseDTO dto)
+        {
+            _logger.LogInformation("UpdateClientUser started!");
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var existingClientUser = await _service.GetById(id);
+            if (existingClientUser == null)
+                return NotFound("No such Client User exists!");
+
+            if (existingClientUser.UserId != dto.UserId)
+                return BadRequest("User Id mismatch!");
+            
+            _mapper.Map(dto, existingClientUser);
+
+            var updatedClientUser = await _service.Update(existingClientUser);
+            if (updatedClientUser == null)
+                return BadRequest("Unable to update Client User!");
+
+            var response = _mapper.Map<ClientResponseDTO>(updatedClientUser);
+            _logger.LogInformation("CLient User was Updated Sucessfully!");
+
+            return Ok(response);
+        }
+
+        // DELETE: api/Client/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteClientUserById(int id)
+        {
+            _logger.LogInformation("DeleteClientUserById started!");
+
+            var existingClientUser = await _service.GetById(id);
+            if (existingClientUser == null)
+                return NotFound($"No Client User exists with id {id}");
+
+            await _service.SoftDelete(id);
+            _logger.LogInformation("Client User was Deleted Sucessfully!");
+
+            return Ok("Client User deleted successfully!");
+        }
+
+        // PUT: api/Client/approve/{id}
+        [HttpPut("approve/{id}")]
+        [Authorize(Roles = $"{nameof(Role.BANK_USER)}")]
+        public async Task<IActionResult> ApproveClientUser(int id, [FromBody] Client client)
+        {
+            _logger.LogInformation("ApproveClientUser started!");
+
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            //Client client = _mapper.Map<ClientUser>(clientdto);
+            Client approvedClient = await _service.ApproveClient(client);
+            _logger.LogInformation("Client Was Approved!");
+
+            return Ok(approvedClient);
+        }
+
+        [HttpPut("reject/{id}")]
+        [Authorize(Roles = $"{nameof(Role.BANK_USER)}")]
+
+        public async Task<IActionResult> RejectClientUser(int id, [FromBody] RejectDTO rejectDTO)
+        {
+            _logger.LogInformation("RejectClientUser started!");
+
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            Client client = await _service.GetById(id);
+            await _service.RejectClient(client, rejectDTO.reason);
+            _logger.LogInformation("Client user was Rejected!");
+
+            return Ok("Reject Email Sent to " + client.UserName);
+        }
+
+
+
+    }
+}

@@ -10,6 +10,6 @@ namespace Payment_Project_AP.DTO
         [Required(ErrorMessage = "Password is Required!")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        public string RecaptchaToken { get; set; } = string.Empty;
+        //public string RecaptchaToken { get; set; } = string.Empty;
     }
 }

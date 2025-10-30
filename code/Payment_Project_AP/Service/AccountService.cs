@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
-using Payment_Project_AP.Repositories;
+using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
+
 namespace Payment_Project_AP.Service
 {
     public class AccountService : IAccountService
@@ -17,23 +18,22 @@ namespace Payment_Project_AP.Service
             _transactionRepository = transactionRepository;
             _emailService = emailService;
         }
-
-        public async Task<PagedResultDTO<Account>> GetAllAsync(
-            string? accountNumber,
-            int? clientId,
-            int? bankId,
-            int? accountTypeId,
-            int? accountStatusId,
-            decimal? minBalance,
-            decimal? maxBalance,
-            DateTime? createdFrom,
-            DateTime? createdTo,
-            int pageNumber = 1,
-            int pageSize = 10)
+        public async Task<PagedResultDTO<Account>> GetAll(
+             string? accountNumber,
+             int? clientId,
+             int? bankId,
+             int? accountTypeId,
+             int? accountStatusId,
+             double? minBalance,
+             double? maxBalance,
+             DateTime? createdFrom,
+             DateTime? createdTo,
+             int pageNumber = 1,
+             int pageSize = 10)
         {
-            IQueryable<Account> query = _accountRepository.GetAll();
+            var query = _accountRepository.GetAll();
 
-            if (!string.IsNullOrWhiteSpace(accountNumber))
+            if (!string.IsNullOrEmpty(accountNumber))
                 query = query.Where(a => a.AccountNumber.Contains(accountNumber));
             if (clientId.HasValue)
                 query = query.Where(a => a.ClientId == clientId.Value);
@@ -68,119 +68,111 @@ namespace Payment_Project_AP.Service
             };
         }
 
-        public async Task<Account> AddAsync(Account account)
+
+        public async Task<Account> Add(Account account)
         {
-            if (account == null) throw new ArgumentNullException(nameof(account));
             return await _accountRepository.Add(account);
         }
 
-        public async Task<Account?> GetByIdAsync(int id)
+        public async Task<Account?> GetById(int id)
         {
-            if (id <= 0) throw new ArgumentException("Invalid account id", nameof(id));
             return await _accountRepository.GetById(id);
         }
 
-        public async Task<Account?> UpdateAsync(Account account)
+        public async Task<Account?> Update(Account account)
         {
-            if (account == null) throw new ArgumentNullException(nameof(account));
             return await _accountRepository.Update(account);
         }
 
-        public async Task DeleteByIdAsync(int id)
+        public async Task DeleteById(int id)
         {
-            if (id <= 0) throw new ArgumentException("Invalid account id to delete", nameof(id));
             await _accountRepository.DeleteById(id);
         }
 
-        public async Task<string> GenerateAccountNumberAsync()
+        public async Task<string> GenerateAccountNumber()
         {
             return await _accountRepository.GenerateAccountNumber();
         }
 
-        public async Task<TransactionService> CreditAccountAsync(int accountId, decimal amount, int? paymentId, int? disbursementId, string sourceInfo)
+        public async Task<Transaction> CreditAccount(int accountId, double amount, int? paymentId, int? disbursementId, string toFrom)
         {
-            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be positive");
-
-            var account = await _accountRepository.GetById(accountId)
-                ?? throw new KeyNotFoundException($"Account with id {accountId} not found.");
+            Account? account = await _accountRepository.GetById(accountId);
+            if (account == null) throw new NullReferenceException("No account of id: " + accountId);
 
             account.Balance += amount;
-
-            var creditTransaction = new TransactionService
+            Transaction creditTransaction = new Transaction
             {
-                TransactionTypeId = 1, // Assuming 1 = Credit
+                TransactionTypeId = 1,
                 AccountId = accountId,
                 Amount = amount,
-                PaymentId = paymentId,
-                SalaryDisbursementId = disbursementId,
-                ToFrom = sourceInfo ?? string.Empty,
+                PaymentId = paymentId ?? null,
+                SalaryDisbursementId = disbursementId ?? null,
+                ToFrom = toFrom,
                 CreatedAt = DateTime.UtcNow
             };
-
-            var addedTransaction = await _transactionRepository.Add(creditTransaction);
+            Transaction addedTransaction = await _transactionRepository.Add(creditTransaction);
             await _accountRepository.Update(account);
 
-            string subject = $"Your account {account.AccountNumber} has been credited";
-            string body = $"""
-                      Amount credited: Rs {amount}
-                      Transaction time: {DateTime.UtcNow}
-                      """;
-
+            string subject = $"Your Salary has been Approved!";
+            string body =
+                $"""
+                        Your Salary ({disbursementId}) has been approved at {DateTime.UtcNow}
+                        Your Account ({account.AccountNumber}) is Credited with Rs {amount}.
+                        """;
             await _emailService.SendEmailToClientAsync((int)account.ClientId, subject, body);
 
             return addedTransaction;
         }
-
-        public async Task<TransactionService> DebitAccountAsync(int accountId, decimal amount, int? paymentId, int? disbursementId, string destinationInfo)
+        public async Task<Transaction> DebitAccount(int accountId, double amount, int? paymentId, int? disbursementId, string toFrom)
         {
-            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be positive");
+            Account? account = await _accountRepository.GetById(accountId);
+            if (account == null) throw new NullReferenceException("No account of id: " + accountId);
 
-            var account = await _accountRepository.GetById(accountId)
-                ?? throw new KeyNotFoundException($"Account with id {accountId} not found.");
-
-            if (account.Balance < amount)
-                throw new InvalidOperationException("Insufficient balance!");
+            if (account.Balance < amount) throw new InvalidOperationException("Insufficient balance!");
 
             account.Balance -= amount;
-
-            var debitTransaction = new TransactionService
+            Transaction debitTransaction = new Transaction
             {
-                TransactionTypeId = 2, // Assuming 2 = Debit
+                TransactionTypeId = 2,
                 AccountId = accountId,
                 Amount = amount,
                 PaymentId = paymentId,
                 SalaryDisbursementId = disbursementId,
-                ToFrom = destinationInfo ?? string.Empty,
+                ToFrom = toFrom,
                 CreatedAt = DateTime.UtcNow
             };
-
-            var addedTransaction = await _transactionRepository.Add(debitTransaction);
+            Transaction addedTransaction = await _transactionRepository.Add(debitTransaction);
             await _accountRepository.Update(account);
 
-            string subject = $"Your account {account.AccountNumber} has been debited";
-            string body = $"""
-                      Amount debited: Rs {amount}
-                      Transaction time: {DateTime.UtcNow}
-                      """;
 
+            string subject = $"Your SalaryDisbursement ID {disbursementId} is Approved!";
+            string body =
+                $"""
+                        Your SalaryDisbursement ({disbursementId}) has been approved at {DateTime.UtcNow}
+                        Your Account ({account.AccountNumber}) is Debited with Rs {amount}.
+                        """;
             await _emailService.SendEmailToClientAsync((int)account.ClientId, subject, body);
+
 
             return addedTransaction;
         }
-
-        public async Task<Account?> GetByAccountNumberAsync(string accountNumber)
+        public async Task<Account?> AccountExistsWithAccountNumber(string accountNumber)
         {
-            if (string.IsNullOrWhiteSpace(accountNumber)) return null;
             var accounts = _accountRepository.GetAll();
-            return accounts.FirstOrDefault(a => a.AccountNumber.Equals(accountNumber));
+            //return true if any account has the given account Number 
+            Account? account = accounts.FirstOrDefault(a => a.AccountNumber.Equals(accountNumber));
+            if (account == null) return null;
+            return account;
         }
 
-        public async Task<bool?> CheckAccountBalanceAsync(int accountId, decimal amount)
+        public async Task<bool?> CheckAccountBalance(int accountId, double amount)
         {
-            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be positive");
-            var account = await GetByIdAsync(accountId);
+            Account? account = await GetById(accountId);
+
             if (account == null) return null;
-            return account.Balance >= amount;
+
+            if (account.Balance < amount) return false;
+            return true;
         }
     }
 }

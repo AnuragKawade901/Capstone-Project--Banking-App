@@ -1,5 +1,6 @@
 ﻿using Payment_Project_AP.Data;
 using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Service
@@ -7,7 +8,7 @@ namespace Payment_Project_AP.Service
     public class SalaryDisbursementService : ISalaryDisbursementService
     {
         private readonly ISalaryDisbursementRepository _salaryDisbursementRepository;
-        private readonly ISalaryDisbursementDetailsRepository _salaryDisbursementDetailsRepository;
+        private readonly ISalaryPaymentRepository _salaryPaymentRepository;
         private readonly IAccountService _accountService;
         private readonly ITransactionRepository _transactionRepository;
         private readonly IEmployeeService _employeeService;
@@ -15,13 +16,13 @@ namespace Payment_Project_AP.Service
         private readonly CorporateBankingDBContext _dbContext;
 
 
-        public SalaryDisbursementService(ISalaryDisbursementRepository salaryDisbursementRepository, IAccountService accountService, BankingPaymentsDBContext dBContext, ITransactionRepository transactionRepository, ISalaryDisbursementDetailsRepository detailsRepository, IEmployeeService employeeService, IEmailService emailService)
+        public SalaryDisbursementService(ISalaryDisbursementRepository salaryDisbursementRepository, IAccountService accountService, CorporateBankingDBContext dBContext, ITransactionRepository transactionRepository, ISalaryPaymentRepository detailsRepository, IEmployeeService employeeService, IEmailService emailService)
         {
             _salaryDisbursementRepository = salaryDisbursementRepository;
             _accountService = accountService;
             _dbContext = dBContext;
             _transactionRepository = transactionRepository;
-            _salaryDisbursementDetailsRepository = detailsRepository;
+            _salaryPaymentRepository = detailsRepository;
             _employeeService = employeeService;
             _emailService = emailService;
         }
@@ -138,11 +139,11 @@ namespace Payment_Project_AP.Service
                     Account? employeeAccount = await _accountService.AccountExistsWithAccountNumber(emp.AccountNumber);
                     if (emp.Salary > 0 && emp.Salary < 100000)
                     {
-                        TransactionService debitTransaction = await _accountService.DebitAccount(ClientAccountId, (double)emp.Salary, paymentId: null, disbursementId: disbursementId, emp.AccountNumber);
+                        Transaction debitTransaction = await _accountService.DebitAccount(ClientAccountId, (double)emp.Salary, paymentId: null, disbursementId: disbursementId, emp.AccountNumber);
                         totalDebited += (double)emp.Salary;
                         if (employeeAccount != null)
                         {
-                            TransactionService creditTransaction = await _accountService.CreditAccount(employeeAccount.AccountId, emp.Salary, paymentId: null, disbursementId: disbursementId, ClientAccount.AccountNumber);
+                            Transaction creditTransaction = await _accountService.CreditAccount(employeeAccount.AccountId, emp.Salary, paymentId: null, disbursementId: disbursementId, ClientAccount.AccountNumber);
                         }
                         SalaryPayment detail = new SalaryPayment
                         {
@@ -153,7 +154,7 @@ namespace Payment_Project_AP.Service
                             TransactionId = debitTransaction.TransactionId
                         };
 
-                        SalaryPayment addedDetail = await _salaryDisbursementDetailsRepository.Add(detail);
+                        SalaryPayment addedDetail = await _salaryPaymentRepository.Add(detail);
                         processedDetails.Add(addedDetail);
 
                         if (employeeAccount != null)
@@ -175,7 +176,7 @@ namespace Payment_Project_AP.Service
                             TransactionId = null
                         };
 
-                        SalaryPayment addedDetail = await _salaryDisbursementDetailsRepository.Add(detail);
+                        SalaryPayment addedDetail = await _salaryPaymentRepository.Add(detail);
                         processedDetails.Add(addedDetail);
                     }
                 }

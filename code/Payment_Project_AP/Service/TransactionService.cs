@@ -1,5 +1,7 @@
-﻿using Payment_Project_AP.DTO;
+﻿using Microsoft.EntityFrameworkCore;
+using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Service
@@ -32,7 +34,7 @@ namespace Payment_Project_AP.Service
                 query = query.Where(t => t.Account.ClientId == clientId.Value);
 
             if (bankuserId.HasValue)
-                query = query.Where(t => t.Account.ClientUser.BankUserId == bankuserId.Value);
+                query = query.Where(t => t.Account.Client.BankUserId == bankuserId.Value);
 
             if (transactionId.HasValue)
                 query = query.Where(t => t.TransactionId == transactionId.Value);
@@ -60,7 +62,7 @@ namespace Payment_Project_AP.Service
                 {
                     TransactionId = t.TransactionId,
                     AccountNumber = t.Account.AccountNumber,
-                    ClientUserName = t.Account.ClientUser.UserName,
+                    ClientUserName = t.Account.Client.UserName,
                     PaymentId = t.PaymentId,
                     SalaryDisbursementId = t.SalaryDisbursementId,
                     ToFrom = t.ToFrom,

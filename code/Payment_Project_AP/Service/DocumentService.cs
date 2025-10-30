@@ -1,5 +1,7 @@
-﻿using Payment_Project_AP.DTO;
+﻿using Microsoft.EntityFrameworkCore;
+using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Service

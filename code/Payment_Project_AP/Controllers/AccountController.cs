@@ -42,7 +42,7 @@ namespace Payment_Project_AP.Controllers
             _logger.LogInformation("GetAllAccounts Started");
 
             var pagedResult = await _service.GetAll(accountNumber, clientId, bankId, accountTypeId, accountStatusId,
-                                                     minBalance, maxBalance, createdFrom, createdTo, pageNumber, pageSize);
+                                                                minBalance, maxBalance, createdFrom, createdTo, pageNumber, pageSize);
 
             if (!pagedResult.Data.Any())
             {

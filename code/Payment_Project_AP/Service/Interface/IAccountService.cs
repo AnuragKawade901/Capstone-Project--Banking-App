@@ -21,8 +21,8 @@ namespace Payment_Project_AP.Service.Interface
         Task<Account?> GetById(int id);
         Task<Account?> Update(Account account);
         Task DeleteById(int id);
-        public Task<TransactionService> CreditAccount(int accountId, double amount, int? paymentId, int? disbursementId, string toFrom);
-        public Task<TransactionService> DebitAccount(int accountId, double amount, int? paymentId, int? disbursementId, string toFrom);
+        public Task<Transaction> CreditAccount(int accountId, double amount, int? paymentId, int? disbursementId, string toFrom);
+        public Task<Transaction> DebitAccount(int accountId, double amount, int? paymentId, int? disbursementId, string toFrom);
         Task<string> GenerateAccountNumber();
         public Task<Account?> AccountExistsWithAccountNumber(string accountNumber);
         public Task<bool?> CheckAccountBalance(int accountId, double amount);

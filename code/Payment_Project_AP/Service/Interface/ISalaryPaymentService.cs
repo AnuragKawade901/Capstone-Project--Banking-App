@@ -2,7 +2,7 @@
 
 namespace Payment_Project_AP.Service.Interface
 {
-    public class ISalaryPaymentService
+    public interface ISalaryPaymentService
     {
         Task<IEnumerable<SalaryPayment>> GetAll();
         Task<SalaryPayment?> GetById(int id);

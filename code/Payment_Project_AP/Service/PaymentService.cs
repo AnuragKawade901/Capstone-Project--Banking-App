@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Payment_Project_AP.Data;
 using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Service
@@ -49,7 +50,7 @@ namespace Payment_Project_AP.Service
                 query = query.Where(p => p.PayerAccountId == payerAccountId.Value);
 
             if (!string.IsNullOrEmpty(payerName))
-                query = query.Where(p => p.PayerAccount.ClientUser.UserName.Contains(payerName));
+                query = query.Where(p => p.PayerAccount.Client.UserName.Contains(payerName));
 
             if (!string.IsNullOrEmpty(payeeAccountNumber))
                 query = query.Where(p => p.PayeeAccountNumber.Contains(payeeAccountNumber));

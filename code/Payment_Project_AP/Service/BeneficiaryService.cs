@@ -1,4 +1,5 @@
 ﻿using Payment_Project_AP.Models.Enitites;
+using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Service
@@ -6,9 +7,9 @@ namespace Payment_Project_AP.Service
     public class BeneficiaryService : IBeneficiaryService
     {
         private readonly IBeneficiaryRepository _beneficiaryRepository;
-        private readonly IClientUserRepository _clientUserRepository;
+        private readonly IClientRepository _clientUserRepository;
 
-        public BeneficiaryService(IBeneficiaryRepository beneficiaryRepository, IClientUserRepository clientUserRepository)
+        public BeneficiaryService(IBeneficiaryRepository beneficiaryRepository, IClientRepository clientUserRepository)
         {
             _beneficiaryRepository = beneficiaryRepository;
             _clientUserRepository = clientUserRepository;

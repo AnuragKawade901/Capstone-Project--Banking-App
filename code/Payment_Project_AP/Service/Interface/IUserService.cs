@@ -2,7 +2,7 @@
 
 namespace Payment_Project_AP.Service.Interface
 {
-    public class IUserService
+    public interface IUserService
     {
         Task<IEnumerable<User>> GetAll(
             string? fullName,
