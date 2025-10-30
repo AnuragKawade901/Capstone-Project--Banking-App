@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Payment_Project_AP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d03c40aef3967d5ce220af633cde93304792d55")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a5fe516808078ba6d21b7172febcd3af3ec35b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Payment_Project_AP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Payment_Project_AP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

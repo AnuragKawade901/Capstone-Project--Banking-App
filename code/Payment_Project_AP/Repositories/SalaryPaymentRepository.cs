@@ -4,7 +4,7 @@ using Payment_Project_AP.Data;
 using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Repositories.Interface;
 
-namespace BankingPaymentsApp_API.Repositories
+namespace Payment_Project_AP.Repositories
 {
     public class SalaryPaymentRepository : ISalaryPaymentRepository
     {

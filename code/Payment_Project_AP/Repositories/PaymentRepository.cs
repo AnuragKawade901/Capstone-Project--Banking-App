@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Data;
 
-namespace BankingPaymentsApp_API.Repositories
+namespace Payment_Project_AP.Repositories
 {
     public class PaymentRepository : IPaymentRepository
     {
