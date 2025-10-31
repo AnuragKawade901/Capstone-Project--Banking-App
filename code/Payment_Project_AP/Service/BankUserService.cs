@@ -110,7 +110,7 @@ namespace Payment_Project_AP.Service
 
             if (bankUser == null) throw new NullReferenceException("No BankUser of id: " + id);
 
-            bankUser.isActive = true;
+            bankUser.IsActive = true;
             return await _bankUserRepository.Update(bankUser);
         }
 
@@ -120,7 +120,7 @@ namespace Payment_Project_AP.Service
 
             if (bankUser == null) throw new NullReferenceException("No BankUser of id: " + id);
 
-            bankUser.isActive = false;
+            bankUser.IsActive = false;
             string subject = "Your application has reverted back";
             await _emailService.SendEmailToClientAsync(id, subject, reject.reason);
             return await _bankUserRepository.Update(bankUser);

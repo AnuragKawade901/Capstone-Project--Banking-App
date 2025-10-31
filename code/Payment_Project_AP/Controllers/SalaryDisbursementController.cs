@@ -4,7 +4,6 @@ using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
 using Payment_Project_AP.Repositories;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankingPaymentsApp_API.Controllers
@@ -26,7 +25,7 @@ namespace BankingPaymentsApp_API.Controllers
 
         // GET: api/SalaryDisbursement
         [HttpGet]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+       // [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetAllDisbursements(
             [FromQuery] int? clientId,
             [FromQuery] decimal? minAmount,
@@ -49,7 +48,7 @@ namespace BankingPaymentsApp_API.Controllers
 
         // GET: api/SalaryDisbursement/{id}
         [HttpGet("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+       // [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetDisbursementById(int id)
         {
             var disbursement = await _service.GetById(id);
@@ -61,7 +60,7 @@ namespace BankingPaymentsApp_API.Controllers
 
         // POST: api/SalaryDisbursement
         [HttpPost]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
+       // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
         public async Task<IActionResult> CreateDisbursement([FromBody] CreateSalaryDisbursmentDTO disbursementDto)
         {
             if (!ModelState.IsValid)
@@ -91,7 +90,7 @@ namespace BankingPaymentsApp_API.Controllers
 
         // PUT: api/SalaryDisbursement/{id}
         [HttpPut("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
+      //  [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
         public async Task<IActionResult> UpdateDisbursement(int id, [FromBody] SalaryDisbursement disbursement)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -111,7 +110,7 @@ namespace BankingPaymentsApp_API.Controllers
 
         // DELETE: api/SalaryDisbursement/{id}
         [HttpDelete("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+       // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> DeleteDisbursement(int id)
         {
             await _service.DeleteById(id);
@@ -120,7 +119,7 @@ namespace BankingPaymentsApp_API.Controllers
 
         // PUT: api/SalaryDisbursement/approve/{id}
         [HttpPut("approve/{id}")]
-        [Authorize(Roles = $"{nameof(Role.BANK_USER)}")]
+      //  [Authorize(Roles = $"{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> ApproveSalaryDisbursement(int id)
         {
             SalaryDisbursement approvedDisbursement = await _service.ApproveSalaryDisbursement(id);
@@ -128,7 +127,7 @@ namespace BankingPaymentsApp_API.Controllers
             return Ok(salaryResponse);
         }
         [HttpPut("reject/{id}")]
-        [Authorize(Roles = $"{nameof(Role.BANK_USER)}")]
+      //  [Authorize(Roles = $"{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> RejectSalaryDisbursement(int id, [FromBody] RejectDTO reject)
         {
             SalaryDisbursement approvedDisbursement = await _service.RejectSalaryDisbursement(id, reject.reason);

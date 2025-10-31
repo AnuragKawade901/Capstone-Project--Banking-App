@@ -4,11 +4,10 @@ using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
 using Payment_Project_AP.Repositories;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Payment_Project_AP.Controllers    
+namespace Payment_Project_AP.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,7 +15,7 @@ namespace Payment_Project_AP.Controllers
     {
         private readonly IUserService _service;
         private readonly IMapper _mapper;
-        public UserController(IUserService service,IMapper mapper)
+        public UserController(IUserService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;
@@ -34,7 +33,7 @@ namespace Payment_Project_AP.Controllers
             [FromQuery] DateTime? joiningDateFrom,
             [FromQuery] DateTime? joiningDateTo)
         {
-            var users = await _service.GetAll(fullName,userName,email,phone,roleId,bankId,joiningDateFrom,joiningDateTo);
+            var users = await _service.GetAll(fullName, userName, email, phone, roleId, bankId, joiningDateFrom, joiningDateTo);
             if (users.Count() == 0)
                 return NotFound("No Users to Display!");
             return Ok(users);
@@ -65,7 +64,7 @@ namespace Payment_Project_AP.Controllers
         public async Task<IActionResult> GetUserById(int id)
         {
             User? existingUser = await _service.GetById(id);
-            if(existingUser == null) return NotFound($"No user of id: {id}");
+            if (existingUser == null) return NotFound($"No user of id: {id}");
 
             UserResponseDTO response = _mapper.Map<UserResponseDTO>(existingUser);
             return Ok(response);
@@ -74,15 +73,15 @@ namespace Payment_Project_AP.Controllers
         //PUT: api/User/{id}
         [HttpPut]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+        // [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] UserResponseDTO user)
         {
-            if(!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             User? existingUser = await _service.GetById(id);
             if (existingUser == null) return NotFound("No such User exists!");
 
-            if(existingUser.UserId != user.UserId) return BadRequest("user Id doesnt match!");
+            if (existingUser.UserId != user.UserId) return BadRequest("user Id doesnt match!");
 
             _mapper.Map(user, existingUser);
 
@@ -93,11 +92,11 @@ namespace Payment_Project_AP.Controllers
         //GET: api/User{id}
         [HttpDelete]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.BANK_USER)}")]
+        // [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> DeleteUserById(int id)
         {
             User? exisitngUser = await _service.GetById(id);
-            if(exisitngUser == null) return NotFound($"No user exists with id {id}");
+            if (exisitngUser == null) return NotFound($"No user exists with id {id}");
             await _service.DeleteById(id);
             return Ok("The user has been deleted Sucessfully!");
         }

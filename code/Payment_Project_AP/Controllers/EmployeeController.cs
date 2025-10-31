@@ -4,7 +4,6 @@ using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
 using Payment_Project_AP.Repositories;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +28,7 @@ namespace Payment_Project_AP.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+        // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetAllEmployees(
             [FromQuery] int? clientId,
             [FromQuery] string? employeeName,
@@ -54,7 +53,7 @@ namespace Payment_Project_AP.Controllers
 
         // POST: api/Employee
         [HttpPost]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
+        // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
 
         public async Task<IActionResult> CreateEmployee(EmployeeDTO employee)
         {
@@ -67,7 +66,7 @@ namespace Payment_Project_AP.Controllers
         // GET: api/Employee/{id}
         [HttpGet]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+        // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetEmployeeById(int id)
         {
             Employee? existingEmployee = await _employeeService.GetById(id);
@@ -79,7 +78,7 @@ namespace Payment_Project_AP.Controllers
         // PUT: api/Employee/{id}
         [HttpPut]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
+        // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
         public async Task<IActionResult> UpdateEmployee(int id, EmployeeDTO employee)
         {
             if (!ModelState.IsValid)
@@ -98,7 +97,7 @@ namespace Payment_Project_AP.Controllers
         // DELETE: api/Employee/{id}
         [HttpDelete]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
+        // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
             Employee? existingEmployee = await _employeeService.GetById(id);
@@ -112,7 +111,7 @@ namespace Payment_Project_AP.Controllers
 
         [HttpPost("upload")]
         [Consumes("multipart/form-data")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
+        // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
         public async Task<IActionResult> UploadEmployees(IFormFile file)
         {
             _logger.LogInformation("UploadEmployees started!");
@@ -150,7 +149,7 @@ namespace Payment_Project_AP.Controllers
         // POST: api/Employee/update-employee/{clientId}
         [HttpPost("update-employee/{clientId}")]
         [Consumes("multipart/form-data")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
+        // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
         public async Task<IActionResult> UploadUpdateEmployeesByClient(int clientId, IFormFile file)
         {
             if (file == null || file.Length == 0)

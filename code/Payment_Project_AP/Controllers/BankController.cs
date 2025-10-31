@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
-using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Controllers
@@ -15,6 +13,7 @@ namespace Payment_Project_AP.Controllers
         private readonly IBankService _service;
         private readonly IMapper _mapper;
         private readonly ILogger<BankController> _logger;
+
         public BankController(IBankService bankService, IMapper mapper, ILogger<BankController> logger)
         {
             _service = bankService;
@@ -46,10 +45,7 @@ namespace Payment_Project_AP.Controllers
             return Ok(result);
         }
 
-
-        // GET: api/Account/{id}
         [HttpGet("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)}")]
         public async Task<IActionResult> GetBankById(int id)
         {
             _logger.LogInformation("GetBankById started");
@@ -64,9 +60,7 @@ namespace Payment_Project_AP.Controllers
             return Ok(bank);
         }
 
-        // POST: api/Account
         [HttpPost]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> CreateBank([FromBody] BankDTO dto)
         {
             _logger.LogInformation($"CreateBank started.");
@@ -85,7 +79,7 @@ namespace Payment_Project_AP.Controllers
             catch (InvalidOperationException ex)
             {
                 _logger.LogWarning(ex.Message);
-                return Conflict(new { message = ex.Message }); // 409 Conflict
+                return Conflict(new { message = ex.Message });
             }
             catch (Exception ex)
             {
@@ -94,10 +88,7 @@ namespace Payment_Project_AP.Controllers
             }
         }
 
-
-        // PUT: api/Account/{id}
         [HttpPut("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)}")]
         public async Task<IActionResult> UpdateBank(int id, [FromBody] BankDTO dto)
         {
             _logger.LogInformation($"UpdateBank Started.");
@@ -112,7 +103,6 @@ namespace Payment_Project_AP.Controllers
                 return NotFound("No such bank exists!");
             }
 
-
             _mapper.Map(dto, existingBank);
 
             var updatedBank = await _service.Update(existingBank);
@@ -124,9 +114,7 @@ namespace Payment_Project_AP.Controllers
             return Ok(updatedBank);
         }
 
-        // DELETE: api/Account/{id}
         [HttpDelete("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> DeleteBankById(int id)
         {
             _logger.LogInformation($"DeleteBankByID started");
@@ -142,7 +130,6 @@ namespace Payment_Project_AP.Controllers
         }
 
         [HttpGet("users")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)}")]
         public async Task<IActionResult> UsersPerBank()
         {
             _logger.LogInformation($"UserPerBank started");

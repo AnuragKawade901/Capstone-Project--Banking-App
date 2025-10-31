@@ -3,7 +3,6 @@ using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
 using Payment_Project_AP.Repositories;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +21,7 @@ namespace Payment_Project_AP.Controllers
 
         // GET: api/SalaryPayment
         [HttpGet]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+       // [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetAllDetails()
         {
             var details = await _service.GetAll();
@@ -33,7 +32,7 @@ namespace Payment_Project_AP.Controllers
 
         // GET: api/SalaryPayment/{id}
         [HttpGet("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+      //  [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetDetailById(int id)
         {
             SalaryPayment? detail = await _service.GetById(id);
@@ -44,7 +43,7 @@ namespace Payment_Project_AP.Controllers
 
         // POST: api/SalaryPayment
         [HttpPost]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+      //  [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> CreateDetail([FromBody] SalaryPayment detail)
         {
             if (!ModelState.IsValid)
@@ -59,7 +58,7 @@ namespace Payment_Project_AP.Controllers
 
         // PUT: api/SalaryPayment/{id}
         [HttpPut("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+      //  [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> UpdateDetail(int id, [FromBody] SalaryPayment detail)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -82,7 +81,7 @@ namespace Payment_Project_AP.Controllers
 
         // DELETE: api/SalaryPayment/{id}
         [HttpDelete("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+    //    [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> DeleteDetail(int id)
         {
             await _service.DeleteById(id);

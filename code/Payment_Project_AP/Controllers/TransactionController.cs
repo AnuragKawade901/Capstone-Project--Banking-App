@@ -4,7 +4,6 @@ using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
 using Payment_Project_AP.Repositories;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,7 +46,7 @@ namespace Payment_Project_AP.Controllers
 
         // POST: api/Transaction
         [HttpPost]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+      //  [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> CreateTransaction(TransactionRegisterDTO transaction)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -59,7 +58,7 @@ namespace Payment_Project_AP.Controllers
         // GET: api/Transaction/{id}
         [HttpGet]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+      //  [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetTransactionById(int id)
         {
             Transaction? existingTransaction = await _transactionService.GetById(id);
@@ -71,7 +70,7 @@ namespace Payment_Project_AP.Controllers
         // PUT: api/Transaction/{id}
         [HttpPut]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+       // [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> UpdateTransaction(int id, Transaction transaction)
         {
             if (!ModelState.IsValid)
@@ -90,7 +89,7 @@ namespace Payment_Project_AP.Controllers
         // DELETE: api/Transaction/{id}
         [HttpDelete]
         [Route("{id}")]
-        [Authorize(Roles = $",{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
+     //   [Authorize(Roles = $",{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> DeleteTransaction(int id)
         {
             Transaction? existingPayment = await _transactionService.GetById(id);

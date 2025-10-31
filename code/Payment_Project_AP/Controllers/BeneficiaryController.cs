@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
-using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Payment_Project_AP.Controllers    
+namespace Payment_Project_AP.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,6 +14,7 @@ namespace Payment_Project_AP.Controllers
         private readonly IBeneficiaryService _beneficiaryService;
         private readonly ILogger<BeneficiaryController> _logger;
         private readonly IMapper _mapper;
+
         public BeneficiaryController(IBeneficiaryService beneficiaryService, IMapper mapper, ILogger<BeneficiaryController> logger)
         {
             _beneficiaryService = beneficiaryService;
@@ -23,9 +22,7 @@ namespace Payment_Project_AP.Controllers
             _logger = logger;
         }
 
-        // GET: api/Beneficiary/
         [HttpGet]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetAllBeneficiaries(
              [FromQuery] int? clientId,
              [FromQuery] string? beneficiaryName,
@@ -47,10 +44,7 @@ namespace Payment_Project_AP.Controllers
             return Ok(response);
         }
 
-
-        // POST: api/Beneficiary
         [HttpPost()]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
         public async Task<IActionResult> CreateBeneficiary(BeneficiaryDTO beneficiary)
         {
             _logger.LogInformation("CreateBeneficiary started!");
@@ -63,10 +57,8 @@ namespace Payment_Project_AP.Controllers
             return CreatedAtAction("CreateBeneficiary", addedBeneficiary);
         }
 
-        // GET: api/Beneficiary/{id}
         [HttpGet]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetBeneficiaryById(int id)
         {
             _logger.LogInformation("GetBeneficiaryById started!");
@@ -79,10 +71,8 @@ namespace Payment_Project_AP.Controllers
             return Ok(existingBeneficiary);
         }
 
-        // PUT: api/Beneficiary/{id}
         [HttpPut]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
         public async Task<IActionResult> UpdateBeneficiary(int id, BeneficiaryDTO beneficiary)
         {
             _logger.LogInformation("UpdateBeneficiary started!");
@@ -102,10 +92,8 @@ namespace Payment_Project_AP.Controllers
             return Ok(updatedBeneficiary);
         }
 
-        // DELETE: api/Beneficiary/{id}
         [HttpDelete]
         [Route("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> DeleteBeneficiary(int id)
         {
             _logger.LogInformation("DeleteBeneficiary started!");

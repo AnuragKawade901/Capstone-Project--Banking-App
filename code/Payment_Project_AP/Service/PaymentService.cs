@@ -3,6 +3,7 @@ using Payment_Project_AP.Data;
 using Payment_Project_AP.Models.Enitites;
 using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
+using Microsoft.EntityFrameworkCore; // <-- 1. ADD THIS USING STATEMENT
 
 namespace Payment_Project_AP.Service
 {
@@ -93,13 +94,24 @@ namespace Payment_Project_AP.Service
                         payment Id ({currPayment.PaymentId}) has been created at {currPayment.CreatedAt}.
                         with amount {currPayment.Amount} from {currPayment.PayerAccount.AccountNumber} to {currPayment.PayeeAccountNumber}.
                         """;
-            await _emailService.SendEmailToClientAsync((int)currPayment?.PayerAccount?.Client?.BankUserId, subject, body);
+
+            // This line will now work, but you should add a null check
+            if (currPayment?.PayerAccount?.Client?.BankUserId != null)
+            {
+                await _emailService.SendEmailToClientAsync((int)currPayment.PayerAccount.Client.BankUserId, subject, body);
+            }
+
             return addedpayment;
         }
 
         public async Task<Payment?> GetById(int id)
         {
-            return await _paymentRepository.GetById(id);
+            // --- 2. MODIFY THIS METHOD ---
+            // We use the _dbContext here to load the related data
+            return await _dbContext.Payments
+                .Include(p => p.PayerAccount)
+                    .ThenInclude(a => a.Client)
+                .FirstOrDefaultAsync(p => p.PaymentId == id);
         }
 
         public async Task<Payment?> Update(Payment payment)

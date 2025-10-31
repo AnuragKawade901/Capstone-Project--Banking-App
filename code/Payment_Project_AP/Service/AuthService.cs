@@ -1,10 +1,6 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using Payment_Project_AP.DTO;
-using Payment_Project_AP.Models.Enitites;
+﻿using Payment_Project_AP.DTO;
 using Payment_Project_AP.Repositories.Interface;
 using Payment_Project_AP.Service.Interface;
-using System.Security.Claims;
-using System.Text;
 
 namespace Payment_Project_AP.Service
 {
@@ -25,7 +21,6 @@ namespace Payment_Project_AP.Service
             var response = _authRepository.Login(usr);
 
             // Simply return the response from repository
-            // (No token generation now)
             return response;
         }
     }

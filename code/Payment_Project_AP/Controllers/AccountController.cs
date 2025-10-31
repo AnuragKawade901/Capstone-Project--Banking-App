@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
-using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
 
 namespace Payment_Project_AP.Controllers
@@ -23,9 +21,7 @@ namespace Payment_Project_AP.Controllers
             _logger = logger;
         }
 
-        // GET: api/Account
         [HttpGet]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)}")]
         public async Task<IActionResult> GetAllAccounts(
             [FromQuery] string? accountNumber,
             [FromQuery] int? clientId,
@@ -62,10 +58,7 @@ namespace Payment_Project_AP.Controllers
             });
         }
 
-
-        // GET: api/Account/{id}
         [HttpGet("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)}")]
         public async Task<IActionResult> GetAccountById(int id)
         {
             _logger.LogInformation("GetAccountById started");
@@ -81,9 +74,7 @@ namespace Payment_Project_AP.Controllers
             return Ok(response);
         }
 
-        // POST: api/Account
         [HttpPost]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> CreateAccount([FromBody] AccountRegisterDTO dto)
         {
             _logger.LogInformation($"CreateAccount started.");
@@ -103,9 +94,7 @@ namespace Payment_Project_AP.Controllers
             return Ok(response);
         }
 
-        // PUT: api/Account/{id}
         [HttpPut("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> UpdateAccount(int id, [FromBody] AccountDTO dto)
         {
             _logger.LogInformation($"UpdateAccount Started.");
@@ -135,9 +124,7 @@ namespace Payment_Project_AP.Controllers
             return Ok(response);
         }
 
-        // DELETE: api/Account/{id}
         [HttpDelete("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> DeleteAccountById(int id)
         {
             _logger.LogInformation($"DeleteAccountByID started");
@@ -153,7 +140,6 @@ namespace Payment_Project_AP.Controllers
         }
 
         [HttpGet("acc/{accountNumber}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetAccountbyAccountNumber(string accountNumber)
         {
             _logger.LogInformation($"GetAccountbyAccountNumber started");
@@ -175,6 +161,5 @@ namespace Payment_Project_AP.Controllers
 
             return Ok(txn);
         }
-
     }
 }

@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
-using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Payment_Project_AP.Controllers
@@ -23,9 +21,7 @@ namespace Payment_Project_AP.Controllers
             _logger = logger;
         }
 
-        // GET: api/Client
         [HttpGet]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetAllClientUsers(
             [FromQuery] string? fullName,
             [FromQuery] string? userName,
@@ -52,10 +48,7 @@ namespace Payment_Project_AP.Controllers
             return Ok(response);
         }
 
-
-        // GET: api/Client/{id}
         [HttpGet("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.CLIENT_USER)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetClientUserById(int id)
         {
             _logger.LogInformation("GetClientUserById started!");
@@ -69,7 +62,6 @@ namespace Payment_Project_AP.Controllers
             return Ok(clientUser);
         }
 
-        // POST: api/Client
         [HttpPost]
         public async Task<IActionResult> CreateClientUser([FromBody] ClientRegisterDTO dto)
         {
@@ -93,7 +85,7 @@ namespace Payment_Project_AP.Controllers
                 _logger.LogInformation("Creation Successful!");
                 return Ok(response);
             }
-            catch (InvalidOperationException ex)  
+            catch (InvalidOperationException ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -104,10 +96,7 @@ namespace Payment_Project_AP.Controllers
             }
         }
 
-
-        // PUT: api/Client/{id}
         [HttpPut("{id}")]
-        [Authorize(Roles = $"{nameof(Role.CLIENT_USER)}")]
         public async Task<IActionResult> UpdateClientUser(int id, [FromBody] ClientResponseDTO dto)
         {
             _logger.LogInformation("UpdateClientUser started!");
@@ -121,7 +110,7 @@ namespace Payment_Project_AP.Controllers
 
             if (existingClientUser.UserId != dto.UserId)
                 return BadRequest("User Id mismatch!");
-            
+
             _mapper.Map(dto, existingClientUser);
 
             var updatedClientUser = await _service.Update(existingClientUser);
@@ -134,7 +123,6 @@ namespace Payment_Project_AP.Controllers
             return Ok(response);
         }
 
-        // DELETE: api/Client/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClientUserById(int id)
         {
@@ -150,15 +138,12 @@ namespace Payment_Project_AP.Controllers
             return Ok("Client User deleted successfully!");
         }
 
-        // PUT: api/Client/approve/{id}
         [HttpPut("approve/{id}")]
-        [Authorize(Roles = $"{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> ApproveClientUser(int id, [FromBody] Client client)
         {
             _logger.LogInformation("ApproveClientUser started!");
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
-            //Client client = _mapper.Map<ClientUser>(clientdto);
             Client approvedClient = await _service.ApproveClient(client);
             _logger.LogInformation("Client Was Approved!");
 
@@ -166,8 +151,6 @@ namespace Payment_Project_AP.Controllers
         }
 
         [HttpPut("reject/{id}")]
-        [Authorize(Roles = $"{nameof(Role.BANK_USER)}")]
-
         public async Task<IActionResult> RejectClientUser(int id, [FromBody] RejectDTO rejectDTO)
         {
             _logger.LogInformation("RejectClientUser started!");
@@ -179,8 +162,5 @@ namespace Payment_Project_AP.Controllers
 
             return Ok("Reject Email Sent to " + client.UserName);
         }
-
-
-
     }
 }

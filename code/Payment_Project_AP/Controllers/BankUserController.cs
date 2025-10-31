@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using Payment_Project_AP.DTO;
 using Payment_Project_AP.Models.Enitites;
-using Payment_Project_AP.Models.Enums;
 using Payment_Project_AP.Service.Interface;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Payment_Project_AP.Controllers
@@ -23,9 +21,7 @@ namespace Payment_Project_AP.Controllers
             _logger = logger;
         }
 
-        // GET: api/BankUser
         [HttpGet]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)}")]
         public async Task<IActionResult> GetAllBankUsers(
             [FromQuery] string? fullName,
             [FromQuery] string? userName,
@@ -48,13 +44,9 @@ namespace Payment_Project_AP.Controllers
 
             _logger.LogInformation($"Found {response.Count()} Bank Users");
             return Ok(response);
-
         }
 
-
-        // GET: api/BankUser/{id}
         [HttpGet("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> GetBankUserById(int id)
         {
             _logger.LogInformation("GetBankUserById started!");
@@ -68,7 +60,6 @@ namespace Payment_Project_AP.Controllers
             return Ok(bankUser);
         }
 
-        // POST: api/BankUser
         [HttpPost]
         public async Task<IActionResult> CreateBankUser([FromBody] BankUserRegisterDTO dto)
         {
@@ -92,7 +83,7 @@ namespace Payment_Project_AP.Controllers
                 _logger.LogInformation("Bank user created!");
                 return Ok(response);
             }
-            catch (InvalidOperationException ex)  // duplicate email/phone
+            catch (InvalidOperationException ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -103,10 +94,7 @@ namespace Payment_Project_AP.Controllers
             }
         }
 
-
-        // PUT: api/BankUser/{id}
         [HttpPut("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> UpdateBankUser(int id, [FromBody] BankUserResponseDTO dto)
         {
             _logger.LogInformation("UpdateBankUser started!");
@@ -132,9 +120,7 @@ namespace Payment_Project_AP.Controllers
             return Ok(response);
         }
 
-        // DELETE: api/BankUser/{id}
         [HttpDelete("{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)},{nameof(Role.BANK_USER)}")]
         public async Task<IActionResult> DeleteBankUserById(int id)
         {
             _logger.LogInformation("DeleteBankUserById started!");
@@ -150,13 +136,11 @@ namespace Payment_Project_AP.Controllers
         }
 
         [HttpPut("approve/{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)}")]
         public async Task<IActionResult> ApproveBankUser(int id, [FromBody] BankUser bankUser)
         {
             _logger.LogInformation("ApproveBankUser started!");
 
             if (!ModelState.IsValid) return BadRequest(ModelState);
-            //ClientUser client = _mapper.Map<ClientUser>(clientdto);
             BankUser approvedBankUser = await _service.ApproveBankUser(id);
             _logger.LogInformation("BankUser Was Approved!");
 
@@ -164,7 +148,6 @@ namespace Payment_Project_AP.Controllers
         }
 
         [HttpPut("reject/{id}")]
-        [Authorize(Roles = $"{nameof(Role.ADMIN)}")]
         public async Task<IActionResult> RejectBankUser(int id, [FromBody] RejectDTO rejectDTO)
         {
             _logger.LogInformation("RejectBanktUser started!");
