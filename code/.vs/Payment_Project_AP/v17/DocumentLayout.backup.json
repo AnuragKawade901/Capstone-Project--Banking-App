@@ -3,60 +3,27 @@
   "WorkspaceRootPath": "D:\\CapstoneProject_BankingApp\\code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.TransactionTypes.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BankingPaymentAppDB/True/SqlTable/dbo.Accounts.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BankingPaymentAppDB/True/SqlTable/dbo.Banks.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Payments.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\service\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\service\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Accounts.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.SalaryDisbursements.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.SalaryPayments.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Transactions.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.PaymentStatuses.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Employees.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Documents.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Beneficiaries.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Banks.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.AccountTypes.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Accounts.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.AccountStatuses.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Roles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\service\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\service\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -277,10 +244,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\service\\interface\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\service\\interface\\itransactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|d:\\capstoneproject_bankingapp\\code\\payment_project_ap\\migrations\\20251031072716_check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7CE0CAD-C54C-4B4B-BC44-5BF69449EEED}|Payment_Project_AP\\Payment_Project_AP.csproj|solutionrelative:payment_project_ap\\migrations\\20251031072716_check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -302,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 8,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\UserController.cs",
@@ -314,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PaymentService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\PaymentService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\PaymentService.cs",
@@ -326,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\AccountController.cs",
@@ -339,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 7,
               "Title": "TransactionController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\TransactionController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\TransactionController.cs",
@@ -351,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 9,
               "Title": "SalaryDisbursementController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\SalaryDisbursementController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\SalaryDisbursementController.cs",
@@ -363,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 10,
               "Title": "CorporateBankingDBContext.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Data\\CorporateBankingDBContext.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Data\\CorporateBankingDBContext.cs",
@@ -375,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 11,
               "Title": "BankUserService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\BankUserService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\BankUserService.cs",
@@ -387,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 12,
               "Title": "BankUser.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\BankUser.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\BankUser.cs",
@@ -399,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 14,
               "Title": "DocumentController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\DocumentController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\DocumentController.cs",
@@ -411,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 15,
               "Title": "ClientController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\ClientController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\ClientController.cs",
@@ -423,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 13,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Models\\Enitites\\User.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Models\\Enitites\\User.cs",
@@ -435,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 16,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\WeatherForecastController.cs",
@@ -447,7 +410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 17,
               "Title": "SupportController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\SupportController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\SupportController.cs",
@@ -459,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 18,
               "Title": "SalaryPaymentController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\SalaryPaymentController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\SalaryPaymentController.cs",
@@ -471,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 19,
               "Title": "LogController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\LogController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\LogController.cs",
@@ -483,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 20,
               "Title": "BankUserController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\BankUserController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\BankUserController.cs",
@@ -495,7 +458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 22,
               "Title": "EmployeeService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\EmployeeService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\EmployeeService.cs",
@@ -507,7 +470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 21,
               "Title": "EmployeeController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\EmployeeController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\EmployeeController.cs",
@@ -519,7 +482,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 23,
               "Title": "AccountService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\AccountService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\AccountService.cs",
@@ -531,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 24,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Program.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Program.cs",
@@ -543,7 +506,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 25,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\PaymentController.cs",
@@ -555,7 +518,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 26,
               "Title": "BeneficiaryController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\BeneficiaryController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\BeneficiaryController.cs",
@@ -567,7 +530,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 27,
               "Title": "BankController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\BankController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\BankController.cs",
@@ -579,7 +542,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 28,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Controllers\\AuthController.cs",
@@ -591,7 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 29,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\AuthService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\AuthService.cs",
@@ -603,7 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 30,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\appsettings.json",
               "RelativeDocumentMoniker": "Payment_Project_AP\\appsettings.json",
@@ -615,7 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 31,
               "Title": "AccountRegisterDTO.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\DTO\\AccountRegisterDTO.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\DTO\\AccountRegisterDTO.cs",
@@ -627,7 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 32,
               "Title": "CreateSalaryDisbursmentDTO.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\DTO\\CreateSalaryDisbursmentDTO.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\DTO\\CreateSalaryDisbursmentDTO.cs",
@@ -639,7 +602,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 33,
               "Title": "LoginDTO.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\DTO\\LoginDTO.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\DTO\\LoginDTO.cs",
@@ -651,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 34,
               "Title": "LoginResponseDTO.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\DTO\\LoginResponseDTO.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\DTO\\LoginResponseDTO.cs",
@@ -663,7 +626,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 35,
               "Title": "UserResponseDTO.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\DTO\\UserResponseDTO.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\DTO\\UserResponseDTO.cs",
@@ -675,7 +638,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 36,
               "Title": "IAuthRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\Interface\\IAuthRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\Interface\\IAuthRepository.cs",
@@ -687,7 +650,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 37,
               "Title": "IAccountRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\Interface\\IAccountRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\Interface\\IAccountRepository.cs",
@@ -699,7 +662,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 38,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\Interface\\IUserRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\Interface\\IUserRepository.cs",
@@ -711,7 +674,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 39,
               "Title": "AuthRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\AuthRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\AuthRepository.cs",
@@ -723,7 +686,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 40,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\Interface\\IAuthService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\Interface\\IAuthService.cs",
@@ -735,7 +698,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 42,
               "Title": "DocumentService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\DocumentService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\DocumentService.cs",
@@ -747,7 +710,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 41,
               "Title": "IUserService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\Interface\\IUserService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\Interface\\IUserService.cs",
@@ -759,7 +722,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 43,
               "Title": "BeneficiaryService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\BeneficiaryService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\BeneficiaryService.cs",
@@ -771,7 +734,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 45,
               "Title": "EmailService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\EmailService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\EmailService.cs",
@@ -783,7 +746,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 44,
               "Title": "ClientService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\ClientService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\ClientService.cs",
@@ -795,7 +758,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 48,
               "Title": "SupportService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\SupportService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\SupportService.cs",
@@ -807,7 +770,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 47,
               "Title": "SalaryPaymentService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\SalaryPaymentService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\SalaryPaymentService.cs",
@@ -819,7 +782,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 46,
               "Title": "SalaryDisbursementService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\SalaryDisbursementService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\SalaryDisbursementService.cs",
@@ -831,7 +794,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 49,
               "Title": "TransactionService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\TransactionService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\TransactionService.cs",
@@ -843,7 +806,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 50,
               "Title": "UserService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\UserService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\UserService.cs",
@@ -855,7 +818,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 51,
               "Title": "20251030160124_InitialMigration.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Migrations\\20251030160124_InitialMigration.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Migrations\\20251030160124_InitialMigration.cs",
@@ -867,7 +830,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 52,
               "Title": "20251030160412_InitialCreate.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Migrations\\20251030160412_InitialCreate.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Migrations\\20251030160412_InitialCreate.cs",
@@ -879,7 +842,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 53,
               "Title": "SalaryDisbursementRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\SalaryDisbursementRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\SalaryDisbursementRepository.cs",
@@ -891,7 +854,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 54,
               "Title": "ISupportRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\Interface\\ISupportRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\Interface\\ISupportRepository.cs",
@@ -903,7 +866,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 55,
               "Title": "IPaymentRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\Interface\\IPaymentRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\Interface\\IPaymentRepository.cs",
@@ -915,7 +878,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 56,
               "Title": "IEmployeeRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\Interface\\IEmployeeRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\Interface\\IEmployeeRepository.cs",
@@ -927,7 +890,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 57,
               "Title": "IEmailRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\Interface\\IEmailRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\Interface\\IEmailRepository.cs",
@@ -939,7 +902,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 58,
               "Title": "IDocumentRepository.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Repositories\\Interface\\IDocumentRepository.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Repositories\\Interface\\IDocumentRepository.cs",
@@ -951,7 +914,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 59,
               "Title": "ISalaryPaymentService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\Interface\\ISalaryPaymentService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\Interface\\ISalaryPaymentService.cs",
@@ -963,7 +926,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 61,
               "Title": "ITransactionService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\Interface\\ITransactionService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\Interface\\ITransactionService.cs",
@@ -975,7 +938,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 60,
               "Title": "IAccountService.cs",
               "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Service\\Interface\\IAccountService.cs",
               "RelativeDocumentMoniker": "Payment_Project_AP\\Service\\Interface\\IAccountService.cs",
@@ -997,163 +960,53 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dbo.Users [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Users.sql",
+              "ToolTip": "dbo.Users [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-10-31T12:26:09.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "dbo.TransactionTypes.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.TransactionTypes.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.TransactionTypes.sql",
+              "Title": "dbo.PaymentStatuses [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.PaymentStatuses.sql",
+              "ToolTip": "dbo.PaymentStatuses [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:10:08.885Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "dbo.Payments.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Payments.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Payments.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:03:37.219Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dbo.Banks.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BankingPaymentAppDB/True/SqlTable/dbo.Banks.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BankingPaymentAppDB/True/SqlTable/dbo.Banks.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:09:49.281Z"
+              "WhenOpened": "2025-10-31T12:26:04.365Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "dbo.Accounts.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BankingPaymentAppDB/True/SqlTable/dbo.Accounts.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BankingPaymentAppDB/True/SqlTable/dbo.Accounts.sql",
+              "Title": "dbo.Beneficiaries [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Beneficiaries.sql",
+              "ToolTip": "dbo.Beneficiaries [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:09:45.842Z"
+              "WhenOpened": "2025-10-31T12:25:53.367Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "dbo.Users.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Users.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Users.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T10:12:32.776Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "dbo.SalaryDisbursements.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.SalaryDisbursements.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.SalaryDisbursements.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:04:03.026Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "dbo.Accounts.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Accounts.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Accounts.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:02:36.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "dbo.SalaryPayments.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.SalaryPayments.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.SalaryPayments.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:04:00.29Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "dbo.Transactions.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Transactions.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Transactions.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:03:56.748Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "dbo.PaymentStatuses.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.PaymentStatuses.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.PaymentStatuses.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:03:49.802Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "dbo.Employees.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Employees.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Employees.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:03:28.962Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "dbo.Documents.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Documents.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Documents.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:03:25.592Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "dbo.AccountTypes.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.AccountTypes.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.AccountTypes.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:02:49.683Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "dbo.Banks.sql",
+              "DocumentIndex": 3,
+              "Title": "dbo.Banks [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Banks.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Banks.sql",
+              "ToolTip": "dbo.Banks [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T07:52:00.403Z"
+              "WhenOpened": "2025-10-31T12:25:37.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "dbo.AccountStatuses.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.AccountStatuses.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.AccountStatuses.sql",
+              "DocumentIndex": 4,
+              "Title": "dbo.Accounts [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Accounts.sql",
+              "ToolTip": "dbo.Accounts [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:02:46.156Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "dbo.Roles.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Roles.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/CorporatePaymentAppDB/True/SqlTable/dbo.Roles.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-31T11:02:26.067Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 73,
-              "Title": "20251031072716_Check.cs",
-              "DocumentMoniker": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Migrations\\20251031072716_Check.cs",
-              "RelativeDocumentMoniker": "Payment_Project_AP\\Migrations\\20251031072716_Check.cs",
-              "ToolTip": "D:\\CapstoneProject_BankingApp\\code\\Payment_Project_AP\\Migrations\\20251031072716_Check.cs",
-              "RelativeToolTip": "Payment_Project_AP\\Migrations\\20251031072716_Check.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T07:27:16.631Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+              "WhenOpened": "2025-10-31T12:25:21.976Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
