@@ -1,0 +1,1128 @@
+2025-11-02 00:01:52.699 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Employee/upload - multipart/form-data; boundary=----WebKitFormBoundary6meX7zxg3Wo5AF66 998
+2025-11-02 00:01:52.756 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:01:52.757 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:01:52.763 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '11/1/2025 6:26:46 PM', Current time (UTC): '11/1/2025 6:31:52 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-11-02 00:01:52.771 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '11/1/2025 6:26:46 PM', Current time (UTC): '11/1/2025 6:31:52 PM'.
+2025-11-02 00:01:52.775 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (CLIENT_USER)
+2025-11-02 00:01:52.785 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-11-02 00:01:52.788 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Employee/upload - 401 0 null 88.6282ms
+2025-11-02 00:02:11.572 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Auth/Login - application/json 50
+2025-11-02 00:02:11.578 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:02:11.580 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:02:11.583 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '11/1/2025 6:26:46 PM', Current time (UTC): '11/1/2025 6:32:11 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-11-02 00:02:11.587 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '11/1/2025 6:26:46 PM', Current time (UTC): '11/1/2025 6:32:11 PM'.
+2025-11-02 00:02:11.589 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:02:11.591 +05:30 [INF] Route matched with {action = "PostLogin", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PostLogin(Payment_Project_API.DTOs.LoginDTO) on controller Payment_Project_API.Controllers.AuthController (Payment_Project_API).
+2025-11-02 00:02:11.596 +05:30 [INF] Login Started
+2025-11-02 00:02:11.611 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__usr_UserName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [r].[RoleId], [r].[Role]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[UserRoleId] = [r].[RoleId]
+WHERE [u].[UserName] = @__usr_UserName_0
+2025-11-02 00:02:11.735 +05:30 [INF] Login Sucessfull
+2025-11-02 00:02:11.737 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.LoginResponseDTO'.
+2025-11-02 00:02:11.740 +05:30 [INF] Executed action Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API) in 144.6854ms
+2025-11-02 00:02:11.742 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:02:11.744 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Auth/Login - 200 null application/json; charset=utf-8 172.4497ms
+2025-11-02 00:02:54.399 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Employee/upload - multipart/form-data; boundary=----WebKitFormBoundaryQU7H7izRMszhLDif 998
+2025-11-02 00:02:54.424 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:02:54.426 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:02:54.428 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.EmployeeController.UploadEmployees (Payment_Project_API)'
+2025-11-02 00:02:54.436 +05:30 [INF] Route matched with {action = "UploadEmployees", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadEmployees(Microsoft.AspNetCore.Http.IFormFile) on controller Payment_Project_API.Controllers.EmployeeController (Payment_Project_API).
+2025-11-02 00:02:54.467 +05:30 [INF] UploadEmployees started!
+2025-11-02 00:02:54.651 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-11-02 00:02:54.691 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:02:55.050 +05:30 [INF] Executed action Payment_Project_API.Controllers.EmployeeController.UploadEmployees (Payment_Project_API) in 610.5238ms
+2025-11-02 00:02:55.053 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.EmployeeController.UploadEmployees (Payment_Project_API)'
+2025-11-02 00:02:55.099 +05:30 [ERR] Unhandled exception: Client with email 'zomato@gmail.com.com' not found.
+System.Exception: Client with email 'zomato@gmail.com.com' not found.
+   at Payment_Project_API.Services.EmployeeService.UploadEmployees(IFormFile file) in D:\CapstoneProject_BankingApp\code\Payment_Project_API\Services\EmployeeService.cs:line 142
+   at Payment_Project_API.Controllers.EmployeeController.UploadEmployees(IFormFile file) in D:\CapstoneProject_BankingApp\code\Payment_Project_API\Controllers\EmployeeController.cs:line 125
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in D:\CapstoneProject_BankingApp\code\Payment_Project_API\Exception\GlobalExceptionHandler.cs:line 18
+2025-11-02 00:02:55.111 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Employee/upload - 500 null application/json; charset=utf-8 711.3253ms
+2025-11-02 00:04:36.217 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7030/api/ClientUser/2003 - null null
+2025-11-02 00:04:36.232 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.ClientUserController.GetClientUserById (Payment_Project_API)'
+2025-11-02 00:04:36.242 +05:30 [INF] Route matched with {action = "GetClientUserById", controller = "ClientUser"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetClientUserById(Int32) on controller Payment_Project_API.Controllers.ClientUserController (Payment_Project_API).
+2025-11-02 00:04:36.248 +05:30 [INF] GetClientUserById started!
+2025-11-02 00:04:36.276 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[RoleId], [t0].[Role], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [r].[RoleId], [r].[Role], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    INNER JOIN [Roles] AS [r] ON [u].[UserRoleId] = [r].[RoleId]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserId] = @__id_0
+) AS [t0]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+ORDER BY [t0].[UserId], [t0].[RoleId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [d].[DocumentId], [e].[EmployeeId]
+2025-11-02 00:04:36.284 +05:30 [INF] Client user was Dispalyed
+2025-11-02 00:04:36.285 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.Models.ClientUser'.
+2025-11-02 00:04:36.289 +05:30 [INF] Executed action Payment_Project_API.Controllers.ClientUserController.GetClientUserById (Payment_Project_API) in 43.5234ms
+2025-11-02 00:04:36.298 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.ClientUserController.GetClientUserById (Payment_Project_API)'
+2025-11-02 00:04:36.300 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7030/api/ClientUser/2003 - 200 null application/json; charset=utf-8 83.9041ms
+2025-11-02 00:17:53.028 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Auth/Login - application/json 50
+2025-11-02 00:17:53.040 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:17:53.042 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:17:53.045 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:17:53.049 +05:30 [INF] Route matched with {action = "PostLogin", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PostLogin(Payment_Project_API.DTOs.LoginDTO) on controller Payment_Project_API.Controllers.AuthController (Payment_Project_API).
+2025-11-02 00:17:53.055 +05:30 [INF] Login Started
+2025-11-02 00:17:53.072 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__usr_UserName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [r].[RoleId], [r].[Role]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[UserRoleId] = [r].[RoleId]
+WHERE [u].[UserName] = @__usr_UserName_0
+2025-11-02 00:17:53.222 +05:30 [INF] Login Sucessfull
+2025-11-02 00:17:53.224 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.LoginResponseDTO'.
+2025-11-02 00:17:53.228 +05:30 [INF] Executed action Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API) in 173.566ms
+2025-11-02 00:17:53.240 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:17:53.243 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Auth/Login - 200 null application/json; charset=utf-8 215.4732ms
+2025-11-02 00:18:35.821 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Employee/upload - multipart/form-data; boundary=----WebKitFormBoundary4Dg07o3BKoHFjxQL 986
+2025-11-02 00:18:35.861 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:18:35.864 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:18:35.866 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.EmployeeController.UploadEmployees (Payment_Project_API)'
+2025-11-02 00:18:35.871 +05:30 [INF] Route matched with {action = "UploadEmployees", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadEmployees(Microsoft.AspNetCore.Http.IFormFile) on controller Payment_Project_API.Controllers.EmployeeController (Payment_Project_API).
+2025-11-02 00:18:35.881 +05:30 [INF] UploadEmployees started!
+2025-11-02 00:18:35.906 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:18:35.914 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:18:35.920 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:18:35.925 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:18:36.082 +05:30 [INF] Executed action Payment_Project_API.Controllers.EmployeeController.UploadEmployees (Payment_Project_API) in 207.2036ms
+2025-11-02 00:18:36.085 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.EmployeeController.UploadEmployees (Payment_Project_API)'
+2025-11-02 00:18:36.134 +05:30 [ERR] Unhandled exception: Client with email 'zomato@gmail.com.com' not found.
+System.Exception: Client with email 'zomato@gmail.com.com' not found.
+   at Payment_Project_API.Services.EmployeeService.UploadEmployees(IFormFile file) in D:\CapstoneProject_BankingApp\code\Payment_Project_API\Services\EmployeeService.cs:line 142
+   at Payment_Project_API.Controllers.EmployeeController.UploadEmployees(IFormFile file) in D:\CapstoneProject_BankingApp\code\Payment_Project_API\Controllers\EmployeeController.cs:line 125
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in D:\CapstoneProject_BankingApp\code\Payment_Project_API\Exception\GlobalExceptionHandler.cs:line 18
+2025-11-02 00:18:36.147 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Employee/upload - 500 null application/json; charset=utf-8 326.7368ms
+2025-11-02 00:23:01.781 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Auth/Login - application/json 50
+2025-11-02 00:23:01.793 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:23:01.796 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:23:01.799 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:23:01.803 +05:30 [INF] Route matched with {action = "PostLogin", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PostLogin(Payment_Project_API.DTOs.LoginDTO) on controller Payment_Project_API.Controllers.AuthController (Payment_Project_API).
+2025-11-02 00:23:01.807 +05:30 [INF] Login Started
+2025-11-02 00:23:01.813 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__usr_UserName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [r].[RoleId], [r].[Role]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[UserRoleId] = [r].[RoleId]
+WHERE [u].[UserName] = @__usr_UserName_0
+2025-11-02 00:23:01.928 +05:30 [INF] Login Sucessfull
+2025-11-02 00:23:01.931 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.LoginResponseDTO'.
+2025-11-02 00:23:01.934 +05:30 [INF] Executed action Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API) in 127.8931ms
+2025-11-02 00:23:01.936 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:23:01.938 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Auth/Login - 200 null application/json; charset=utf-8 157.5204ms
+2025-11-02 00:23:25.742 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Employee/upload - multipart/form-data; boundary=----WebKitFormBoundarypwPeBN4Kj0cEHBOp 969
+2025-11-02 00:23:25.758 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:23:25.759 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:23:25.762 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.EmployeeController.UploadEmployees (Payment_Project_API)'
+2025-11-02 00:23:25.764 +05:30 [INF] Route matched with {action = "UploadEmployees", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadEmployees(Microsoft.AspNetCore.Http.IFormFile) on controller Payment_Project_API.Controllers.EmployeeController (Payment_Project_API).
+2025-11-02 00:23:25.771 +05:30 [INF] UploadEmployees started!
+2025-11-02 00:23:25.790 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.797 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.803 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.808 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.813 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.820 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.827 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.833 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.841 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.847 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__csvDto_ClientEmail_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId], [t0].[CreatedAt], [t0].[TransactionIds], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [b0].[AccountNumber], [b0].[BankName], [b0].[BeneficiaryName], [b0].[ClientId], [b0].[ClientUserUserId], [b0].[IFSC], [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t0].[BankId1], [t0].[Discriminator0], [t0].[Password0], [t0].[UserEmail0], [t0].[UserFullName0], [t0].[UserJoiningDate0], [t0].[UserName0], [t0].[UserPhone0], [t0].[UserRoleId0], [t0].[Branch], [t0].[RefferalCode], [t0].[isActive], [d].[DocumentId], [d].[ClientId], [d].[DocumentName], [d].[DocumentURL], [d].[ProofTypeId], [d].[PublicId], [t0].[BankName], [t0].[CreatedAt0], [t0].[IFSC], [t0].[IsActive0]
+FROM (
+    SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId] AS [UserId0], [t].[BankId] AS [BankId1], [t].[Discriminator] AS [Discriminator0], [t].[Password] AS [Password0], [t].[UserEmail] AS [UserEmail0], [t].[UserFullName] AS [UserFullName0], [t].[UserJoiningDate] AS [UserJoiningDate0], [t].[UserName] AS [UserName0], [t].[UserPhone] AS [UserPhone0], [t].[UserRoleId] AS [UserRoleId0], [t].[Branch], [t].[RefferalCode], [t].[isActive], [b].[BankId] AS [BankId2], [b].[BankName], [b].[CreatedAt] AS [CreatedAt0], [b].[IFSC], [b].[IsActive] AS [IsActive0]
+    FROM [Users] AS [u]
+    LEFT JOIN [Accounts] AS [a] ON [u].[AccountId] = [a].[AccountId]
+    LEFT JOIN (
+        SELECT [u0].[UserId], [u0].[BankId], [u0].[Discriminator], [u0].[Password], [u0].[UserEmail], [u0].[UserFullName], [u0].[UserJoiningDate], [u0].[UserName], [u0].[UserPhone], [u0].[UserRoleId], [u0].[Branch], [u0].[RefferalCode], [u0].[isActive]
+        FROM [Users] AS [u0]
+        WHERE [u0].[Discriminator] = N'BankUser'
+    ) AS [t] ON [u].[BankUserId] = [t].[UserId]
+    INNER JOIN [Banks] AS [b] ON [u].[BankId] = [b].[BankId]
+    WHERE [u].[Discriminator] = N'ClientUser' AND [u].[UserEmail] = @__csvDto_ClientEmail_0
+) AS [t0]
+LEFT JOIN [Beneficiaries] AS [b0] ON [t0].[UserId] = [b0].[ClientUserUserId]
+LEFT JOIN [Employees] AS [e] ON [t0].[UserId] = [e].[ClientId]
+LEFT JOIN [Documents] AS [d] ON [t0].[UserId] = [d].[ClientId]
+ORDER BY [t0].[UserId], [t0].[AccountId0], [t0].[UserId0], [t0].[BankId2], [b0].[BeneficiaryId], [e].[EmployeeId]
+2025-11-02 00:23:25.878 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.886 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.891 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.896 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.902 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.907 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.912 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.918 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.923 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.929 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__emp_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Employees] AS [e]
+        WHERE [e].[AccountNumber] = @__emp_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-02 00:23:25.983 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Int32), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = Int32), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = Boolean), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (Size = 4000), @p25='?' (Size = 4000), @p26='?' (DbType = Int32), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (DbType = Boolean), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (Size = 4000), @p33='?' (Size = 4000), @p34='?' (DbType = Int32), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (DbType = Boolean), @p38='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (Size = 4000), @p41='?' (Size = 4000), @p42='?' (DbType = Int32), @p43='?' (Size = 4000), @p44='?' (Size = 4000), @p45='?' (DbType = Boolean), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (Size = 4000), @p49='?' (Size = 4000), @p50='?' (DbType = Int32), @p51='?' (Size = 4000), @p52='?' (Size = 4000), @p53='?' (DbType = Boolean), @p54='?' (DbType = Int32), @p55='?' (DbType = Int32), @p56='?' (Size = 4000), @p57='?' (Size = 4000), @p58='?' (DbType = Int32), @p59='?' (Size = 4000), @p60='?' (Size = 4000), @p61='?' (DbType = Boolean), @p62='?' (DbType = Int32), @p63='?' (DbType = Int32), @p64='?' (Size = 4000), @p65='?' (Size = 4000), @p66='?' (DbType = Int32), @p67='?' (Size = 4000), @p68='?' (Size = 4000), @p69='?' (DbType = Boolean), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (Size = 4000), @p73='?' (Size = 4000), @p74='?' (DbType = Int32), @p75='?' (Size = 4000), @p76='?' (Size = 4000), @p77='?' (DbType = Boolean), @p78='?' (DbType = Int32), @p79='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Employees] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, 0),
+(@p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, 1),
+(@p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, 2),
+(@p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, 3),
+(@p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, 4),
+(@p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, 5),
+(@p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, 6),
+(@p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, 7),
+(@p64, @p65, @p66, @p67, @p68, @p69, @p70, @p71, 8),
+(@p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79, 9)) AS i ([AccountNumber], [BankName], [ClientId], [EmployeeName], [IFSC], [IsActive], [Salary], [SalaryDisbursementId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([AccountNumber], [BankName], [ClientId], [EmployeeName], [IFSC], [IsActive], [Salary], [SalaryDisbursementId])
+VALUES (i.[AccountNumber], i.[BankName], i.[ClientId], i.[EmployeeName], i.[IFSC], i.[IsActive], i.[Salary], i.[SalaryDisbursementId])
+OUTPUT INSERTED.[EmployeeId], i._Position;
+2025-11-02 00:23:25.992 +05:30 [INF] 10 employees inserted, 0 skipped.
+2025-11-02 00:23:25.995 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`3[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-02 00:23:26.001 +05:30 [INF] Executed action Payment_Project_API.Controllers.EmployeeController.UploadEmployees (Payment_Project_API) in 233.3619ms
+2025-11-02 00:23:26.005 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.EmployeeController.UploadEmployees (Payment_Project_API)'
+2025-11-02 00:23:26.007 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Employee/upload - 200 null application/json; charset=utf-8 265.5847ms
+2025-11-02 00:24:07.638 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7030/api/Employee - null null
+2025-11-02 00:24:07.660 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.EmployeeController.GetAllEmployees (Payment_Project_API)'
+2025-11-02 00:24:07.671 +05:30 [INF] Route matched with {action = "GetAllEmployees", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllEmployees(System.Nullable`1[System.Int32], System.String, System.String, System.String, System.String, System.Nullable`1[System.Boolean], System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Int32]) on controller Payment_Project_API.Controllers.EmployeeController (Payment_Project_API).
+2025-11-02 00:24:07.712 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [s].[DetailId], [s].[Amount], [s].[EmployeeId], [s].[SalaryDisbursementId], [s].[Success], [s].[TransactionId]
+FROM [Employees] AS [e]
+INNER JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [e].[ClientId] = [t].[UserId]
+LEFT JOIN [SalaryDisbursementDetails] AS [s] ON [e].[EmployeeId] = [s].[EmployeeId]
+ORDER BY [e].[EmployeeId], [t].[UserId]
+2025-11-02 00:24:07.738 +05:30 [INF] Executing OkObjectResult, writing value of type 'Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Payment_Project_API.Models.Employee, Payment_Project_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Collections.Generic.ICollection`1[[Payment_Project_API.Models.SalaryDisbursementDetails, Payment_Project_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-02 00:24:07.766 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [s].[DetailId], [s].[Amount], [s].[EmployeeId], [s].[SalaryDisbursementId], [s].[Success], [s].[TransactionId]
+FROM [Employees] AS [e]
+INNER JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [e].[ClientId] = [t].[UserId]
+LEFT JOIN [SalaryDisbursementDetails] AS [s] ON [e].[EmployeeId] = [s].[EmployeeId]
+ORDER BY [e].[EmployeeId], [t].[UserId]
+2025-11-02 00:24:07.797 +05:30 [INF] Executed action Payment_Project_API.Controllers.EmployeeController.GetAllEmployees (Payment_Project_API) in 122.1233ms
+2025-11-02 00:24:07.800 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.EmployeeController.GetAllEmployees (Payment_Project_API)'
+2025-11-02 00:24:07.802 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7030/api/Employee - 200 null application/json; charset=utf-8 165.4882ms
+2025-11-02 00:25:55.633 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/SalaryDisbursement - application/json 76
+2025-11-02 00:25:55.685 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:25:55.688 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:25:55.690 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.CreateDisbursement (Payment_Project_API)'
+2025-11-02 00:25:55.702 +05:30 [INF] Route matched with {action = "CreateDisbursement", controller = "SalaryDisbursement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDisbursement(Payment_Project_API.DTOs.CreateSalaryDisbursmentDTO) on controller Payment_Project_API.Controllers.SalaryDisbursementController (Payment_Project_API).
+2025-11-02 00:25:55.740 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__clientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [s].[DetailId], [s].[Amount], [s].[EmployeeId], [s].[SalaryDisbursementId], [s].[Success], [s].[TransactionId]
+FROM [Employees] AS [e]
+INNER JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [e].[ClientId] = [t].[UserId]
+LEFT JOIN [SalaryDisbursementDetails] AS [s] ON [e].[EmployeeId] = [s].[EmployeeId]
+WHERE [e].[ClientId] = @__clientId_0
+ORDER BY [e].[EmployeeId], [t].[UserId]
+2025-11-02 00:25:55.788 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [SalaryDisbursements] ([AllEmployees], [ClientId], [DisbursementDate], [DisbursementStatusId], [TotalAmount])
+OUTPUT INSERTED.[SalaryDisbursementId]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-02 00:25:55.824 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[@p6='?' (DbType = Int32), @p5='?' (DbType = Int32), @p8='?' (DbType = Int32), @p7='?' (DbType = Int32), @p10='?' (DbType = Int32), @p9='?' (DbType = Int32), @p12='?' (DbType = Int32), @p11='?' (DbType = Int32), @p14='?' (DbType = Int32), @p13='?' (DbType = Int32), @p16='?' (DbType = Int32), @p15='?' (DbType = Int32), @p18='?' (DbType = Int32), @p17='?' (DbType = Int32), @p20='?' (DbType = Int32), @p19='?' (DbType = Int32), @p22='?' (DbType = Int32), @p21='?' (DbType = Int32), @p24='?' (DbType = Int32), @p23='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p5
+OUTPUT 1
+WHERE [EmployeeId] = @p6;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p7
+OUTPUT 1
+WHERE [EmployeeId] = @p8;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p9
+OUTPUT 1
+WHERE [EmployeeId] = @p10;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p11
+OUTPUT 1
+WHERE [EmployeeId] = @p12;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p13
+OUTPUT 1
+WHERE [EmployeeId] = @p14;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p15
+OUTPUT 1
+WHERE [EmployeeId] = @p16;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p17
+OUTPUT 1
+WHERE [EmployeeId] = @p18;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p19
+OUTPUT 1
+WHERE [EmployeeId] = @p20;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p21
+OUTPUT 1
+WHERE [EmployeeId] = @p22;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p23
+OUTPUT 1
+WHERE [EmployeeId] = @p24;
+2025-11-02 00:25:55.867 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-11-02 00:25:55.899 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[SalaryDisbursementId], [t0].[AllEmployees], [t0].[ClientId], [t0].[DisbursementDate], [t0].[DisbursementStatusId], [t0].[TotalAmount], [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId0], [t0].[CreatedAt], [t0].[TransactionIds], [t1].[DetailId], [t1].[Amount], [t1].[EmployeeId], [t1].[SalaryDisbursementId], [t1].[Success], [t1].[TransactionId], [t1].[EmployeeId0], [t1].[AccountNumber], [t1].[BankName], [t1].[ClientId], [t1].[EmployeeName], [t1].[IFSC], [t1].[IsActive], [t1].[Salary], [t1].[SalaryDisbursementId0], [e0].[EmployeeId], [e0].[AccountNumber], [e0].[BankName], [e0].[ClientId], [e0].[EmployeeName], [e0].[IFSC], [e0].[IsActive], [e0].[Salary], [e0].[SalaryDisbursementId]
+FROM (
+    SELECT TOP(1) [s].[SalaryDisbursementId], [s].[AllEmployees], [s].[ClientId], [s].[DisbursementDate], [s].[DisbursementStatusId], [s].[TotalAmount], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId] AS [ClientId0], [a].[CreatedAt], [a].[TransactionIds]
+    FROM [SalaryDisbursements] AS [s]
+    INNER JOIN (
+        SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+        FROM [Users] AS [u]
+        WHERE [u].[Discriminator] = N'ClientUser'
+    ) AS [t] ON [s].[ClientId] = [t].[UserId]
+    LEFT JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[AccountId]
+    WHERE [s].[SalaryDisbursementId] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [s0].[DetailId], [s0].[Amount], [s0].[EmployeeId], [s0].[SalaryDisbursementId], [s0].[Success], [s0].[TransactionId], [e].[EmployeeId] AS [EmployeeId0], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId] AS [SalaryDisbursementId0]
+    FROM [SalaryDisbursementDetails] AS [s0]
+    INNER JOIN [Employees] AS [e] ON [s0].[EmployeeId] = [e].[EmployeeId]
+) AS [t1] ON [t0].[SalaryDisbursementId] = [t1].[SalaryDisbursementId]
+LEFT JOIN [Employees] AS [e0] ON [t0].[SalaryDisbursementId] = [e0].[SalaryDisbursementId]
+ORDER BY [t0].[SalaryDisbursementId], [t0].[UserId], [t0].[AccountId0], [t1].[DetailId], [t1].[EmployeeId0]
+2025-11-02 00:25:55.909 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__id_0
+2025-11-02 00:25:57.573 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.Models.SalaryDisbursement'.
+2025-11-02 00:25:57.586 +05:30 [INF] Executed action Payment_Project_API.Controllers.SalaryDisbursementController.CreateDisbursement (Payment_Project_API) in 1880.8885ms
+2025-11-02 00:25:57.589 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.CreateDisbursement (Payment_Project_API)'
+2025-11-02 00:25:57.591 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/SalaryDisbursement - 200 null application/json; charset=utf-8 1958.9578ms
+2025-11-02 00:26:45.472 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Auth/Login - application/json 54
+2025-11-02 00:26:45.487 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:26:45.490 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:26:45.493 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:26:45.496 +05:30 [INF] Route matched with {action = "PostLogin", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PostLogin(Payment_Project_API.DTOs.LoginDTO) on controller Payment_Project_API.Controllers.AuthController (Payment_Project_API).
+2025-11-02 00:26:45.501 +05:30 [INF] Login Started
+2025-11-02 00:26:45.511 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__usr_UserName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [r].[RoleId], [r].[Role]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[UserRoleId] = [r].[RoleId]
+WHERE [u].[UserName] = @__usr_UserName_0
+2025-11-02 00:26:45.672 +05:30 [INF] Login Sucessfull
+2025-11-02 00:26:45.674 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.LoginResponseDTO'.
+2025-11-02 00:26:45.677 +05:30 [INF] Executed action Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API) in 176.564ms
+2025-11-02 00:26:45.686 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:26:45.688 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Auth/Login - 200 null application/json; charset=utf-8 216.0796ms
+2025-11-02 00:27:54.527 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7030/api/SalaryDisbursement/2 - null null
+2025-11-02 00:27:54.540 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.GetDisbursementById (Payment_Project_API)'
+2025-11-02 00:27:54.547 +05:30 [INF] Route matched with {action = "GetDisbursementById", controller = "SalaryDisbursement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDisbursementById(Int32) on controller Payment_Project_API.Controllers.SalaryDisbursementController (Payment_Project_API).
+2025-11-02 00:27:54.567 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[SalaryDisbursementId], [t0].[AllEmployees], [t0].[ClientId], [t0].[DisbursementDate], [t0].[DisbursementStatusId], [t0].[TotalAmount], [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId0], [t0].[CreatedAt], [t0].[TransactionIds], [t1].[DetailId], [t1].[Amount], [t1].[EmployeeId], [t1].[SalaryDisbursementId], [t1].[Success], [t1].[TransactionId], [t1].[EmployeeId0], [t1].[AccountNumber], [t1].[BankName], [t1].[ClientId], [t1].[EmployeeName], [t1].[IFSC], [t1].[IsActive], [t1].[Salary], [t1].[SalaryDisbursementId0], [e0].[EmployeeId], [e0].[AccountNumber], [e0].[BankName], [e0].[ClientId], [e0].[EmployeeName], [e0].[IFSC], [e0].[IsActive], [e0].[Salary], [e0].[SalaryDisbursementId]
+FROM (
+    SELECT TOP(1) [s].[SalaryDisbursementId], [s].[AllEmployees], [s].[ClientId], [s].[DisbursementDate], [s].[DisbursementStatusId], [s].[TotalAmount], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId] AS [ClientId0], [a].[CreatedAt], [a].[TransactionIds]
+    FROM [SalaryDisbursements] AS [s]
+    INNER JOIN (
+        SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+        FROM [Users] AS [u]
+        WHERE [u].[Discriminator] = N'ClientUser'
+    ) AS [t] ON [s].[ClientId] = [t].[UserId]
+    LEFT JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[AccountId]
+    WHERE [s].[SalaryDisbursementId] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [s0].[DetailId], [s0].[Amount], [s0].[EmployeeId], [s0].[SalaryDisbursementId], [s0].[Success], [s0].[TransactionId], [e].[EmployeeId] AS [EmployeeId0], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId] AS [SalaryDisbursementId0]
+    FROM [SalaryDisbursementDetails] AS [s0]
+    INNER JOIN [Employees] AS [e] ON [s0].[EmployeeId] = [e].[EmployeeId]
+) AS [t1] ON [t0].[SalaryDisbursementId] = [t1].[SalaryDisbursementId]
+LEFT JOIN [Employees] AS [e0] ON [t0].[SalaryDisbursementId] = [e0].[SalaryDisbursementId]
+ORDER BY [t0].[SalaryDisbursementId], [t0].[UserId], [t0].[AccountId0], [t1].[DetailId], [t1].[EmployeeId0]
+2025-11-02 00:27:54.590 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.SalaryResponseDTO'.
+2025-11-02 00:27:54.612 +05:30 [INF] Executed action Payment_Project_API.Controllers.SalaryDisbursementController.GetDisbursementById (Payment_Project_API) in 62.031ms
+2025-11-02 00:27:54.615 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.GetDisbursementById (Payment_Project_API)'
+2025-11-02 00:27:54.617 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7030/api/SalaryDisbursement/2 - 200 null application/json; charset=utf-8 89.7548ms
+2025-11-02 00:28:46.905 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7030/api/SalaryDisbursement/1003 - null null
+2025-11-02 00:28:46.932 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.GetDisbursementById (Payment_Project_API)'
+2025-11-02 00:28:46.934 +05:30 [INF] Route matched with {action = "GetDisbursementById", controller = "SalaryDisbursement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDisbursementById(Int32) on controller Payment_Project_API.Controllers.SalaryDisbursementController (Payment_Project_API).
+2025-11-02 00:28:46.955 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[SalaryDisbursementId], [t0].[AllEmployees], [t0].[ClientId], [t0].[DisbursementDate], [t0].[DisbursementStatusId], [t0].[TotalAmount], [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId0], [t0].[CreatedAt], [t0].[TransactionIds], [t1].[DetailId], [t1].[Amount], [t1].[EmployeeId], [t1].[SalaryDisbursementId], [t1].[Success], [t1].[TransactionId], [t1].[EmployeeId0], [t1].[AccountNumber], [t1].[BankName], [t1].[ClientId], [t1].[EmployeeName], [t1].[IFSC], [t1].[IsActive], [t1].[Salary], [t1].[SalaryDisbursementId0], [e0].[EmployeeId], [e0].[AccountNumber], [e0].[BankName], [e0].[ClientId], [e0].[EmployeeName], [e0].[IFSC], [e0].[IsActive], [e0].[Salary], [e0].[SalaryDisbursementId]
+FROM (
+    SELECT TOP(1) [s].[SalaryDisbursementId], [s].[AllEmployees], [s].[ClientId], [s].[DisbursementDate], [s].[DisbursementStatusId], [s].[TotalAmount], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId] AS [ClientId0], [a].[CreatedAt], [a].[TransactionIds]
+    FROM [SalaryDisbursements] AS [s]
+    INNER JOIN (
+        SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+        FROM [Users] AS [u]
+        WHERE [u].[Discriminator] = N'ClientUser'
+    ) AS [t] ON [s].[ClientId] = [t].[UserId]
+    LEFT JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[AccountId]
+    WHERE [s].[SalaryDisbursementId] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [s0].[DetailId], [s0].[Amount], [s0].[EmployeeId], [s0].[SalaryDisbursementId], [s0].[Success], [s0].[TransactionId], [e].[EmployeeId] AS [EmployeeId0], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId] AS [SalaryDisbursementId0]
+    FROM [SalaryDisbursementDetails] AS [s0]
+    INNER JOIN [Employees] AS [e] ON [s0].[EmployeeId] = [e].[EmployeeId]
+) AS [t1] ON [t0].[SalaryDisbursementId] = [t1].[SalaryDisbursementId]
+LEFT JOIN [Employees] AS [e0] ON [t0].[SalaryDisbursementId] = [e0].[SalaryDisbursementId]
+ORDER BY [t0].[SalaryDisbursementId], [t0].[UserId], [t0].[AccountId0], [t1].[DetailId], [t1].[EmployeeId0]
+2025-11-02 00:28:46.965 +05:30 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-11-02 00:28:46.968 +05:30 [INF] Executed action Payment_Project_API.Controllers.SalaryDisbursementController.GetDisbursementById (Payment_Project_API) in 30.722ms
+2025-11-02 00:28:46.979 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.GetDisbursementById (Payment_Project_API)'
+2025-11-02 00:28:46.981 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7030/api/SalaryDisbursement/1003 - 404 null text/plain; charset=utf-8 76.3565ms
+2025-11-02 00:29:11.461 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7030/api/SalaryDisbursement/1002 - null null
+2025-11-02 00:29:11.490 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.GetDisbursementById (Payment_Project_API)'
+2025-11-02 00:29:11.492 +05:30 [INF] Route matched with {action = "GetDisbursementById", controller = "SalaryDisbursement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDisbursementById(Int32) on controller Payment_Project_API.Controllers.SalaryDisbursementController (Payment_Project_API).
+2025-11-02 00:29:11.523 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[SalaryDisbursementId], [t0].[AllEmployees], [t0].[ClientId], [t0].[DisbursementDate], [t0].[DisbursementStatusId], [t0].[TotalAmount], [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId0], [t0].[CreatedAt], [t0].[TransactionIds], [t1].[DetailId], [t1].[Amount], [t1].[EmployeeId], [t1].[SalaryDisbursementId], [t1].[Success], [t1].[TransactionId], [t1].[EmployeeId0], [t1].[AccountNumber], [t1].[BankName], [t1].[ClientId], [t1].[EmployeeName], [t1].[IFSC], [t1].[IsActive], [t1].[Salary], [t1].[SalaryDisbursementId0], [e0].[EmployeeId], [e0].[AccountNumber], [e0].[BankName], [e0].[ClientId], [e0].[EmployeeName], [e0].[IFSC], [e0].[IsActive], [e0].[Salary], [e0].[SalaryDisbursementId]
+FROM (
+    SELECT TOP(1) [s].[SalaryDisbursementId], [s].[AllEmployees], [s].[ClientId], [s].[DisbursementDate], [s].[DisbursementStatusId], [s].[TotalAmount], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId] AS [ClientId0], [a].[CreatedAt], [a].[TransactionIds]
+    FROM [SalaryDisbursements] AS [s]
+    INNER JOIN (
+        SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+        FROM [Users] AS [u]
+        WHERE [u].[Discriminator] = N'ClientUser'
+    ) AS [t] ON [s].[ClientId] = [t].[UserId]
+    LEFT JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[AccountId]
+    WHERE [s].[SalaryDisbursementId] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [s0].[DetailId], [s0].[Amount], [s0].[EmployeeId], [s0].[SalaryDisbursementId], [s0].[Success], [s0].[TransactionId], [e].[EmployeeId] AS [EmployeeId0], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId] AS [SalaryDisbursementId0]
+    FROM [SalaryDisbursementDetails] AS [s0]
+    INNER JOIN [Employees] AS [e] ON [s0].[EmployeeId] = [e].[EmployeeId]
+) AS [t1] ON [t0].[SalaryDisbursementId] = [t1].[SalaryDisbursementId]
+LEFT JOIN [Employees] AS [e0] ON [t0].[SalaryDisbursementId] = [e0].[SalaryDisbursementId]
+ORDER BY [t0].[SalaryDisbursementId], [t0].[UserId], [t0].[AccountId0], [t1].[DetailId], [t1].[EmployeeId0]
+2025-11-02 00:29:11.536 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.SalaryResponseDTO'.
+2025-11-02 00:29:11.540 +05:30 [INF] Executed action Payment_Project_API.Controllers.SalaryDisbursementController.GetDisbursementById (Payment_Project_API) in 46.5913ms
+2025-11-02 00:29:11.550 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.GetDisbursementById (Payment_Project_API)'
+2025-11-02 00:29:11.552 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7030/api/SalaryDisbursement/1002 - 200 null application/json; charset=utf-8 90.7571ms
+2025-11-02 00:29:28.854 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7030/api/SalaryDisbursement/approve/1002 - null 0
+2025-11-02 00:29:28.860 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:29:28.861 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:29:28.864 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.ApproveSalaryDisbursement (Payment_Project_API)'
+2025-11-02 00:29:28.912 +05:30 [INF] Route matched with {action = "ApproveSalaryDisbursement", controller = "SalaryDisbursement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ApproveSalaryDisbursement(Int32) on controller Payment_Project_API.Controllers.SalaryDisbursementController (Payment_Project_API).
+2025-11-02 00:29:28.926 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[SalaryDisbursementId], [t0].[AllEmployees], [t0].[ClientId], [t0].[DisbursementDate], [t0].[DisbursementStatusId], [t0].[TotalAmount], [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId0], [t0].[CreatedAt], [t0].[TransactionIds], [t1].[DetailId], [t1].[Amount], [t1].[EmployeeId], [t1].[SalaryDisbursementId], [t1].[Success], [t1].[TransactionId], [t1].[EmployeeId0], [t1].[AccountNumber], [t1].[BankName], [t1].[ClientId], [t1].[EmployeeName], [t1].[IFSC], [t1].[IsActive], [t1].[Salary], [t1].[SalaryDisbursementId0], [e0].[EmployeeId], [e0].[AccountNumber], [e0].[BankName], [e0].[ClientId], [e0].[EmployeeName], [e0].[IFSC], [e0].[IsActive], [e0].[Salary], [e0].[SalaryDisbursementId]
+FROM (
+    SELECT TOP(1) [s].[SalaryDisbursementId], [s].[AllEmployees], [s].[ClientId], [s].[DisbursementDate], [s].[DisbursementStatusId], [s].[TotalAmount], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId] AS [ClientId0], [a].[CreatedAt], [a].[TransactionIds]
+    FROM [SalaryDisbursements] AS [s]
+    INNER JOIN (
+        SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+        FROM [Users] AS [u]
+        WHERE [u].[Discriminator] = N'ClientUser'
+    ) AS [t] ON [s].[ClientId] = [t].[UserId]
+    LEFT JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[AccountId]
+    WHERE [s].[SalaryDisbursementId] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [s0].[DetailId], [s0].[Amount], [s0].[EmployeeId], [s0].[SalaryDisbursementId], [s0].[Success], [s0].[TransactionId], [e].[EmployeeId] AS [EmployeeId0], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId] AS [SalaryDisbursementId0]
+    FROM [SalaryDisbursementDetails] AS [s0]
+    INNER JOIN [Employees] AS [e] ON [s0].[EmployeeId] = [e].[EmployeeId]
+) AS [t1] ON [t0].[SalaryDisbursementId] = [t1].[SalaryDisbursementId]
+LEFT JOIN [Employees] AS [e0] ON [t0].[SalaryDisbursementId] = [e0].[SalaryDisbursementId]
+ORDER BY [t0].[SalaryDisbursementId], [t0].[UserId], [t0].[AccountId0], [t1].[DetailId], [t1].[EmployeeId0]
+2025-11-02 00:29:28.945 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a0].[StatusId], [a0].[Status], [a1].[TypeId], [a1].[Type], [b].[BankId], [b].[BankName], [b].[CreatedAt], [b].[IFSC], [b].[IsActive]
+FROM [Accounts] AS [a]
+LEFT JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [a].[ClientId] = [t].[UserId]
+INNER JOIN [AccountStatuses] AS [a0] ON [a].[AccountStatusId] = [a0].[StatusId]
+INNER JOIN [AccountTypes] AS [a1] ON [a].[AccountTypeId] = [a1].[TypeId]
+INNER JOIN [Banks] AS [b] ON [a].[BankId] = [b].[BankId]
+WHERE [a].[AccountId] = @__id_0
+2025-11-02 00:29:29.240 +05:30 [INF] Executed action Payment_Project_API.Controllers.SalaryDisbursementController.ApproveSalaryDisbursement (Payment_Project_API) in 322.8558ms
+2025-11-02 00:29:29.244 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.ApproveSalaryDisbursement (Payment_Project_API)'
+2025-11-02 00:29:29.394 +05:30 [ERR] Unhandled exception: insufficient Balance!
+System.Exception: insufficient Balance!
+   at Payment_Project_API.Services.SalaryDisbursementService.ApproveSalaryDisbursement(Int32 disbursementId) in D:\CapstoneProject_BankingApp\code\Payment_Project_API\Services\SalaryDisbursementService.cs:line 129
+   at Payment_Project_API.Controllers.SalaryDisbursementController.ApproveSalaryDisbursement(Int32 id) in D:\CapstoneProject_BankingApp\code\Payment_Project_API\Controllers\SalaryDisbursementController.cs:line 126
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in D:\CapstoneProject_BankingApp\code\Payment_Project_API\Exception\GlobalExceptionHandler.cs:line 18
+2025-11-02 00:29:29.405 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7030/api/SalaryDisbursement/approve/1002 - 500 null application/json; charset=utf-8 551.0481ms
+2025-11-02 00:30:53.338 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Auth/Login - application/json 50
+2025-11-02 00:30:53.351 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:30:53.352 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:30:53.355 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:30:53.357 +05:30 [INF] Route matched with {action = "PostLogin", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PostLogin(Payment_Project_API.DTOs.LoginDTO) on controller Payment_Project_API.Controllers.AuthController (Payment_Project_API).
+2025-11-02 00:30:53.361 +05:30 [INF] Login Started
+2025-11-02 00:30:53.370 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__usr_UserName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [r].[RoleId], [r].[Role]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[UserRoleId] = [r].[RoleId]
+WHERE [u].[UserName] = @__usr_UserName_0
+2025-11-02 00:30:53.530 +05:30 [INF] Login Sucessfull
+2025-11-02 00:30:53.532 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.LoginResponseDTO'.
+2025-11-02 00:30:53.535 +05:30 [INF] Executed action Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API) in 174.2302ms
+2025-11-02 00:30:53.544 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:30:53.546 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Auth/Login - 200 null application/json; charset=utf-8 207.9455ms
+2025-11-02 00:33:03.701 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/SalaryDisbursement - application/json 86
+2025-11-02 00:33:03.715 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:33:03.716 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:33:03.718 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.CreateDisbursement (Payment_Project_API)'
+2025-11-02 00:33:03.720 +05:30 [INF] Route matched with {action = "CreateDisbursement", controller = "SalaryDisbursement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDisbursement(Payment_Project_API.DTOs.CreateSalaryDisbursmentDTO) on controller Payment_Project_API.Controllers.SalaryDisbursementController (Payment_Project_API).
+2025-11-02 00:33:03.753 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified]
+FROM [Employees] AS [e]
+INNER JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [e].[ClientId] = [t].[UserId]
+WHERE [e].[EmployeeId] = @__id_0
+2025-11-02 00:33:03.761 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified]
+FROM [Employees] AS [e]
+INNER JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [e].[ClientId] = [t].[UserId]
+WHERE [e].[EmployeeId] = @__id_0
+2025-11-02 00:33:03.775 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified]
+FROM [Employees] AS [e]
+INNER JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [e].[ClientId] = [t].[UserId]
+WHERE [e].[EmployeeId] = @__id_0
+2025-11-02 00:33:03.781 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[EmployeeId], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified]
+FROM [Employees] AS [e]
+INNER JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [e].[ClientId] = [t].[UserId]
+WHERE [e].[EmployeeId] = @__id_0
+2025-11-02 00:33:03.791 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Boolean), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [SalaryDisbursements] ([AllEmployees], [ClientId], [DisbursementDate], [DisbursementStatusId], [TotalAmount])
+OUTPUT INSERTED.[SalaryDisbursementId]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-02 00:33:03.800 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p6='?' (DbType = Int32), @p5='?' (DbType = Int32), @p8='?' (DbType = Int32), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p5
+OUTPUT 1
+WHERE [EmployeeId] = @p6;
+UPDATE [Employees] SET [SalaryDisbursementId] = @p7
+OUTPUT 1
+WHERE [EmployeeId] = @p8;
+2025-11-02 00:33:03.819 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[SalaryDisbursementId], [t0].[AllEmployees], [t0].[ClientId], [t0].[DisbursementDate], [t0].[DisbursementStatusId], [t0].[TotalAmount], [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId0], [t0].[CreatedAt], [t0].[TransactionIds], [t1].[DetailId], [t1].[Amount], [t1].[EmployeeId], [t1].[SalaryDisbursementId], [t1].[Success], [t1].[TransactionId], [t1].[EmployeeId0], [t1].[AccountNumber], [t1].[BankName], [t1].[ClientId], [t1].[EmployeeName], [t1].[IFSC], [t1].[IsActive], [t1].[Salary], [t1].[SalaryDisbursementId0], [e0].[EmployeeId], [e0].[AccountNumber], [e0].[BankName], [e0].[ClientId], [e0].[EmployeeName], [e0].[IFSC], [e0].[IsActive], [e0].[Salary], [e0].[SalaryDisbursementId]
+FROM (
+    SELECT TOP(1) [s].[SalaryDisbursementId], [s].[AllEmployees], [s].[ClientId], [s].[DisbursementDate], [s].[DisbursementStatusId], [s].[TotalAmount], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId] AS [ClientId0], [a].[CreatedAt], [a].[TransactionIds]
+    FROM [SalaryDisbursements] AS [s]
+    INNER JOIN (
+        SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+        FROM [Users] AS [u]
+        WHERE [u].[Discriminator] = N'ClientUser'
+    ) AS [t] ON [s].[ClientId] = [t].[UserId]
+    LEFT JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[AccountId]
+    WHERE [s].[SalaryDisbursementId] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [s0].[DetailId], [s0].[Amount], [s0].[EmployeeId], [s0].[SalaryDisbursementId], [s0].[Success], [s0].[TransactionId], [e].[EmployeeId] AS [EmployeeId0], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId] AS [SalaryDisbursementId0]
+    FROM [SalaryDisbursementDetails] AS [s0]
+    INNER JOIN [Employees] AS [e] ON [s0].[EmployeeId] = [e].[EmployeeId]
+) AS [t1] ON [t0].[SalaryDisbursementId] = [t1].[SalaryDisbursementId]
+LEFT JOIN [Employees] AS [e0] ON [t0].[SalaryDisbursementId] = [e0].[SalaryDisbursementId]
+ORDER BY [t0].[SalaryDisbursementId], [t0].[UserId], [t0].[AccountId0], [t1].[DetailId], [t1].[EmployeeId0]
+2025-11-02 00:33:03.827 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__id_0
+2025-11-02 00:33:06.103 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.Models.SalaryDisbursement'.
+2025-11-02 00:33:06.108 +05:30 [INF] Executed action Payment_Project_API.Controllers.SalaryDisbursementController.CreateDisbursement (Payment_Project_API) in 2383.3677ms
+2025-11-02 00:33:06.118 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.CreateDisbursement (Payment_Project_API)'
+2025-11-02 00:33:06.120 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/SalaryDisbursement - 200 null application/json; charset=utf-8 2419.0638ms
+2025-11-02 00:33:54.320 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7030/api/Auth/Login - application/json 54
+2025-11-02 00:33:54.326 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:33:54.328 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:33:54.329 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:33:54.337 +05:30 [INF] Route matched with {action = "PostLogin", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PostLogin(Payment_Project_API.DTOs.LoginDTO) on controller Payment_Project_API.Controllers.AuthController (Payment_Project_API).
+2025-11-02 00:33:54.342 +05:30 [INF] Login Started
+2025-11-02 00:33:54.352 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__usr_UserName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified], [r].[RoleId], [r].[Role]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[UserRoleId] = [r].[RoleId]
+WHERE [u].[UserName] = @__usr_UserName_0
+2025-11-02 00:33:54.492 +05:30 [INF] Login Sucessfull
+2025-11-02 00:33:54.494 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.LoginResponseDTO'.
+2025-11-02 00:33:54.496 +05:30 [INF] Executed action Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API) in 155.5736ms
+2025-11-02 00:33:54.506 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.AuthController.PostLogin (Payment_Project_API)'
+2025-11-02 00:33:54.511 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7030/api/Auth/Login - 200 null application/json; charset=utf-8 190.639ms
+2025-11-02 00:34:28.153 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7030/api/SalaryDisbursement/approve/1003 - null 0
+2025-11-02 00:34:28.165 +05:30 [INF] CORS policy execution failed.
+2025-11-02 00:34:28.166 +05:30 [INF] Request origin https://localhost:7030 does not have permission to access the resource.
+2025-11-02 00:34:28.180 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.ApproveSalaryDisbursement (Payment_Project_API)'
+2025-11-02 00:34:28.182 +05:30 [INF] Route matched with {action = "ApproveSalaryDisbursement", controller = "SalaryDisbursement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ApproveSalaryDisbursement(Int32) on controller Payment_Project_API.Controllers.SalaryDisbursementController (Payment_Project_API).
+2025-11-02 00:34:28.205 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[SalaryDisbursementId], [t0].[AllEmployees], [t0].[ClientId], [t0].[DisbursementDate], [t0].[DisbursementStatusId], [t0].[TotalAmount], [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId0], [t0].[CreatedAt], [t0].[TransactionIds], [t1].[DetailId], [t1].[Amount], [t1].[EmployeeId], [t1].[SalaryDisbursementId], [t1].[Success], [t1].[TransactionId], [t1].[EmployeeId0], [t1].[AccountNumber], [t1].[BankName], [t1].[ClientId], [t1].[EmployeeName], [t1].[IFSC], [t1].[IsActive], [t1].[Salary], [t1].[SalaryDisbursementId0], [e0].[EmployeeId], [e0].[AccountNumber], [e0].[BankName], [e0].[ClientId], [e0].[EmployeeName], [e0].[IFSC], [e0].[IsActive], [e0].[Salary], [e0].[SalaryDisbursementId]
+FROM (
+    SELECT TOP(1) [s].[SalaryDisbursementId], [s].[AllEmployees], [s].[ClientId], [s].[DisbursementDate], [s].[DisbursementStatusId], [s].[TotalAmount], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId] AS [ClientId0], [a].[CreatedAt], [a].[TransactionIds]
+    FROM [SalaryDisbursements] AS [s]
+    INNER JOIN (
+        SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+        FROM [Users] AS [u]
+        WHERE [u].[Discriminator] = N'ClientUser'
+    ) AS [t] ON [s].[ClientId] = [t].[UserId]
+    LEFT JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[AccountId]
+    WHERE [s].[SalaryDisbursementId] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [s0].[DetailId], [s0].[Amount], [s0].[EmployeeId], [s0].[SalaryDisbursementId], [s0].[Success], [s0].[TransactionId], [e].[EmployeeId] AS [EmployeeId0], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId] AS [SalaryDisbursementId0]
+    FROM [SalaryDisbursementDetails] AS [s0]
+    INNER JOIN [Employees] AS [e] ON [s0].[EmployeeId] = [e].[EmployeeId]
+) AS [t1] ON [t0].[SalaryDisbursementId] = [t1].[SalaryDisbursementId]
+LEFT JOIN [Employees] AS [e0] ON [t0].[SalaryDisbursementId] = [e0].[SalaryDisbursementId]
+ORDER BY [t0].[SalaryDisbursementId], [t0].[UserId], [t0].[AccountId0], [t1].[DetailId], [t1].[EmployeeId0]
+2025-11-02 00:34:28.221 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a0].[StatusId], [a0].[Status], [a1].[TypeId], [a1].[Type], [b].[BankId], [b].[BankName], [b].[CreatedAt], [b].[IFSC], [b].[IsActive]
+FROM [Accounts] AS [a]
+LEFT JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [a].[ClientId] = [t].[UserId]
+INNER JOIN [AccountStatuses] AS [a0] ON [a].[AccountStatusId] = [a0].[StatusId]
+INNER JOIN [AccountTypes] AS [a1] ON [a].[AccountTypeId] = [a1].[TypeId]
+INNER JOIN [Banks] AS [b] ON [a].[BankId] = [b].[BankId]
+WHERE [a].[AccountId] = @__id_0
+2025-11-02 00:34:28.237 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__accountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [b].[BankId], [b].[BankName], [b].[CreatedAt], [b].[IFSC], [b].[IsActive], [a0].[TypeId], [a0].[Type], [a1].[StatusId], [a1].[Status]
+FROM [Accounts] AS [a]
+LEFT JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [a].[ClientId] = [t].[UserId]
+INNER JOIN [Banks] AS [b] ON [a].[BankId] = [b].[BankId]
+INNER JOIN [AccountTypes] AS [a0] ON [a].[AccountTypeId] = [a0].[TypeId]
+INNER JOIN [AccountStatuses] AS [a1] ON [a].[AccountStatusId] = [a1].[StatusId]
+WHERE [a].[AccountNumber] = @__accountNumber_0
+2025-11-02 00:34:28.246 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a0].[StatusId], [a0].[Status], [a1].[TypeId], [a1].[Type], [b].[BankId], [b].[BankName], [b].[CreatedAt], [b].[IFSC], [b].[IsActive]
+FROM [Accounts] AS [a]
+LEFT JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [a].[ClientId] = [t].[UserId]
+INNER JOIN [AccountStatuses] AS [a0] ON [a].[AccountStatusId] = [a0].[StatusId]
+INNER JOIN [AccountTypes] AS [a1] ON [a].[AccountTypeId] = [a1].[TypeId]
+INNER JOIN [Banks] AS [b] ON [a].[BankId] = [b].[BankId]
+WHERE [a].[AccountId] = @__id_0
+2025-11-02 00:34:28.260 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Double), @p2='?' (DbType = Int32), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime2), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Accounts] SET [Balance] = @p0
+OUTPUT 1
+WHERE [AccountId] = @p1;
+INSERT INTO [Transactions] ([AccountId], [Amount], [CreatedAt], [PaymentId], [SalaryDisbursementId], [ToFrom], [TransactionTypeId])
+OUTPUT INSERTED.[TransactionId]
+VALUES (@p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-11-02 00:34:28.269 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a0].[StatusId], [a0].[Status], [a1].[TypeId], [a1].[Type], [b].[BankId], [b].[BankName], [b].[CreatedAt], [b].[IFSC], [b].[IsActive]
+FROM [Accounts] AS [a]
+LEFT JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [a].[ClientId] = [t].[UserId]
+INNER JOIN [AccountStatuses] AS [a0] ON [a].[AccountStatusId] = [a0].[StatusId]
+INNER JOIN [AccountTypes] AS [a1] ON [a].[AccountTypeId] = [a1].[TypeId]
+INNER JOIN [Banks] AS [b] ON [a].[BankId] = [b].[BankId]
+WHERE [a].[AccountId] = @__id_0
+2025-11-02 00:34:28.277 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__id_0
+2025-11-02 00:34:32.264 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [SalaryDisbursementDetails] ([Amount], [EmployeeId], [SalaryDisbursementId], [Success], [TransactionId])
+OUTPUT INSERTED.[DetailId]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-02 00:34:32.275 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__accountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [b].[BankId], [b].[BankName], [b].[CreatedAt], [b].[IFSC], [b].[IsActive], [a0].[TypeId], [a0].[Type], [a1].[StatusId], [a1].[Status]
+FROM [Accounts] AS [a]
+LEFT JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [a].[ClientId] = [t].[UserId]
+INNER JOIN [Banks] AS [b] ON [a].[BankId] = [b].[BankId]
+INNER JOIN [AccountTypes] AS [a0] ON [a].[AccountTypeId] = [a0].[TypeId]
+INNER JOIN [AccountStatuses] AS [a1] ON [a].[AccountStatusId] = [a1].[StatusId]
+WHERE [a].[AccountNumber] = @__accountNumber_0
+2025-11-02 00:34:32.282 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a0].[StatusId], [a0].[Status], [a1].[TypeId], [a1].[Type], [b].[BankId], [b].[BankName], [b].[CreatedAt], [b].[IFSC], [b].[IsActive]
+FROM [Accounts] AS [a]
+LEFT JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [a].[ClientId] = [t].[UserId]
+INNER JOIN [AccountStatuses] AS [a0] ON [a].[AccountStatusId] = [a0].[StatusId]
+INNER JOIN [AccountTypes] AS [a1] ON [a].[AccountTypeId] = [a1].[TypeId]
+INNER JOIN [Banks] AS [b] ON [a].[BankId] = [b].[BankId]
+WHERE [a].[AccountId] = @__id_0
+2025-11-02 00:34:32.290 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Double), @p2='?' (DbType = Int32), @p3='?' (DbType = Double), @p4='?' (DbType = DateTime2), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Accounts] SET [Balance] = @p0
+OUTPUT 1
+WHERE [AccountId] = @p1;
+INSERT INTO [Transactions] ([AccountId], [Amount], [CreatedAt], [PaymentId], [SalaryDisbursementId], [ToFrom], [TransactionTypeId])
+OUTPUT INSERTED.[TransactionId]
+VALUES (@p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2025-11-02 00:34:32.297 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a0].[StatusId], [a0].[Status], [a1].[TypeId], [a1].[Type], [b].[BankId], [b].[BankName], [b].[CreatedAt], [b].[IFSC], [b].[IsActive]
+FROM [Accounts] AS [a]
+LEFT JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [a].[ClientId] = [t].[UserId]
+INNER JOIN [AccountStatuses] AS [a0] ON [a].[AccountStatusId] = [a0].[StatusId]
+INNER JOIN [AccountTypes] AS [a1] ON [a].[AccountTypeId] = [a1].[TypeId]
+INNER JOIN [Banks] AS [b] ON [a].[BankId] = [b].[BankId]
+WHERE [a].[AccountId] = @__id_0
+2025-11-02 00:34:32.303 +05:30 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[Branch], [u].[RefferalCode], [u].[isActive], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__id_0
+2025-11-02 00:34:34.094 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Boolean), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [SalaryDisbursementDetails] ([Amount], [EmployeeId], [SalaryDisbursementId], [Success], [TransactionId])
+OUTPUT INSERTED.[DetailId]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-11-02 00:34:34.111 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[SalaryDisbursementId], [t0].[AllEmployees], [t0].[ClientId], [t0].[DisbursementDate], [t0].[DisbursementStatusId], [t0].[TotalAmount], [t0].[UserId], [t0].[BankId], [t0].[Discriminator], [t0].[Password], [t0].[UserEmail], [t0].[UserFullName], [t0].[UserJoiningDate], [t0].[UserName], [t0].[UserPhone], [t0].[UserRoleId], [t0].[AccountId], [t0].[Address], [t0].[BankUserId], [t0].[DateOfBirth], [t0].[KycVierified], [t0].[AccountId0], [t0].[AccountNumber], [t0].[AccountStatusId], [t0].[AccountTypeId], [t0].[Balance], [t0].[BankId0], [t0].[ClientId0], [t0].[CreatedAt], [t0].[TransactionIds], [t1].[DetailId], [t1].[Amount], [t1].[EmployeeId], [t1].[SalaryDisbursementId], [t1].[Success], [t1].[TransactionId], [t1].[EmployeeId0], [t1].[AccountNumber], [t1].[BankName], [t1].[ClientId], [t1].[EmployeeName], [t1].[IFSC], [t1].[IsActive], [t1].[Salary], [t1].[SalaryDisbursementId0], [e0].[EmployeeId], [e0].[AccountNumber], [e0].[BankName], [e0].[ClientId], [e0].[EmployeeName], [e0].[IFSC], [e0].[IsActive], [e0].[Salary], [e0].[SalaryDisbursementId]
+FROM (
+    SELECT TOP(1) [s].[SalaryDisbursementId], [s].[AllEmployees], [s].[ClientId], [s].[DisbursementDate], [s].[DisbursementStatusId], [s].[TotalAmount], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a].[AccountId] AS [AccountId0], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId] AS [BankId0], [a].[ClientId] AS [ClientId0], [a].[CreatedAt], [a].[TransactionIds]
+    FROM [SalaryDisbursements] AS [s]
+    INNER JOIN (
+        SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+        FROM [Users] AS [u]
+        WHERE [u].[Discriminator] = N'ClientUser'
+    ) AS [t] ON [s].[ClientId] = [t].[UserId]
+    LEFT JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[AccountId]
+    WHERE [s].[SalaryDisbursementId] = @__id_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [s0].[DetailId], [s0].[Amount], [s0].[EmployeeId], [s0].[SalaryDisbursementId], [s0].[Success], [s0].[TransactionId], [e].[EmployeeId] AS [EmployeeId0], [e].[AccountNumber], [e].[BankName], [e].[ClientId], [e].[EmployeeName], [e].[IFSC], [e].[IsActive], [e].[Salary], [e].[SalaryDisbursementId] AS [SalaryDisbursementId0]
+    FROM [SalaryDisbursementDetails] AS [s0]
+    INNER JOIN [Employees] AS [e] ON [s0].[EmployeeId] = [e].[EmployeeId]
+) AS [t1] ON [t0].[SalaryDisbursementId] = [t1].[SalaryDisbursementId]
+LEFT JOIN [Employees] AS [e0] ON [t0].[SalaryDisbursementId] = [e0].[SalaryDisbursementId]
+ORDER BY [t0].[SalaryDisbursementId], [t0].[UserId], [t0].[AccountId0], [t1].[DetailId], [t1].[EmployeeId0]
+2025-11-02 00:34:34.123 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [SalaryDisbursements] SET [DisbursementStatusId] = @p0
+OUTPUT 1
+WHERE [SalaryDisbursementId] = @p1;
+2025-11-02 00:34:34.128 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.SalaryResponseDTO'.
+2025-11-02 00:34:34.153 +05:30 [INF] Executed action Payment_Project_API.Controllers.SalaryDisbursementController.ApproveSalaryDisbursement (Payment_Project_API) in 5967.6165ms
+2025-11-02 00:34:34.155 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.SalaryDisbursementController.ApproveSalaryDisbursement (Payment_Project_API)'
+2025-11-02 00:34:34.157 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7030/api/SalaryDisbursement/approve/1003 - 200 null application/json; charset=utf-8 6004.9584ms
+2025-11-02 00:36:19.829 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7030/api/Account/3 - null null
+2025-11-02 00:36:19.841 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.AccountController.GetAccountById (Payment_Project_API)'
+2025-11-02 00:36:19.849 +05:30 [INF] Route matched with {action = "GetAccountById", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAccountById(Int32) on controller Payment_Project_API.Controllers.AccountController (Payment_Project_API).
+2025-11-02 00:36:19.855 +05:30 [INF] GetAccountById started
+2025-11-02 00:36:19.868 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [t].[UserId], [t].[BankId], [t].[Discriminator], [t].[Password], [t].[UserEmail], [t].[UserFullName], [t].[UserJoiningDate], [t].[UserName], [t].[UserPhone], [t].[UserRoleId], [t].[AccountId], [t].[Address], [t].[BankUserId], [t].[DateOfBirth], [t].[KycVierified], [a0].[StatusId], [a0].[Status], [a1].[TypeId], [a1].[Type], [b].[BankId], [b].[BankName], [b].[CreatedAt], [b].[IFSC], [b].[IsActive]
+FROM [Accounts] AS [a]
+LEFT JOIN (
+    SELECT [u].[UserId], [u].[BankId], [u].[Discriminator], [u].[Password], [u].[UserEmail], [u].[UserFullName], [u].[UserJoiningDate], [u].[UserName], [u].[UserPhone], [u].[UserRoleId], [u].[AccountId], [u].[Address], [u].[BankUserId], [u].[DateOfBirth], [u].[KycVierified]
+    FROM [Users] AS [u]
+    WHERE [u].[Discriminator] = N'ClientUser'
+) AS [t] ON [a].[ClientId] = [t].[UserId]
+INNER JOIN [AccountStatuses] AS [a0] ON [a].[AccountStatusId] = [a0].[StatusId]
+INNER JOIN [AccountTypes] AS [a1] ON [a].[AccountTypeId] = [a1].[TypeId]
+INNER JOIN [Banks] AS [b] ON [a].[BankId] = [b].[BankId]
+WHERE [a].[AccountId] = @__id_0
+2025-11-02 00:36:19.873 +05:30 [INF] GetAccountByID succeeded.
+2025-11-02 00:36:19.875 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.DTOs.AccountResponseDTO'.
+2025-11-02 00:36:19.879 +05:30 [INF] Executed action Payment_Project_API.Controllers.AccountController.GetAccountById (Payment_Project_API) in 26.0026ms
+2025-11-02 00:36:19.888 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.AccountController.GetAccountById (Payment_Project_API)'
+2025-11-02 00:36:19.890 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7030/api/Account/3 - 200 null application/json; charset=utf-8 62.1866ms
+2025-11-02 00:38:16.017 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7030/api/Transaction/1005 - null null
+2025-11-02 00:38:16.034 +05:30 [INF] Executing endpoint 'Payment_Project_API.Controllers.TransactionController.GetTransactionById (Payment_Project_API)'
+2025-11-02 00:38:16.041 +05:30 [INF] Route matched with {action = "GetTransactionById", controller = "Transaction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTransactionById(Int32) on controller Payment_Project_API.Controllers.TransactionController (Payment_Project_API).
+2025-11-02 00:38:16.078 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[TransactionId], [t].[AccountId], [t].[Amount], [t].[CreatedAt], [t].[PaymentId], [t].[SalaryDisbursementId], [t].[ToFrom], [t].[TransactionTypeId], [a].[AccountId], [a].[AccountNumber], [a].[AccountStatusId], [a].[AccountTypeId], [a].[Balance], [a].[BankId], [a].[ClientId], [a].[CreatedAt], [a].[TransactionIds], [p].[PaymentId], [p].[ActionAt], [p].[Amount], [p].[CreatedAt], [p].[PayeeAccountNumber], [p].[PayerAccountId], [p].[PaymentStatusId], [t0].[TypeId], [t0].[Type]
+FROM [Transactions] AS [t]
+INNER JOIN [Accounts] AS [a] ON [t].[AccountId] = [a].[AccountId]
+LEFT JOIN [Payments] AS [p] ON [t].[PaymentId] = [p].[PaymentId]
+INNER JOIN [TransactionTypes] AS [t0] ON [t].[TransactionTypeId] = [t0].[TypeId]
+WHERE [t].[TransactionId] = @__id_0
+2025-11-02 00:38:16.090 +05:30 [INF] Executing OkObjectResult, writing value of type 'Payment_Project_API.Models.Transaction'.
+2025-11-02 00:38:16.094 +05:30 [INF] Executed action Payment_Project_API.Controllers.TransactionController.GetTransactionById (Payment_Project_API) in 46.344ms
+2025-11-02 00:38:16.104 +05:30 [INF] Executed endpoint 'Payment_Project_API.Controllers.TransactionController.GetTransactionById (Payment_Project_API)'
+2025-11-02 00:38:16.107 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7030/api/Transaction/1005 - 200 null application/json; charset=utf-8 89.1834ms
