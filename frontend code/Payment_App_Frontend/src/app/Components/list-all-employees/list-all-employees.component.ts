@@ -13,7 +13,7 @@ import { DateFilterComponent } from '../Filters/date-filter/date-filter.componen
 import { RejectModalComponent } from '../Shared/reject-modal/reject-modal.component';
 import { Router, RouterLink } from '@angular/router';
 import { SalaryDisbursementService } from '../../Services/salary-disbursement.service';
-import { EmployeeUploadComponent } from '../Youbraj/employee-upload/employee-upload.component';
+import { EmployeeUploadComponent } from '../extra-components/employee-upload/employee-upload.component';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { BooleanFilterComponent } from '../Filters/boolean-filter/boolean-filter.component';

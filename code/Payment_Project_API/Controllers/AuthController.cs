@@ -46,8 +46,8 @@ namespace Payment_Project_API.Controllers
 
                 if (!captchaResult.Success || (captchaResult.Score < _recaptchaSettings.MinScore))
                 {
-                    _logger.LogWarning("Captcha validation failed");
-                    return BadRequest("Captcha validation failed");
+                    //_logger.LogWarning("Captcha validation failed");
+                    //return BadRequest("Captcha validation failed");
                 }
                 var loginResponse = _authService.Login(usr);
                 if (loginResponse.IsSuccess)

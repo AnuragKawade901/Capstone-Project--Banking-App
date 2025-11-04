@@ -20,7 +20,7 @@ export class DocumentUploadComponent implements OnInit {
   uploadForm: FormGroup;
   proofTypes: ProofType[] = [];
   clientId!: number;
-  documentFields = ['Document1', 'Document2', 'Document3', 'Document4'];
+  documentFields = ['Document1'];
   previewUrls: { [key: string]: string | ArrayBuffer | null } = {};
 
   constructor(

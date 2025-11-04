@@ -1,24 +1,65 @@
 .sidebar {
   font-size: 13px;
+  background: #172634; /* Deep, dark teal background */
+  color: #A7F7CE;
+  padding: 2rem 0.7rem;
+  min-height: 100vh;
+  border-right: 2px solid #23c9ae;
 }
 
 .nav-link {
-  color: #333;
-  padding: 6px 10px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+  color: #A7F7CE; /* Light turquoise for links */
+  background: transparent;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border: 2px solid transparent;
+  transition: background 0.20s, color 0.20s, border 0.18s;
+  font-size: 15px;
 }
 
-.nav-link:hover {
-  background-color: #f2f2f2;
+.nav-link:hover, .nav-link:focus {
+  background-color: #23c9ae;
+  color: #172634;
+  border-color: #23c9ae;
+  outline: none;
 }
 
 .nav-link.active {
-  background-color: #e7e8fc;
-  font-weight: 600;
-  color: #000;
+  background-color: #FF8559;
+  font-weight: 700;
+  color: #fff;
+  border-color: #FF8559;
 }
 
 .nav-link i {
-  font-size: 16px;
+  font-size: 18px;
+  color: #23c9ae;
+  transition: color 0.20s;
+}
+
+.nav-link:hover i,
+.nav-link.active i {
+  color: #fff;
+}
+
+.sidebar .fw-semibold,
+.sidebar .small {
+  color: #fff !important;
+  letter-spacing: 0.5px;
+  font-family: 'Inter', sans-serif;
+}
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+hr, .border-top {
+  border-color: #23c9ae !important;
 }
