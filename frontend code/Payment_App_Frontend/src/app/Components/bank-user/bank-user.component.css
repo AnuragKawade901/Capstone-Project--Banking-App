@@ -1,162 +1,63 @@
-/* ---------------- Body & Container ---------------- */
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #E6FAF7; /* very light turquoise */
-  color: #172634;
-}
-
-.dashboard-container {
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
-}
-
-/* ---------------- Sidebar ---------------- */
-.dashboard-sidebar {
-  width: 320px;
-  flex-shrink: 0;
-  background: #172634; /* dark teal */
-  padding: 2rem 1rem;
-  border-right: 2px solid #23c9ae;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dashboard-actions {
-  width: 100%;
-  margin-top: 2rem;
-}
-
-.btn-dashboard {
-  width: 100%;
-  text-align: left;
-  height: 7%;
-  padding: 0.85rem 1.1rem;
-  margin-bottom: 1rem;
-  border-radius: 12px;
-  background: #00bcc2; /* turquoise */
+---------------- Client Buttons ----------------
+.doc-table button {
+  background: #7a5af8;
+  color: #fff;
   border: none;
-  color: #fff;
-  font-size: 1.12rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.26s cubic-bezier(.42,0,.58,1);
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  border-radius: 50px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin: 0 2px;
 }
 
-.btn-dashboard i {
-  font-size: 1.7rem;
-  color: #fff;
-  transition: color 0.19s;
+.doc-table button:hover {
+  background: linear-gradient(135deg, #6a49e6, #7a5af8);
+  transform: translateY(-1px);
 }
 
-.btn-dashboard:hover {
-  background: #23c9ae;
-  color: #172634;
-  box-shadow: 0 5px 15px rgba(35, 201, 174, 0.13);
-}
-.btn-dashboard:hover i { color: #FF8559; }
-
-.btn-dashboard.active-btn {
-  background: #FF8559;
-  color: #fff;
-  transform: translateX(5px) scale(1.03);
-  box-shadow: 0 5px 15px rgba(255, 133, 89, 0.15);
-}
-.btn-dashboard.active-btn i { color: #fff; }
-
-/* ---------------- Main Content ---------------- */
-.dashboard-main {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 1.4rem;
-  background: #E6FAF7;
-  overflow-y: auto;
-}
-
-.account-info-simple {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+/* ---------------- Documents Table ---------------- */
+.doc-table {
   width: 100%;
-  background: transparent;
-  padding: 0;
-  gap: 1rem;
+  border-collapse: collapse;
+  background: #1f1c2f;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(122, 90, 248, 0.2);
+  margin-bottom: 2rem;
 }
 
-.info-block-simple {
-  flex: 1;
-  background: linear-gradient(98deg, #D0F8F4 65%, #A7F7CE 90%);
-  padding: 0.9rem 1.1rem;
-  border-radius: 14px;
+.doc-table th,
+.doc-table td {
+  padding: 1rem 1.2rem;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 5px 16px rgba(0,188,194,0.09);
-  border: 1.5px solid #23c9ae;
+  color: #fff;
+  border-bottom: 1px solid #3c3a4a;
 }
 
-.info-block-simple i {
-  font-size: 1.5rem;
-  color: #00bcc2;
-  margin-bottom: 0.3rem;
-  display: block;
-  transition: transform 0.3s, color 0.3s;
-}
-
-.info-title {
-  font-size: 0.82rem;
-  color: #23c9ae;
-  margin-bottom: 0.2rem;
+.doc-table th {
+  background: #2a283b;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
+  font-size: 0.9rem;
 }
 
-.info-value {
-  font-size: 1.13rem;
-  font-weight: 700;
-  color: #172634;
+.doc-table tr:hover {
+  background: rgba(122, 90, 248, 0.1);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
 }
 
-.info-block-simple:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 10px 22px rgba(0,188,194,0.14);
-}
-.info-block-simple:hover i {
-  color: #FF8559;
-  transform: scale(1.2);
+.doc-table tbody tr:nth-child(even) {
+  background: #232030;
 }
 
-/* ---------------- Dashboard Content ---------------- */
-.dashboard-content {
-  background: linear-gradient(98deg, #F1F6F5 60%, #D0F8F4 100%);
-  flex-grow: 1;
-  border-radius: 16px;
-  box-shadow: 0 0 27px rgba(35,201,174,0.09);
-  animation: fadeIn 0.6s;
-  padding: 2rem;
-  overflow-y: auto;
+.doc-table tbody tr:nth-child(odd) {
+  background: #1f1c2f;
 }
 
-.dashboard-content h3 {
-  color: #00BCC2;
-  font-size: 1.8rem;
-  font-weight: 700;
-}
-
-.dashboard-content p {
-  color: #23c9ae;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-/* ---------------- Animations ---------------- */
-@keyframes fadeIn {
-  0% {opacity: 0; transform: translateY(20px);}
-  100% {opacity: 1; transform: translateY(0);}
+/* ---------------- No Data Text ---------------- */
+.no-data {
+  text-align: center;
+  color: #ccc;
+  margin-top: 1rem;
+  font-style: italic;
 }

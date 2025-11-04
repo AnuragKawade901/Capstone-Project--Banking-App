@@ -8,9 +8,10 @@
 
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="fw-bold mb-0">ALL BENEFICIARIES</h5>
-    <button class="btn btn-create-payment" routerLink="create">
-      <i class="bi bi-plus-lg me-2"></i> Add Beneficiary
-    </button>
+<button class="btn btn-download-pdf" routerLink="create">
+  <i class="bi bi-plus-lg me-2"></i> Add Beneficiary
+</button>
+
   </div>
   <hr>
 
@@ -21,9 +22,10 @@
         <app-name-filter (nameFilter)="onNameFilter($event)"></app-name-filter>
         <app-id-filter (idFilter)="fetchById($event)"></app-id-filter>
         <app-account-number-filter (accountFilter)="onAccountFilter($event)"></app-account-number-filter>
-        <button class="btn btn-create-payment" (click)="downloadPDF()">
-          <i class="fas fa-file-pdf"></i> Download PDF
-        </button>
+<button class="btn btn-download-pdf" (click)="downloadPDF()">
+  <i class="fas fa-file-pdf"></i> Download PDF
+</button>
+
       </div>
 
       <div class="table-wrapper bg-white rounded shadow-sm" style="overflow-x: auto;">

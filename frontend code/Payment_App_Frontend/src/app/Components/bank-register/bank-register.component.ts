@@ -47,7 +47,7 @@ export class BankRegisterComponent implements OnInit {
         this.notify.success("Bank has been registered successfully");
 
         this.loading = false; 
-        this.router.navigate(['/banks']); 
+        this.router.navigate(['/admin/banks']); 
       },
       error: () => {
         this.responseMessage = 'Failed to register bank!';

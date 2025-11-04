@@ -13,6 +13,8 @@ import { BankUser } from '../../Models/BankUser';
 import { RouterLink } from '@angular/router';
 import { LogService } from '../../Services/log.service';
 import { NotificationService } from '../../Services/notification.service';
+import { AdminViewBankComponent } from '../admin-view-bank/admin-view-bank.component';
+import { BankRegisterComponent } from '../bank-register/bank-register.component';
 
 @Component({
   selector: 'app-admin-home',

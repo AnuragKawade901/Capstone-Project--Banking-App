@@ -156,7 +156,8 @@ export const routes: Routes = [
       { path: 'home', component: AdminHomeComponent },
       { path: 'bankusers', component: AdminComponent },
       { path: 'logs', component: AdminLogsComponent },
-      { path: 'banks', component: ListPaymentComponent },
+      { path: 'banks', component: AdminViewBankComponent },
+      { path: 'abc', component: BankRegisterComponent },
       { path: 'transactions', component: TransactionComponent }
     ]
   },

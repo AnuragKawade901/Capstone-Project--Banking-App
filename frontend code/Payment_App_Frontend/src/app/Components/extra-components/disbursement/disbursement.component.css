@@ -1,72 +1,64 @@
-.table {
-  font-size: 0.92rem;
-  margin-bottom: 0;
-  background: #E6FAF7;           /* very light turquoise background */
-  color: #172634;
-  border-radius: 9px;
+body {
+  background: #a6bdcc;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
 }
 
-.table th {
-  font-weight: 600;
-  color: #00BCC2;                /* turquoise for headers */
-  background: #D0F8F4;           /* soft turquoise header background */
+/* Card summary section */
+.summary-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: none;
+  border: none;
+  padding: 18px 20px;
+  min-width: 220px;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
   white-space: nowrap;
-  border-bottom: 2px solid #23c9ae;
 }
+.summary-label {
+  color: #575a5e;
+  font-size: 1.05rem;
+  margin-bottom: 7px;
+  font-weight: 500;
+}
+.summary-value {
+  font-weight: 700;
+  font-size: 2.1em;
+  margin-top: 0;
+  line-height: 1.1;
+}
+.summary-value { color: #222d35; }
+.summary-value.pending { color: #ffae00; }
+.summary-value.approved { color: #11ad58; }
+.summary-value.declined { color: #de2525; }
 
+.table {
+  font-size: 0.85rem;
+  margin-bottom: 0;
+  background: #fff;
+  color: #333;
+  border-radius: 13px;
+  border: 1px solid #e6e6e6;
+}
+.table-responsive {
+  border-radius: 0.5rem;
+  background: none;
+}
+.table th {
+  font-weight: 500;
+  color: #555;
+  background: #fafbfc;
+  white-space: nowrap;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px 16px;
+}
 .table td {
   vertical-align: middle;
-  color: #172634;                /* dark teal for body */
-}
-
-.badge {
-  font-size: 0.72rem;
-  padding: 0.35em 0.8em;
-  background: #23c9ae;           /* bright turquoise for all-purpose badge */
-  color: #fff;
-  border-radius: 14px;
-  font-weight: 600;
-}
-
-.badge-danger,
-.badge.bg-danger {
-  background: #FF8559 !important; /* coral for danger badge */
-  color: #fff !important;
-}
-
-.btn-outline-dark {
-  font-size: 0.81rem;
-  border-radius: 2rem;
-  padding: 3px 12px;
-  border: 1.5px solid #00BCC2;
-  color: #00BCC2;
+  padding: 10px 16px;
   background: #fff;
-  transition: background 0.18s, color 0.18s, border-color 0.14s;
 }
-
-.btn-outline-dark:hover {
-  background-color: #23c9ae;
-  color: #fff;
-  border-color: #23c9ae;
-}
-
-.btn-sm {
-  font-size: 0.81rem;
-  padding: 3px 11px;
-}
-
-.btn-outline-danger {
-  border: 1.5px solid #FF8559;
-  background-color: #fff;
-  color: #FF8559;
-}
-
-.btn-outline-danger:hover {
-  background-color: #FF8559;
-  color: #fff;
-}
-
-.table td, 
+.table td,
 .table th {
   white-space: nowrap;
   overflow: hidden;
@@ -74,33 +66,108 @@
   max-width: 180px;
 }
 
-.table-responsive {
-  border-radius: 0.6rem;
+.badge {
+  font-size: 0.7rem;
+  padding: 0.35em 0.6em;
+  border-radius: 16px;
+  font-weight: 600;
+  background: #e8e8e8;
+  color: #333;
+  box-shadow: none;
+}
+.badge-status { background: #11ad58; color: #fff; }
+.badge-danger,
+.badge.bg-danger {
+  background: #de2525 !important;
+  color: #fff !important;
+}
+
+.btn-outline-dark {
+  font-size: 0.75rem;
+  border-radius: 50rem;            /* pill shape */
+  padding: 2px 10px;
+  border: 1px solid #bbb;
+  color: #333;
+  background: #fff;
+  box-shadow: none;
+  transition: background 0.18s, color 0.18s, border-color 0.14s;
+}
+.btn-outline-dark:hover {
+  background-color: #f2f2f2;      /* light grey */
+  color: #333;
+  border-color: #bbb;
+}
+
+.btn-sm {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 50rem;           /* pill shape */
+}
+
+.btn-outline-danger {
+  border: 1px solid #dc3545;
+  background-color: #fff;
+  color: #dc3545;
+  border-radius: 50rem;           /* pill shape */
+}
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
 }
 
 .btn-create-payment {
-  background-color: #00BCC2;
+  background-color: #184d57;      /* dark teal, matches login/download/pdf */
   color: #fff;
   border: none;
-  padding: 5px 17px;
+  padding: 7px 17px;
   font-weight: 600;
-  font-size: 14px;
-  border-radius: 9px;
-  transition: background-color 0.2s;
+  font-size: 0.97rem;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-create-payment:hover {
+  background-color: #133e45;
+  color: #fff;
+}
+.btn-create-payment i {
+  font-size: 1.05em;
 }
 
-.btn-create-payment:hover {
-  background-color: #FF8559;
+.btn-download-pdf {
+  background-color: #184d57;
   color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 0.97rem;
+  border-radius: 11px;
+  padding: 7px 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-download-pdf:hover {
+  background-color: #133e45;
+}
+.btn-download-pdf i {
+  font-size: 1.05em;
 }
 
 .breadcrumb a {
   text-decoration: none;
-  color: #00BCC2;
+  color: #555;        /* muted, matches card header font */
   font-weight: 500;
 }
-
 .breadcrumb a:hover {
   text-decoration: underline;
-  color: #FF8559;
+  color: #184d57;
 }
+
+/* Remove extra shadow and round everything softly for clean look */

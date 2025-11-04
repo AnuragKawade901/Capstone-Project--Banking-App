@@ -42,7 +42,9 @@
         <app-id-filter (idFilter)="onIdFilter($event)"></app-id-filter>
         <app-account-number-filter (accountFilter)="onAccountFilter($event)"></app-account-number-filter>
         <app-status-filter [statusOptions]="statusOptions" (statusFilter)="onStatusFilter($event)"></app-status-filter>
-        <button class="btn btn-create-payment" (click)="downloadPDF()">Download PDF</button>
+<button class="btn-download-pdf" (click)="downloadPDF()">
+  <i class="fas fa-file-pdf me-1"></i> Download PDF
+</button>
     </div>
 
     <!-- Clients Table -->

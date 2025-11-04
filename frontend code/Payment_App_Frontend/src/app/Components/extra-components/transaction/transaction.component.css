@@ -105,3 +105,26 @@
   text-decoration: underline;
   color: #FF8559;
 }
+
+.btn-download-pdf {
+  background-color: #184d57;    /* Matches Login/Download PDF style */
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 0.97rem;
+  border-radius: 11px;
+  padding: 7px 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-download-pdf:hover {
+  background-color: #133e45;
+}
+.btn-download-pdf i {
+  font-size: 1.05em;
+}
+

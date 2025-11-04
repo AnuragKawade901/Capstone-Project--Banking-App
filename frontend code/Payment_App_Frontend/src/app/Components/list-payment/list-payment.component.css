@@ -1,39 +1,66 @@
+body {
+  background: #e7f3fa;                /* soft background for contrast */
+}
+
+/* Stats Card */
+.stat-card {
+  background: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgb(35 201 174 / 8%);
+  border: 1.5px solid #e6faf7;
+  min-width: 160px;
+  margin-bottom: 8px;
+}
+
+/* Table & Table Headings */
 .table {
   font-size: 0.92rem;
   margin-bottom: 0;
-  background: #E6FAF7;           /* very light turquoise */
+  background: #E6FAF7;
   color: #172634;
   border-radius: 9px;
 }
-
 .table th {
   font-weight: 600;
-  color: #00BCC2;                /* turquoise header text */
-  background: #D0F8F4;           /* soft turquoise background */
+  color: #00BCC2;
+  background: #D0F8F4;
   white-space: nowrap;
   border-bottom: 2px solid #23c9ae;
 }
-
 .table td {
   vertical-align: middle;
   color: #172634;
 }
+.table td,
+.table th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+.table-responsive, .table-wrapper {
+  border-radius: 0.6rem;
+  box-shadow: 0 2px 12px rgba(35,201,174,0.09);
+}
 
+/* Badge Styles */
 .badge {
   font-size: 0.72rem;
   padding: 0.35em 0.7em;
-  background: #23c9ae;           /* bright turquoise badge */
+  background: #23c9ae;
   color: #fff;
   border-radius: 14px;
   font-weight: 600;
+  border: none;
 }
-
 .badge-danger,
 .badge.bg-danger {
-  background: #FF8559 !important;  /* coral for danger */
+  background: #FF8559 !important;
   color: #fff !important;
 }
 
+/* Button Styles */
 .btn-outline-dark {
   font-size: 0.81rem;
   border-radius: 2rem;
@@ -43,41 +70,24 @@
   background: #fff;
   transition: background 0.18s, color 0.18s, border-color 0.14s;
 }
-
 .btn-outline-dark:hover {
   background-color: #23c9ae;
   color: #fff;
   border-color: #23c9ae;
 }
-
 .btn-sm {
   font-size: 0.81rem;
   padding: 3px 11px;
 }
-
 .btn-outline-danger {
   border: 1.5px solid #FF8559;
   background-color: #fff;
   color: #FF8559;
 }
-
 .btn-outline-danger:hover {
   background-color: #FF8559;
   color: #fff;
 }
-
-.table td,
-.table th {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 180px;
-}
-
-.table-responsive {
-  border-radius: 0.6rem;
-}
-
 .btn-create-payment {
   background-color: #00BCC2;
   color: #fff;
@@ -88,19 +98,56 @@
   border-radius: 9px;
   transition: background-color 0.2s;
 }
-
 .btn-create-payment:hover {
   background-color: #FF8559;
   color: #fff;
 }
+.btn-success {
+  background-color: #23c9ae;
+  border-color: #23c9ae;
+  font-weight: 600;
+  color: #fff;
+}
+.btn-success:hover {
+  background-color: #00BCC2;
+  border-color: #00BCC2;
+}
 
+/* Breadcrumb styles */
 .breadcrumb a {
   text-decoration: none;
   color: #00BCC2;
   font-weight: 500;
 }
-
 .breadcrumb a:hover {
   text-decoration: underline;
   color: #FF8559;
+}
+
+/* Shadow cards and wrappers */
+.card, .table-wrapper, .table-responsive {
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 6px rgb(35 201 174 / 8%);
+}
+
+.btn-download-pdf {
+  background-color: #184d57;    /* Matches login/Download PDF color */
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 0.97rem;
+  border-radius: 11px;
+  padding: 7px 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-download-pdf:hover {
+  background-color: #133e45;
+}
+.btn-download-pdf i {
+  font-size: 1.05em;
 }

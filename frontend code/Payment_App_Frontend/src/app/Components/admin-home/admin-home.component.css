@@ -1,91 +1,41 @@
-.mt-4.px-3.w-100.glass-container {
-  background: rgba(32, 178, 170, 0.15); /* Turquoise with transparency */
-  backdrop-filter: blur(12px);
-  border-radius: 25px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0, 191, 165, 0.3);
-  border: 1px solid rgba(0, 191, 165, 0.25);
-  color: #004d40; /* Dark turquoise text */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
- 
-/* Breadcrumb glass effect */
+/* Main breadcrumb container bar */
 .breadcrumb-glass {
-  background-color: rgba(0, 191, 165, 0.2);
-  border-radius: 12px;
-  padding: 12px 20px;
-  border: 1.5px solid rgba(0, 191, 165, 0.4);
-  margin-bottom: 30px;
+  background-color: #f8f9fa; /* Light, clean background */
+  border-radius: 8px;      /* Rounded corners */
+  padding: 0.75rem 1.25rem; /* Comfortable spacing */
+  border: 1px solid #e9ecef; /* Subtle border */
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 2rem; /* Space below the breadcrumb bar */
 }
-.breadcrumb a {
-  color: #00796b; /* Strong turquoise */
-  font-weight: 600;
+
+/* Style for each individual item (like 'Home') */
+.breadcrumb-item {
+  font-weight: 500;
 }
-.breadcrumb a:hover {
-  color: #004d40;
-  text-decoration: underline;
+
+/* Style for the links (e.g., 'Home') */
+.breadcrumb-item a {
+  color: #5b1a1a; /* Your app's dark blue-green theme color */
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
- 
-/* Summary cards refreshing */
-.summary-cards-glass .turquoise-card {
-  background: rgba(0, 191, 165, 0.25);
-  color: #004d40;
-  box-shadow: 0 6px 20px rgba(0, 191, 165, 0.3);
-  border: none;
-  border-radius: 18px;
-  padding: 25px 20px;
-  transition: background-color 0.4s ease;
-  text-align: center;
+
+/* Hover effect for links */
+.breadcrumb-item a:hover {
+  color: #007bff; /* Bright blue on hover for clear feedback */
+  text-decoration: underline; 
 }
-.summary-cards-glass .turquoise-card:hover {
-  background: rgba(0, 191, 165, 0.45);
-  color: #00251a;
+
+/* Style for the *active* page (the last item, which isn't a link) */
+.breadcrumb-item.active {
+  color: #6c757d; /* Muted grey text */
 }
- 
-/* Card text */
-.turquoise-text {
-  font-weight: 600;
-  font-size: 1.4rem;
-}
- 
-/* Divider line */
-.turquoise-divider {
-  border-top: 2px solid rgba(0, 191, 165, 0.5);
-  margin: 40px 0;
-}
- 
-/* Bank Management card custom */
-.turquoise-card p {
-  font-size: 1.1rem;
-  color: #004d40;
-  margin-bottom: 15px;
-}
-.turquoise-btn {
-  background: linear-gradient(135deg, #009688, #26a69a);
-  border-radius: 10px;
-  border: none;
-  padding: 14px 0;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-  color: white;
-}
-.turquoise-btn:hover {
-  background: linear-gradient(135deg, #004d40, #00695c);
-  box-shadow: 0 0 12px #004d40;
-}
- 
-/* Banks & Clients per Bank chart container */
-.turquoise-card {
-  background: rgba(32, 178, 170, 0.35);
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 191, 165, 0.35);
-  color: #004d40;
-}
- 
-/* Make canvas chart area rounded softly */
-canvas {
-  border-radius: 15px !important;
-  background-color: rgba(255, 255, 255, 0.15) !important; /* subtle contrast */
-  box-shadow: inset 0 0 15px rgba(0, 128, 128, 0.25);
+
+/* Adds the '/' separator between items for a clean look */
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  color: #ced4da; /* Light grey separator */
 }

@@ -1,148 +1,152 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #12101b;
-  color: #fff;
-}
-
+/* Main flex container */
 .dashboard-container {
   display: flex;
   height: 100vh;
   width: 100%;
 }
 
+/* Dark Left Sidebar */
 .dashboard-sidebar {
-  width: 320px;
+  width: 260px; /* A standard sidebar width */
   flex-shrink: 0; 
-  background: #1f1c2f;
-  padding: 2rem 1rem;
-  border-right: 1px solid #3c3a4a;
+  background: #1f2937; /* Dark sidebar color */
+  padding: 1.5rem 1rem;
+  border-right: 1px solid #374151; /* Dark border */
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 100%;
 }
 
+/* Container for sidebar buttons */
 .dashboard-actions {
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
+/* Sidebar Buttons */
 .btn-dashboard {
   width: 100%;
   text-align: left;
   padding: 0.8rem 1rem;
-  margin-bottom: 0.8rem;
-  border-radius: 12px;
-  background: #2a283b;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  background: transparent; /* Transparent by default */
   border: none;
-  color: #fff;
-  font-size: 1.1rem;
+  color: #d1d5db; /* Light grey text */
+  font-size: 1rem;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .btn-dashboard i {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  width: 20px; /* Aligns text */
+  text-align: center;
 }
 
+/* Sidebar button hover */
 .btn-dashboard:hover {
-  background: linear-gradient(135deg, #7a5af8, #6a49e6);
-  transform: translateX(5px) scale(1.02);
-  box-shadow: 0 5px 15px rgba(122, 90, 248, 0.6);
+  background: #374151; /* Light dark on hover */
+  color: #ffffff;
 }
 
+/* Active sidebar button */
+.btn-dashboard.active-btn {
+  background: #0d6efd; /* Solid blue */
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+}
+
+/* Logout button (at the bottom) */
+.btn-dashboard.logout {
+  margin-top: auto; /* Pushes to the bottom */
+}
+
+
+/* --- Right Content Area --- */
+
+/* Main content scrolling area */
 .dashboard-main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1.5rem; /* Padding for the grey area */
   overflow-y: auto;
-  height: 100%;
+  height: 100vh;
 }
 
+/* Wrapper for the top stat cards */
 .account-info-simple {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  background: transparent;
-  padding: 0;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between stat cards */
 }
 
+/* Individual Stat Card */
 .info-block-simple {
-  flex: 1;
-  background: linear-gradient(135deg, #2e2a46, #1f1c2f);
-  padding: 0.8rem 1rem;
-  border-radius: 12px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 5px 15px rgba(122, 90, 248, 0.2);
-}
-
-.info-block-simple i {
-  font-size: 1.5rem;
-  color: #7a5af8;
-  margin-bottom: 0.3rem;
-  display: block;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.info-title {
-  font-size: 0.75rem;
-  color: #bbb;
-  margin-bottom: 0.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.info-value {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
+  flex: 1; /* Makes cards grow to fill space */
+  min-width: 160px; /* Prevents them from getting too small */
+  background: #ffffff; /* White card */
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
 
 .info-block-simple:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(122, 90, 248, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.info-block-simple:hover i {
-  transform: scale(1.2);
-  color: #9f7aff;
+.info-block-simple i {
+  font-size: 1.25rem;
+  color: #0d6efd; /* Blue icon */
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
+.info-title {
+  font-size: 0.8rem;
+  color: #6c757d; /* Muted text */
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529; /* Black text */
+}
+
+/* Main Content Card (for router-outlet) */
 .dashboard-content {
-  background: linear-gradient(135deg, #2e2a46, #1f1c2f);
+  background: #ffffff; /* White card */
   flex-grow: 1;
-  border-radius: 15px;
-  box-shadow: 0 0 25px rgba(122, 90, 248, 0.3);
-  animation: fadeIn 0.6s ease-in-out;
-  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem; /* Padding *inside* the main card */
 }
 
-.dashboard-content h3 {
-  color: #7a5af8;
-  font-size: 1.8rem;
+/* This styles any button *inside* your .dashboard-content
+  to be the solid blue button from the screenshot.
+  (e.g., the "Go to Banks" button)
+*/
+.dashboard-content .btn-primary {
+  background: #0d6efd !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600 !important;
+  color: white !important;
 }
 
-.dashboard-content p {
-  color: #ccc;
-  font-size: 1rem;
-}
-
-.btn-dashboard.active-btn {
-  background: #7a5af8;
-  color: #fff;
-  transform: translateX(5px) scale(1.03);
-  box-shadow: 0 5px 15px rgba(122, 90, 248, 0.6);
-}
-
-@keyframes fadeIn {
-  0% {opacity: 0; transform: translateY(20px);}
-  100% {opacity: 1; transform: translateY(0);}
+.dashboard-content .btn-primary:hover {
+  background: #0b5ed7 !important;
 }

@@ -1,24 +1,26 @@
+body {
+  background: #e7f3fa;
+}
+
+/* Table & Card Wrapping */
 .table {
   font-size: 0.92rem;
   margin-bottom: 0;
-  background: #E6FAF7; /* Very light turquoise for subtle highlight */
+  background: #E6FAF7;
   color: #172634;
   border-radius: 9px;
 }
-
 .table th {
   font-weight: 600;
-  color: #00BCC2; /* Brand turquoise for header */
+  color: #00BCC2;
   background: #D0F8F4;
   border-bottom: 2px solid #23c9ae;
   white-space: nowrap;
 }
-
 .table td {
   vertical-align: middle;
   color: #172634;
 }
-
 .table td,
 .table th {
   white-space: nowrap;
@@ -26,60 +28,15 @@
   text-overflow: ellipsis;
   max-width: 180px;
 }
-
-.table-responsive {
+.table-responsive,
+.table-wrapper {
   border-radius: 0.6rem;
   background: #e0f7f5;
   box-shadow: 0 2px 8px rgba(0,188,194,0.08);
+  padding: 0.5rem;
 }
 
-.badge {
-  font-size: 0.73rem;
-  padding: 0.34em 0.8em;
-  background: #23c9ae;
-  color: #fff;
-  border-radius: 16px;
-  font-weight: 600;
-}
-
-.badge-danger,
-.badge.bg-danger {
-  background: #FF8559 !important; /* Coral for danger */
-  color: #fff !important;
-}
-
-.btn-outline-dark {
-  font-size: 0.80rem;
-  border-radius: 2rem;
-  padding: 3px 12px;
-  border: 1.5px solid #00BCC2;
-  color: #00BCC2;
-  background: #fff;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.btn-outline-dark:hover {
-  background-color: #23c9ae;
-  color: #fff;
-  border-color: #23c9ae;
-}
-
-.btn-outline-danger {
-  border: 1.5px solid #FF8559;
-  background-color: #fff;
-  color: #FF8559;
-}
-
-.btn-outline-danger:hover {
-  background-color: #FF8559;
-  color: #fff;
-}
-
-.btn-sm {
-  font-size: 0.83rem;
-  padding: 3px 11px;
-}
-
+/* Button Styles */
 .btn-create-payment {
   background-color: #00BCC2;
   color: #fff;
@@ -89,21 +46,85 @@
   font-size: 14px;
   border-radius: 9px;
   transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
 }
-
 .btn-create-payment:hover {
   background-color: #23c9ae;
   color: #fff;
 }
+.btn-outline-dark {
+  font-size: 0.80rem;
+  border-radius: 2rem;
+  padding: 3px 12px;
+  border: 1.5px solid #00BCC2;
+  color: #00BCC2;
+  background: #fff;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-outline-dark:hover {
+  background-color: #23c9ae;
+  color: #fff;
+  border-color: #23c9ae;
+}
+.btn-outline-danger {
+  border: 1.5px solid #FF8559;
+  background-color: #fff;
+  color: #FF8559;
+}
+.btn-outline-danger:hover {
+  background-color: #FF8559;
+  color: #fff;
+}
+.btn-sm {
+  font-size: 0.83rem;
+  padding: 3px 11px;
+}
 
-/* Breadcrumb (already brand matched) */
+/* Badges */
+.badge {
+  font-size: 0.73rem;
+  padding: 0.34em 0.8em;
+  background: #23c9ae;
+  color: #fff;
+  border-radius: 16px;
+  font-weight: 600;
+}
+.badge-danger,
+.badge.bg-danger {
+  background: #FF8559 !important;
+  color: #fff !important;
+}
+
+/* Breadcrumb */
 .breadcrumb a {
   text-decoration: none;
   color: #00BCC2;
   font-weight: 500;
 }
-
 .breadcrumb a:hover {
   text-decoration: underline;
   color: #FF8559;
+}
+
+/* Modern Pagination Look */
+.pagination-modern .page-link {
+  border-radius: 7px;
+  border: 1.5px solid #00BCC2;
+  color: #00BCC2;
+  margin: 0 2px;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.pagination-modern .page-link:hover,
+.pagination-modern .active .page-link {
+  background: #23c9ae;
+  color: #fff;
+  border-color: #23c9ae;
+}
+.pagination-modern .page-item.disabled .page-link {
+  color: #cfd8dc;
+  border: 1.5px solid #e0f7f5;
+  background: #f5fafd;
+  cursor: not-allowed;
 }
