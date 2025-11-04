@@ -35,20 +35,20 @@ namespace Payment_Project_API.Controllers
             if (ModelState.IsValid)
             {
                 _logger.LogInformation("Login Started");
-                //var response = await _httpClient.PostAsync(
-                //$"https://www.google.com/recaptcha/api/siteverify?secret={_recaptchaSettings.SecretKey}&response={usr.RecaptchaToken}",
-                //null
-                //);
+                var response = await _httpClient.PostAsync(
+                $"https://www.google.com/recaptcha/api/siteverify?secret={_recaptchaSettings.SecretKey}&response={usr.RecaptchaToken}",
+                null
+                );
 
 
-                //var json = await response.Content.ReadAsStringAsync();
-                //var captchaResult = JsonConvert.DeserializeObject<GoogleCaptchaResponse>(json);
+                var json = await response.Content.ReadAsStringAsync();
+                var captchaResult = JsonConvert.DeserializeObject<GoogleCaptchaResponse>(json);
 
-                //if (!captchaResult.Success || (captchaResult.Score < _recaptchaSettings.MinScore))
-                //{
-                //    _logger.LogWarning("Captcha validation failed");
-                //    return BadRequest("Captcha validation failed");
-                //}
+                if (!captchaResult.Success || (captchaResult.Score < _recaptchaSettings.MinScore))
+                {
+                    _logger.LogWarning("Captcha validation failed");
+                    return BadRequest("Captcha validation failed");
+                }
                 var loginResponse = _authService.Login(usr);
                 if (loginResponse.IsSuccess)
                 {

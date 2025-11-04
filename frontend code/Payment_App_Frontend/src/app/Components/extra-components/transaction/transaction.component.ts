@@ -1,0 +1,217 @@
+import { Component } from '@angular/core';
+import { Transaction } from '../../../Models/Transaction';
+import { TransactionService } from '../../../Services/transaction.service';
+import { CommonModule } from '@angular/common';
+import { TransactionTypePipe } from '../../../Pipes/transaction-type.pipe';
+import { StatusFilterComponent } from '../../Filters/status-filter/status-filter.component';
+import { NameFilterComponent } from '../../Filters/name-filter/name-filter.component';
+import { IdFilterComponent } from '../../Filters/id-filter/id-filter.component';
+import { AccountNumberFilterComponent } from '../../Filters/account-number-filter/account-number-filter.component';
+import { AmountFilterComponent } from '../../Filters/amount-filter/amount-filter.component';
+import { DateFilterComponent } from '../../Filters/date-filter/date-filter.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+import { AuthService } from '../../../Services/auth.service';
+import { ClientRegisterService } from '../../../Services/client.service';
+import { NotificationService } from '../../../Services/notification.service';
+import { TransactionDTO } from '../../../DTO/TransactionDTO';
+import { RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-transaction',
+  imports: [CommonModule, TransactionTypePipe, ReactiveFormsModule, DateFilterComponent, AmountFilterComponent, AccountNumberFilterComponent, IdFilterComponent, NameFilterComponent, StatusFilterComponent,RouterLink],
+  templateUrl: './transaction.component.html',
+  styleUrl: './transaction.component.css'
+})
+export class TransactionComponent {
+  transactions: TransactionDTO[] = [];
+  filters: any = {};
+  totalTransactionAmount: number = 0;
+  userId!: number;
+  role!: string | null;
+  statusOptions = [
+    { id: 1, name: 'Credit' },
+    { id: 2, name: 'Debit' },
+    { id: 3, name: 'pending' }
+  ];
+
+  clientOptions: { id: number, name: string }[] = [];
+
+  constructor(private auth: AuthService, private transactionSvc: TransactionService, private clientSvc: ClientRegisterService, private notify: NotificationService) { }
+
+  ngOnInit() {
+    const user = this.auth.getLoggedInUser();
+    const role = this.auth.getUserRole();
+    console.log(role);
+    if (role == "CLIENT_USER") {
+      console.log("helo")
+      console.log(user?.userId)
+      this.filters.clientId = user?.userId;
+      this.role = role;
+    }
+
+    if (role == "BANK_USER") {
+      console.log(user?.userId)
+      this.filters.bankuserId = user?.userId;
+      this.role = role;
+    }
+    this.role = role;
+    this.userId = this.auth.getUserId() ?? 0;
+    // this.filters.clientId = 2;
+    const params = new URLSearchParams(this.filters).toString();
+    this.fetchTransactions(params);
+    this.fetchClients();
+  }
+
+  fetchTransactions(params: string) {
+    this.transactionSvc.getAllTransaction(params).subscribe((data) => {
+      console.log(data);
+      this.transactions = data;
+      let credit = data.filter(t => t.transactionTypeId == 1).reduce((sum, t) => sum + t.amount, 0);
+      let debit = data.filter(t => t.transactionTypeId == 2).reduce((sum, t) => sum + t.amount, 0);
+      this.totalTransactionAmount = credit - debit;
+    },
+      (error) => {
+        console.log(error);
+      }
+
+    );
+  }
+
+  fetchClients() {
+    this.clientSvc.getClients("").subscribe((data) => {
+      console.log(data);
+      this.clientOptions = data.map(c => ({
+        id: c.userId,      // or whatever your ID field is
+        name: c.userName   // or whatever your display field is
+      }));
+
+      console.log(this.clientOptions);
+    })
+  }
+
+  onDateFilter(dates: { dateFrom: string; dateTo: string }) {
+
+    this.filters.createdFrom = dates.dateFrom;
+    this.filters.createdTo = dates.dateTo;
+    console.log(this.filters);
+
+    const params = new URLSearchParams(this.filters).toString();
+    this.fetchTransactions(params);
+  }
+
+  onAmountFilter(amount: { minAmount: string | null, maxAmount: string | null }) {
+    console.log(this.filters);
+
+    if (amount.minAmount !== null) {
+      this.filters.minAmount = amount.minAmount;
+    } else {
+      delete this.filters.minAmount; // ✅ remove old value
+    }
+    if (amount.maxAmount !== null) {
+      this.filters.maxAmount = amount.maxAmount;
+    } else {
+      delete this.filters.maxAmount; // ✅ remove old value
+    }
+
+    const params = new URLSearchParams(this.filters).toString();
+    this.fetchTransactions(params);
+  }
+
+  onAccountFilter(account: { payeeAccountNumber: string | null }) {
+    // this.filters.payeeAccountNumber = account.payeeAccountNumber;
+    console.log(this.filters);
+    if (account.payeeAccountNumber !== null) {
+      this.filters.toFrom = account.payeeAccountNumber;
+    } else {
+      delete this.filters.toFrom; // ✅ remove old value
+    }
+    console.log(this.filters);
+
+    const params = new URLSearchParams(this.filters).toString();
+    this.fetchTransactions(params);
+  }
+
+  fetchById(value: { id: number }) {
+    if (value.id == 0) {
+      const params = new URLSearchParams(this.filters).toString();
+      this.fetchTransactions(params);
+    }
+
+    this.transactionSvc.getTransactionById(value.id).subscribe((data) => {
+      console.log(data);
+      this.transactions = [data];
+    },
+      (error) => {
+        console.log(error);
+      })
+  }
+
+  onNameFilter(name: { payerName: string }) {
+    this.filters.payerName = name.payerName;
+
+    const params = new URLSearchParams(this.filters).toString();
+    this.fetchTransactions(params);
+  }
+
+  onStatusFilter(status: { paymentStatusId: string }) {
+    this.filters.transactionTypeId = status.paymentStatusId;
+
+    const params = new URLSearchParams(this.filters).toString();
+    this.fetchTransactions(params);
+  }
+
+  onClientFilter(status: { paymentStatusId: string }) {
+    this.filters.clientId = status.paymentStatusId;
+
+    const params = new URLSearchParams(this.filters).toString();
+    this.fetchTransactions(params);
+  }
+
+  downloadPDF(): void {
+    if (!this.transactions || this.transactions.length === 0) {
+      this.notify.error('No transactions to export!');
+      return;
+    }
+
+    const doc = new jsPDF();
+    doc.text('Transactions Report', 14, 16);
+
+    const tableColumn = ['#', 'Account', 'Mode', 'Type', 'To/From', 'Amount', 'DateTime'];
+    const tableRows: any[] = [];
+
+    this.transactions.forEach((t, i) => {
+      tableRows.push([
+        i + 1,
+        `${t.accountNumber}`,
+        t.paymentId == null ? t.salaryDisbursementId == null ? "SELF" : "SALARY" : "PAYMENT",
+        t.transactionTypeId == 1 ? "CREDIT" : "DEBIT",
+        t.toFrom,
+        t.amount,
+        new Date(t.createdAt).toLocaleString()
+      ]);
+    });
+
+    autoTable(doc, {
+      head: [tableColumn],
+      body: tableRows,
+      startY: 20
+    });
+
+    doc.save(`Transactions_User_${this.userId}.pdf`);
+  }
+
+
+
+  // getEmployeeAccountByTXnId(id:number){
+  //   let detail = this.transactions[id].salaryDisbursement?.disbursementDetails?.find(d=>d.transactionId==id);
+  //   if(detail){
+  //     return detail.
+  //   }
+  // }
+
+  getBeneficiaryFromTxn(txn: Transaction) {
+
+  }
+}

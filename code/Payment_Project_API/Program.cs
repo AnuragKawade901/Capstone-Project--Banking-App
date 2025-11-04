@@ -147,7 +147,7 @@ namespace Payment_Project_API
                 options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
                     Version = "v1",
-                    Description = "Banking Payments Application"
+                    Description = "Corporate Banking App"
                 });
 
                 var securityScheme = new OpenApiSecurityScheme
@@ -175,7 +175,7 @@ namespace Payment_Project_API
             {
                 options.AddPolicy("AllowFrontend",
                     builder => builder
-                        .WithOrigins("http://localhost:4200")
+                        .WithOrigins("http://localhost:4200") // angular
                         .AllowAnyHeader()
                         .AllowAnyMethod());
             });
@@ -189,7 +189,7 @@ namespace Payment_Project_API
                 app.UseSwagger();
                 app.UseSwaggerUI(options =>
                 {
-                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Banking Payments Application");
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Corporate Banking App");
                     options.EnablePersistAuthorization();
                 });
             }

@@ -1,0 +1,135 @@
+/* --- PREMIUM FONT PAIRING --- */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&family=Inter:wght@400;500;600&display=swap');
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 3rem;
+  color: #A7F7CE; /* Turquoise green for text */
+  background: #172634; /* Deep teal base background */
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-left: 0;
+}
+
+.hero-section .hero-content {
+  max-width: 800px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section .hero-content h1 {
+  font-family: 'Fira Mono', monospace;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #00BCC2; /* Vibrant turquoise */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Accent for highlighted text */
+.hero-section .hero-content h1 span {
+  color: #FF8559; /* Coral/Orange accent */
+}
+
+/* Body text */
+.hero-section .hero-content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #A7F7CE; /* Turquoise green */
+  margin: 1.5rem 0 2.5rem;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+/* Buttons */
+.hero-section .hero-content .buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Primary Button - Glassmorphism */
+.hero-section .hero-content .buttons .start-btn {
+  background: linear-gradient(120deg, rgba(0,188,194,0.24) 0%, rgba(35,201,174,0.19) 100%);
+  color: #00BCC2;
+  border: 1.5px solid rgba(167,247,206,0.28);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(16,223,181,0.15);
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.25s;
+  padding: 1rem 2rem;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.hero-section .hero-content .buttons .start-btn:hover {
+  background: linear-gradient(120deg, rgba(167,247,206,0.17) 0%, rgba(0,188,194,0.19) 100%);
+  color: #172634;
+  box-shadow: 0 12px 32px 0 rgba(16,223,181,0.22);
+  border: 1.5px solid #00BCC2;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Secondary Button */
+.hero-section .hero-content .buttons .demo-btn {
+  background: transparent;
+  border: 2px solid #FF8559;
+  color: #FF8559;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.hero-section .hero-content .buttons .demo-btn:hover {
+  background: rgba(255, 133, 89, 0.07);
+  color: #FFB199;
+}
+
+/* Stats Section */
+.hero-section .hero-content .stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  border-top: 1px solid #00BCC2;
+  padding-top: 2rem;
+  width: 100%;
+}
+
+.hero-section .hero-content .stats .stat-item h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #FF8559;
+}
+
+.hero-section .hero-content .stats .stat-item p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #A7F7CE;
+  margin: 0.25rem 0 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-section { padding: 4rem 1.5rem; }
+  .hero-section .hero-content .stats {
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+}

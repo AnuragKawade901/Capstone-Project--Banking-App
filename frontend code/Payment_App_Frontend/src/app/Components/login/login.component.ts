@@ -1,0 +1,102 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AuthService } from '../../Services/auth.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginResponseDTO } from '../../DTO/LoginResponseDTO';
+import { InvisibleReCaptchaComponent, NgxCaptchaModule, ReCaptchaV3Service } from 'ngx-captcha';
+import { environment } from '../../../environments/environment';
+import { CommonModule } from '@angular/common';
+import { NotificationService } from '../../Services/notification.service';
+
+
+@Component({
+  selector: 'app-login',
+  standalone: true, 
+  imports: [ReactiveFormsModule, NgxCaptchaModule, CommonModule],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
+  loginResponse!: LoginResponseDTO;
+  passwordFieldType: string = 'password';
+
+  siteKey: string = environment.recaptcha.siteKey;
+
+  @ViewChild('captchaElem') captchaElem!: InvisibleReCaptchaComponent;
+
+  constructor(
+    private fb: FormBuilder, 
+    private router: Router, 
+    private authSvc: AuthService,
+    private reCaptchaV3Service: ReCaptchaV3Service,
+    private notify: NotificationService 
+  ) {}
+
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      userName: ["", Validators.required],
+      password: ["", Validators.required]
+    });
+  }
+
+  handleSuccess(token: string) {
+    console.log("Captcha success:", token);
+
+    this.authSvc.loginUser({
+      ...this.loginForm.value,
+      recaptchaToken: token
+    }).subscribe({
+      next: data => {
+        this.authSvc.saveToken(data);
+
+        const role = this.authSvc.getUserRole();
+        const userId = this.authSvc.getUserId();
+
+        switch (role) {
+          case "ADMIN":
+            this.router.navigate(['/admin/home']);
+            break;
+          case "BANK_USER":
+            this.router.navigate(['/bank/home']);
+            break;
+          case "CLIENT_USER":
+            this.router.navigate(['/client/home']); 
+            break;
+          default:
+            this.notify.error("Unknown role! Cannot navigate.");
+            break;
+        }
+      },
+      error: err => {
+        console.error("Login failed:", err);
+        this.notify.error("Login failed. Check credentials or try again.");
+      }
+    });
+  }
+
+  handleReset() {
+    console.log("Captcha reset");
+  }
+
+  handleLoad() {
+    console.log("Captcha loaded");
+  }
+
+  handleReady() {
+    console.log("Captcha ready");
+  }
+
+  Login(loginForm: FormGroup) {
+    if (this.loginForm.valid) {
+      this.captchaElem.execute();
+    } else {
+      this.notify.error("Please enter username and password");
+    }
+  }
+
+
+  togglePasswordVisibility() {
+    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
+  }
+}
