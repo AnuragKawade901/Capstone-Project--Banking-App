@@ -1,41 +1,79 @@
-/* Main breadcrumb container bar */
-.breadcrumb-glass {
-  background-color: #f8f9fa; /* Light, clean background */
-  border-radius: 8px;      /* Rounded corners */
-  padding: 0.75rem 1.25rem; /* Comfortable spacing */
-  border: 1px solid #e9ecef; /* Subtle border */
-  font-family: 'Inter', sans-serif;
-  margin-bottom: 2rem; /* Space below the breadcrumb bar */
+/* Use a modern, clean font across the component */
+:host {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* A very light, neutral background for the whole page */
+  display: block;
+  min-height: 100vh;
 }
 
-/* Style for each individual item (like 'Home') */
-.breadcrumb-item {
-  font-weight: 500;
+/* --- Stat Card Styles --- */
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px; /* Softer radius */
+  font-size: 1.75rem; /* Icon size */
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
-/* Style for the links (e.g., 'Home') */
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #212529; /* Dark text */
+  margin: 0;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d; /* Muted grey */
+  margin: 0;
+  padding-top: 4px;
+  white-space: nowrap; /* Prevent label from wrapping */
+}
+
+/* --- Action Card Styles --- */
+.action-card {
+  /* Smooth transitions for hover effect */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-radius: 12px; /* Match softer radius */
+}
+
+.action-card:hover {
+  /* "Lift" the card on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* --- Breadcrumb Link Styles --- */
 .breadcrumb-item a {
-  color: #5b1a1a; /* Your app's dark blue-green theme color */
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  font-weight: 500;
+  color: #0d6efd; /* Bootstrap primary blue */
 }
-
-/* Hover effect for links */
 .breadcrumb-item a:hover {
-  color: #007bff; /* Bright blue on hover for clear feedback */
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
-/* Style for the *active* page (the last item, which isn't a link) */
-.breadcrumb-item.active {
-  color: #6c757d; /* Muted grey text */
+/* --- Button Icon Styles --- */
+/* Ensures icons and text in buttons are aligned */
+.btn .bi {
+  /* Using vertical-align: middle and a slight negative margin 
+     often gives better alignment than text-bottom */
+  vertical-align: middle;
+  margin-top: -2px; 
 }
 
-/* Adds the '/' separator between items for a clean look */
-.breadcrumb-item + .breadcrumb-item::before {
-  content: "/";
-  display: inline-block;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  color: #ced4da; /* Light grey separator */
+/* Specific alignment for the arrow icon */
+.btn .bi-arrow-right-short {
+  font-size: 1.25em; /* Make arrow slightly larger */
+  margin-left: 0.25rem;
+  margin-right: -0.25rem;
+}
+
+/* Specific alignment for search icon */
+.btn .bi-search {
+  margin-right: 0.25rem;
 }

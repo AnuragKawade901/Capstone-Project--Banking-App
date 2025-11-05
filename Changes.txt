@@ -1,0 +1,7 @@
+Changes
+search using what is typed
+soft delete banking
+for role id show name or dont show
+beneficiary payment rejections and remarks
+edit employee data
+paginations

@@ -1,5 +1,6 @@
 /* Overall Page Background */
 .login-page {
+
   /*
     FIX: Removed flex properties. Bootstrap classes (d-flex, vh-100)
     in your HTML file are already handling this.
@@ -77,7 +78,7 @@
   padding: 0.75rem 1rem;
   box-shadow: none;
   transition: all 0.2s ease-in-out;
-  width: 100%;
+  /* width: 100%; */
   /* Margin is handled by parent .form-group or .input-group */
   margin-bottom: 0; 
 }
