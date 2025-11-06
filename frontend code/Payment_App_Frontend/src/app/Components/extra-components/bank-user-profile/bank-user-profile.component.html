@@ -1,15 +1,15 @@
-<div class="mt-4 px-3 w-100">
+<!-- <div class="mt-4 px-3 w-100"> -->
 
   <!-- Breadcrumb -->
-  <nav aria-label="breadcrumb" class="mb-4">
+  <!-- <nav aria-label="breadcrumb" class="mb-4">
     <ol class="breadcrumb mb-0">
       <li class="breadcrumb-item"><a routerLink="/bank/home">Home</a></li>
       <li class="breadcrumb-item active" aria-current="page">Bank User Profile</li>
     </ol>
-  </nav>
+  </nav> -->
 
   <!-- Header -->
-  <div class="bg-white p-3 shadow-sm rounded border mb-4">
+  <!-- <div class="bg-white p-3 shadow-sm rounded border mb-4">
     <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
       <div class="d-flex align-items-center gap-3">
         <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
@@ -29,10 +29,10 @@
         <button class="btn btn-sm btn-outline-primary" routerLink="/bank/profile/edit">Edit Profile</button>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Top Info Cards -->
-  <div class="d-flex flex-wrap gap-3 mb-4">
+  <!-- <div class="d-flex flex-wrap gap-3 mb-4">
     <div class="bg-white p-3 shadow-sm rounded border flex-grow-1" style="max-width: 260px;">
       <div class="text-muted small">Bank</div>
       <div class="fw-bold fs-5">{{ bankUser?.bank?.bankName || '—' }}</div>
@@ -51,12 +51,12 @@
     </div>
   </div>
 
-  <hr>
+  <hr> -->
 
   <!-- Personal + Access -->
-  <div class="row mb-4">
+  <!-- <div class="row mb-4"> -->
     <!-- Personal Details -->
-    <div class="col-md-6 mb-3">
+    <!-- <div class="col-md-6 mb-3">
       <div class="bg-white shadow-sm rounded border p-3">
         <h6 class="fw-bold mb-3">Personal Details</h6>
         <div class="row g-2">
@@ -78,10 +78,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Access / Bank -->
-    <div class="col-md-6 mb-3">
+    <!-- <div class="col-md-6 mb-3">
       <div class="bg-white shadow-sm rounded border p-3">
         <h6 class="fw-bold mb-3">Access & Bank</h6>
         <div class="row g-2">
@@ -100,12 +100,12 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Clients + Branches -->
-  <div class="row mb-4">
+  <!-- <div class="row mb-4"> -->
     <!-- Clients -->
-    <div class="col-md-6 mb-3">
+    <!-- <div class="col-md-6 mb-3">
       <div class="bg-white shadow-sm rounded border p-3">
         <h6 class="fw-bold mb-3">Clients Managed</h6>
         <ul class="list-group">
@@ -125,4 +125,180 @@
       </div>
     </div>
   
-</div>
+</div> -->
+
+<!-- Main content container -->
+<main class="container-fluid my-4 my-md-5 p-3 p-md-4">
+
+  <!-- 1. Breadcrumb Bar -->
+  <nav aria-label="breadcrumb" class="bg-light p-3 rounded-3 mb-4 shadow-sm border">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a routerLink="/bank/home">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Bank User Profile</li>
+    </ol>
+  </nav>
+
+  <!-- 2. Profile Header -->
+  <!-- Standardized to use the 'card' component -->
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-body p-4">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div class="d-flex align-items-center gap-3">
+          <!-- Styled avatar -->
+          <div class="rounded-circle bg-primary-subtle text-primary-emphasis d-flex align-items-center justify-content-center"
+               style="width:56px;height:56px;">
+            <span class="fw-bold fs-5">
+              {{ bankUser?.userFullName ? bankUser.userFullName[0] : 'B' }}
+            </span>
+          </div>
+          <div>
+            <h5 class="fw-bold fs-5 mb-0">{{ bankUser?.userFullName }}</h5>
+            <div class="text-muted small">
+              {{ bankUser?.userEmail }} • Joined: {{ bankUser?.userJoiningDate | date:'mediumDate' }}
+            </div>
+          </div>
+        </div>
+        <!-- Consistently styled button -->
+        <div class="d-flex flex-wrap gap-2">
+          <button class="btn btn-outline-primary d-flex align-items-center" routerLink="/bank/profile/edit">
+            <i class="bi bi-pencil me-1"></i> Edit Profile
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Top Info Cards (Re-using Stat Card styles) -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 mb-4">
+
+    <!-- Card 1: Bank -->
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body d-flex align-items-start p-4">
+          <div>
+            <h5 class="stat-value">{{ bankUser?.bank?.bankName || '—' }}</h5>
+            <p class="stat-label">Bank</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Total Clients -->
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body d-flex align-items-start p-4">
+          <div>
+            <h5 class="stat-value">{{ clients?.length || 0 }}</h5>
+            <p class="stat-label">Total Clients</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Total Payments -->
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body d-flex align-items-start p-4">
+          <div>
+            <h5 class="stat-value">{{ payments?.length || 0 }}</h5>
+            <p class="stat-label">Total Payments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card 4: Branch -->
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body d-flex align-items-start p-4">
+          <div>
+            <h5 class="stat-value">{{ bankUser?.branch}}</h5>
+            <p class="stat-label">Branch Managed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- End of Stat Card Grid -->
+
+  <!-- 4. Personal + Access -->
+  <div class="row mb-4">
+    <!-- Personal Details -->
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body p-4">
+          <h6 class="fw-bold mb-3">Personal Details</h6>
+          <!-- Using a simple grid for key-value pairs -->
+          <div class="row g-3">
+            <div class="col-6">
+              <p class="stat-label mb-0">Full Name</p>
+              <p class="stat-value fs-6 mb-0">{{ bankUser?.userFullName || '—' }}</p>
+            </div>
+            <div class="col-6">
+              <p class="stat-label mb-0">Username</p>
+              <p class="stat-value fs-6 mb-0">{{ bankUser?.userName || '—' }}</p>
+            </div>
+            <div class="col-6">
+              <p class="stat-label mb-0">Email</p>
+              <p class="stat-value fs-6 mb-0">{{ bankUser?.userEmail || '—' }}</p>
+            </div>
+            <div class="col-6">
+              <p class="stat-label mb-0">Phone</p>
+              <p class="stat-value fs-6 mb-0">{{ bankUser?.userPhone || '—' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Access / Bank -->
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body p-4">
+          <h6 class="fw-bold mb-3">Access & Bank</h6>
+          <div class="row g-3">
+            <div class="col-6">
+              <p class="stat-label mb-0">Role</p>
+              <p class="stat-value fs-6 mb-0">Bank User</p>
+            </div>
+            <div class="col-6">
+              <p class="stat-label mb-0">Bank</p>
+              <p class="stat-value fs-6 mb-0">{{ bankUser?.bank?.bankName || bankUser?.bankId }}</p>
+            </div>
+            <div class="col-6">
+              <p class="stat-label mb-0">Joined</p>
+              <p class="stat-value fs-6 mb-0">{{ bankUser?.userJoiningDate | date:'mediumDate' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Clients List -->
+  <div class="row mb-4">
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+          <h6 class="fw-bold mb-3">Clients Managed</h6>
+          <!-- 'list-group-flush' removes padding to align with card body -->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0"
+                *ngFor="let c of clients">
+              <div>
+                <div class="fw-semibold">{{ c.userFullName }}</div>
+                <div class="text-muted small">
+                  {{ c.userEmail }} • {{ c.account?.accountNumber }}
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item text-muted px-0" *ngIf="!clients?.length">
+              No clients assigned.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

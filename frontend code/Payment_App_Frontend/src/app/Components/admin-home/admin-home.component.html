@@ -131,4 +131,37 @@
       </div>
     </div>
 
+<!-- 
+  This component is designed to be placed inside a Bootstrap column 
+  (e.g., <div class="col-md-12 mb-4">)
+-->
+<div class="card shadow-sm border-0 h-100">
+  
+  <!-- 1. Standard Card Header -->
+  <div class="card-header bg-light border-0 p-3">
+    <h6 class="fw-bold mb-0">Bank Users & Client Users per Bank</h6>
+  </div>
+  
+  <!-- 2. Card Body for Chart -->
+  <!-- 
+    We add 'd-flex flex-column' to the body and 'flex-grow-1' 
+    to the chart container to make the chart responsive 
+    to the card's height (style="height: 350px;").
+  -->
+  <div class="card-body p-3 d-flex flex-column">
+    <div class="flex-grow-1" style="position: relative; height: 300px;">
+      <!-- 
+        Note: For ng2-charts to be responsive, you must set
+        [options]="{ responsive: true, maintainAspectRatio: false }"
+        in your component.ts file.
+      -->
+      <canvas baseChart 
+              [data]="usersPerBankChartData" 
+              [type]="'bar'"
+              [options]="chartOptions">
+      </canvas>
+    </div>
+  </div>
+</div>
+
   </div> </main>

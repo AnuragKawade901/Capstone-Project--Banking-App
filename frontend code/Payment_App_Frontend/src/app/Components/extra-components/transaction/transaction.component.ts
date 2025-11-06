@@ -201,6 +201,7 @@ export class TransactionComponent {
 
     doc.save(`Transactions_User_${this.userId}.pdf`);
   }
+  
 
 
 
@@ -214,4 +215,5 @@ export class TransactionComponent {
   getBeneficiaryFromTxn(txn: Transaction) {
 
   }
+  
 }

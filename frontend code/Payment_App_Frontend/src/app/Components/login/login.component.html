@@ -1,5 +1,5 @@
 
-<div class="login-page d-flex vh-100">
+<!-- <div class="login-page d-flex vh-100">
   <div class="login-form-container d-flex justify-content-center align-items-center flex-grow-1">
     <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm)" class="login-form p-4 rounded shadow-sm bg-white">
       <h2 class="login-title text-center mb-4">Corporate Payments App Login</h2>
@@ -37,4 +37,81 @@
       </div>
     </form>
   </div>
-</div>
+</div> -->
+<!-- 
+  1. Main Page Container
+  'bg-light' matches our app's background.
+  'd-flex vh-100' ensures it's full-height.
+  'align-items-center' and 'justify-content-center' center the form.
+-->
+<main class="container-fluid d-flex vh-100 align-items-center justify-content-center p-3 p-md-4">
+
+  <!-- 
+    2. Form Card
+    We use a responsive column to control the form width.
+  -->
+  <div class="col-12 col-md-6 col-lg-4">
+    <div class="card shadow-sm border-0">
+      
+      <!-- Standardized Card Header -->
+      <div class="card-header bg-light border-0 p-4">
+        <h5 class="card-title text-center fw-bold h4 mb-0">
+          Corporate Payments Login
+        </h5>
+      </div>
+      
+      <div class="card-body p-4 p-md-5">
+        <form [formGroup]="loginForm" (ngSubmit)="Login(loginForm)">
+
+          <!-- Username -->
+          <div class="form-group mb-3">
+            <label for="userName" class="form-label">Username</label>
+            <input class="form-control" id="userName" formControlName="userName" placeholder="Enter your username">
+          </div>
+
+          <!-- Password -->
+          <div class="form-group mb-3">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-group">
+              <input [type]="passwordFieldType" 
+                     class="form-control" 
+                     id="password" 
+                     formControlName="password"
+                     placeholder="Enter your password">
+              <!-- Using Bootstrap Icons for consistency -->
+              <button type="button" class="btn btn-outline-secondary" (click)="togglePasswordVisibility()">
+                <i class="bi" [ngClass]="passwordFieldType === 'password' ? 'bi-eye-fill' : 'bi-eye-slash-fill'"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- reCAPTCHA -->
+          <ngx-invisible-recaptcha #captchaElem 
+            [siteKey]="siteKey" 
+            (reset)="handleReset()" 
+            (ready)="handleReady()"
+            (load)="handleLoad()" 
+            (success)="handleSuccess($event)">
+          </ngx-invisible-recaptcha>
+
+          <!-- Action Buttons (in a d-grid for full width) -->
+          <div class="d-grid gap-2 mt-4">
+            <button type="submit" class="btn btn-primary btn-lg d-flex align-items-center justify-content-center">
+              <i class="bi bi-box-arrow-in-right me-2"></i> Login
+            </button>
+            <a href="/" class="btn btn-outline-secondary d-flex align-items-center justify-content-center" role="button">
+              Return to Home Page
+            </a>
+          </div>
+
+          <!-- Footer -->
+          <div class="text-center mt-4 text-muted small">
+            &copy; 2025 Corporate Payments App. All rights reserved.
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</main>

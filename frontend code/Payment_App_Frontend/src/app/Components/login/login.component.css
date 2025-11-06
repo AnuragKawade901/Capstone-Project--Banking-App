@@ -1,35 +1,21 @@
-/* Overall Page Background */
-.login-page {
-
-  /*
-    FIX: Removed flex properties. Bootstrap classes (d-flex, vh-100)
-    in your HTML file are already handling this.
-  */
-  background: #9cb1c4; /* Your new background color */
+/* .login-page {
+  background: #9cb1c4;
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
 }
 
-/* Hide the illustration (as per previous instruction) */
 .login-illustration {
   display: none !important;
 }
 
-/* Login Form Container - acts as the central card holder */
 .login-form-container {
-  /*
-    FIX: Removed flex properties and dimensions.
-    Bootstrap classes in your HTML are handling this.
-  */
   background: transparent;
 }
 
-/* Login Form - The White Card */
 .login-form {
   max-width: 400px;
   width: 90%;
   border-radius: 12px;
-  /* Using !important to override Bootstrap defaults */
   padding: 2.5rem 2.5rem 1.5rem 2.5rem !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
   background: #ffffff !important;
@@ -41,7 +27,6 @@
   position: relative;
 }
 
-/* Login Title */
 .login-title {
   color: #1a4d5b;
   font-family: 'Inter', sans-serif;
@@ -49,25 +34,21 @@
   letter-spacing: normal;
   font-size: 1.65rem;
   text-align: center;
-  margin-bottom: 2rem !important; /* Override Bootstrap mb-4 */
+  margin-bottom: 2rem !important;
   line-height: 1.3;
 }
 
-/* Form Group for inputs */
 .form-group {
   width: 100%;
-  /* Bootstrap mb-3 handles bottom margin */
 }
 
-/* Form Group Labels */
 .form-group label {
   font-weight: 500;
   color: #343a40;
-  margin-bottom: 0.5rem; /* Space between label and input */
-  display: block; /* Ensure label is on its own line */
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
-/* General Form Control (Input Fields) */
 .form-control {
   background: #e9ecef;
   border-radius: 8px;
@@ -78,9 +59,7 @@
   padding: 0.75rem 1rem;
   box-shadow: none;
   transition: all 0.2s ease-in-out;
-  /* width: 100%; */
-  /* Margin is handled by parent .form-group or .input-group */
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .form-control::placeholder {
@@ -93,36 +72,23 @@
   outline: none;
 }
 
-/* --- Password Icon Fix --- */
-/*
-  FIX: Now targets .input-group (from your HTML)
-  instead of .password-input-group (the old class)
-*/
-
-/* 1. The wrapper for password input and icon */
 .input-group {
   display: flex;
   width: 100%;
-  /* Bootstrap mb-3 handles spacing */
 }
 
-/* 2. The input field *inside* the password group */
 .input-group .form-control {
-  flex-grow: 1; 
+  flex-grow: 1;
   margin-bottom: 0;
-  /* Blend input with icon span */
   border-right: none;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-/* 3. The icon container *inside* the password group */
 .input-group .input-group-text {
-  /* Override Bootstrap inline styles */
   background: #e9ecef !important;
   border: 1px solid #ced4da !important;
   border-left: none !important;
-  
   color: #6c757d;
   cursor: pointer;
   border-radius: 0 8px 8px 0;
@@ -130,20 +96,11 @@
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1rem;
-  margin-left: -1px; /* Overlaps border for seamless look */
+  margin-left: -1px;
 }
 
-/* --- End Password Icon Fix --- */
-
-
-/*
-  NEW THEME: Updated buttons to match
-  the new professional background color.
-*/
-
-/* "Login" Button Styling (Primary Action) */
 .login-form button.btn-primary {
-  background: #1a4d5b; /* Solid color matching the title */
+  background: #1a4d5b;
   color: #ffffff;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
@@ -153,66 +110,201 @@
   padding: 0.8rem 1.5rem;
   transition: all 0.22s ease-in-out;
   width: 100%;
-  /* Bootstrap mt-3 handles margin */
   font-size: 1.05rem;
   cursor: pointer;
 }
 
 .login-form button.btn-primary:hover {
-  background: #2c6f80; /* Slightly lighter on hover */
+  background: #2c6f80;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-1px);
 }
 
-/* "Go Home" Button Styling (Secondary Action) */
 .login-form a.btn-primary {
   background: #ffffff;
-  color: #1a4d5b; /* Text matches title */
+  color: #1a4d5b;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
-  border: 1px solid #ced4da; /* Simple border */
+  border: 1px solid #ced4da;
   box-shadow: none;
   border-radius: 8px;
   padding: 0.8rem 1.5rem;
   transition: all 0.22s ease-in-out;
   width: 100%;
-  /* Bootstrap mt-3 handles margin */
   font-size: 1.05rem;
   cursor: pointer;
   text-align: center;
 }
 
 .login-form a.btn-primary:hover {
-  background: #f8f9fa; /* Light grey on hover */
+  background: #f8f9fa;
   transform: translateY(-1px);
 }
 
-/* Copyright Text */
 .text-muted {
   color: #6c757d !important;
   font-size: 0.85rem;
-  /* Bootstrap mt-3 handles margin */
   text-align: center;
   width: 100%;
 }
 
-/* Responsive adjustments */
 @media (max-width: 500px) {
   .login-form {
     max-width: 95vw;
     padding: 1.5rem 1.5rem 1rem 1.5rem !important;
-    border-radius: 10px;
-  }
-  .login-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem !important;
-  }
-  .login-form button.btn-primary,
-  .login-form a.btn-primary {
-    padding: 0.7rem 1rem;
-    font-size: 1rem;
-  }
-  .text-muted {
-    font-size: 0.8rem;
-  }
+    border-radi 
+} */
+
+    /* Use a modern, clean font across the component */
+:host {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* This component uses bg-light on its <main> element, 
+    so we set the host to be transparent.
+  */
+  background-color: transparent; 
+  display: block;
+}
+
+/* --- Stat Card Styles --- */
+/* (Used by Dashboard, Payments, etc. FOR BIG NUMBERS) */
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0;
+  padding-top: 4px;
+  white-space: normal;      /* Allow text to wrap naturally */
+}
+
+
+/* --- Info Card Styles --- */
+/* (Used for text, account numbers, balance, etc.) */
+.info-card-value {
+  font-size: 1.25rem; /* Smaller, more flexible font size */
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+  line-height: 1.3;
+  word-break: break-all; /* Handle long account numbers */
+}
+
+.info-card-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0;
+  padding-top: 4px;
+  white-space: normal;
+}
+
+
+/* --- Action Card Styles --- */
+/* (Used by Dashboard) */
+.action-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-radius: 12px;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* --- Breadcrumb Link Styles --- */
+/* (Used by all components) */
+.breadcrumb-item a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #0d6efd; /* Bootstrap primary blue */
+}
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+/* --- Button Icon Styles --- */
+/* (Used by all components) */
+.btn .bi {
+  vertical-align: middle;
+  margin-top: -2px; 
+}
+.btn .bi-arrow-right-short {
+  font-size: 1.25em;
+  margin-left: 0.25rem;
+  margin-right: -0.25rem;
+}
+
+/* --- List of all icons used so far --- */
+.btn .bi-search,
+.btn .bi-download,
+.btn .bi-plus-lg,
+.btn .bi-check-lg,
+.btn .bi-x-lg,
+.btn .bi-pencil,
+.btn .bi-file-earmark-text,
+.btn .bi-box-arrow-up-right,
+.btn .bi-eye,
+.btn .bi-trash,
+.btn .bi-plus-circle,
+.btn .bi-upload,
+.btn .bi-person-badge,
+.btn .bi-box-arrow-right,
+.btn .bi-box-arrow-in-right, /* Added for Login */
+.btn .bi-eye-fill,           /* Added for Password Toggle */
+.btn .bi-eye-slash-fill {  /* Added for Password Toggle */
+  margin-right: 0.25rem;
+}
+
+/* Special alignment for password toggle icons */
+.btn .bi-eye-fill,
+.btn .bi-eye-slash-fill {
+  margin-right: 0; /* No margin needed when icon is alone */
+}
+
+
+/* --- Pagination Styles --- */
+/* (Used by Logs, Transactions) */
+.pagination .page-item .page-link {
+  border-radius: 0.375rem;
+  margin: 0 0.25rem;
+  border: 1px solid #dee2e6;
+  color: #0d6efd;
+  transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); 
+}
+
+.pagination .page-item:not(.active) .page-link:hover {
+  background-color: #f8f9fa;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+.pagination .page-link:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }

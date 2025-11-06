@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center mt-5">
+<!-- <div class="container d-flex justify-content-center mt-5">
   <form [formGroup]="registerForm" (ngSubmit)="register()" class="w-75 p-4 rounded shadow-sm bg-white">
 
     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -6,27 +6,27 @@
     </div>
     <hr>
 
-    <div class="row g-3">
+    <div class="row g-3"> -->
       <!-- Full Name -->
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <label class="form-label fw-semibold">Full Name</label>
         <input formControlName="userFullName" type="text" class="form-control" placeholder="Enter full name">
         <div *ngIf="f['userFullName'].touched && f['userFullName'].invalid" class="text-danger small mt-1">
           Full Name is required.
         </div>
-      </div>
+      </div> -->
 
       <!-- Username -->
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <label class="form-label fw-semibold">Username</label>
         <input formControlName="userName" type="text" class="form-control" placeholder="Enter username">
         <div *ngIf="f['userName'].touched && f['userName'].invalid" class="text-danger small mt-1">
           Username is required.
         </div>
-      </div>
+      </div> -->
 
       <!-- Email -->
-<div class="col-md-6">
+<!-- <div class="col-md-6">
   <label class="form-label fw-semibold">Email</label>
   <input formControlName="userEmail" type="email" class="form-control" placeholder="Enter email">
   <div *ngIf="f['userEmail'].touched && f['userEmail'].invalid" class="text-danger small mt-1">
@@ -35,10 +35,10 @@
   <div *ngIf="backendEmailError" class="text-danger small mt-1">
     {{ backendEmailError }}
   </div>
-</div>
+</div> -->
 
 <!-- Phone -->
-<div class="col-md-6">
+<!-- <div class="col-md-6">
   <label class="form-label fw-semibold">Phone</label>
   <input formControlName="userPhone" type="text" class="form-control" placeholder="Enter phone number">
   <div *ngIf="f['userPhone'].touched && f['userPhone'].invalid" class="text-danger small mt-1">
@@ -47,11 +47,11 @@
   <div *ngIf="backendPhoneError" class="text-danger small mt-1">
     {{ backendPhoneError }}
   </div>
-</div>
+</div> -->
 
 
 <!-- Password -->
-<div class="col-md-6">
+<!-- <div class="col-md-6">
   <label class="form-label fw-semibold">Password</label>
   <div class="position-relative">
     <input [type]="showPassword ? 'text' : 'password'" 
@@ -67,9 +67,9 @@
   <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger small mt-1">
     Password must be at least 8 characters long, include uppercase, lowercase, number, and special character.
   </div>
-</div>
+</div> -->
 
-<!-- Confirm Password -->
+<!-- Confirm Password
 <div class="col-md-6">
   <label class="form-label fw-semibold">Confirm Password</label>
   <div class="position-relative">
@@ -87,20 +87,20 @@
        class="text-danger small mt-1">
     Passwords do not match.
   </div>
-</div>
+</div> -->
 
 
 
-      <!-- Referral Code -->
+      <!-- Referral Code
       <div class="col-md-6">
         <label class="form-label fw-semibold">Referral Code</label>
         <input formControlName="refferalCode" type="text" class="form-control" placeholder="Enter referral code">
         <div *ngIf="f['refferalCode'].touched && f['refferalCode'].invalid" class="text-danger small mt-1">
           Referral Code is required.
         </div>
-      </div>
+      </div> -->
 
-      <!-- Branch -->
+      <!-- Branch
       <div class="col-md-6">
         <label class="form-label fw-semibold">Branch</label>
         <input formControlName="branch" type="text" class="form-control" placeholder="Enter branch">
@@ -108,9 +108,9 @@
           Branch is required.
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Bank Dropdown -->
+    <!-- Bank Dropdown
     <div class="col-md-12 mt-3">
       <label class="form-label fw-semibold">Bank</label>
       <select formControlName="bankId" class="form-select">
@@ -120,12 +120,183 @@
       <div *ngIf="f['bankId'].touched && f['bankId'].invalid" class="text-danger small mt-1">
         Please select a bank.
       </div>
-    </div>
+    </div> -->
 
-    <!-- Submit button -->
+    <!-- Submit button
     <div class="mt-4 text-center">
       <button type="submit" class="btn btn-primary w-50" [disabled]="registerForm.invalid">Register</button>
     </div>
 
   </form>
-</div>
+</div> -->
+<!-- Main content container - no top margin -->
+<main class="container-fluid p-3 p-md-4">
+
+  <!-- 1. Breadcrumb Bar -->
+  <nav aria-label="breadcrumb" class="bg-light p-3 rounded-3 mb-4 shadow-sm border">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Bank User Register</li>
+    </ol>
+  </nav>
+
+  <!-- 2. Page Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3 pt-3">
+    <h2 class="h4 fw-normal mb-0">Bank User Registration</h2>
+  </div>
+
+  <!-- 3. Form -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      
+      <!-- Standardized card layout -->
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-light border-0 p-4">
+          <h5 class="mb-0 h6 fw-bold">Please fill out the new user's details</h5>
+        </div>
+        <div class="card-body p-4 p-md-5">
+          
+          <form [formGroup]="registerForm" (ngSubmit)="register()" class="row g-3">
+            
+            <!-- Full Name -->
+            <div class="col-md-6">
+              <label for="userFullName" class="form-label">Full Name</label>
+              <input id="userFullName" formControlName="userFullName" type="text" class="form-control" 
+                     placeholder="Enter full name"
+                     [class.is-invalid]="f['userFullName'].touched && f['userFullName'].invalid">
+              <div *ngIf="f['userFullName'].touched && f['userFullName'].invalid" class="invalid-feedback">
+                Full Name is required.
+              </div>
+            </div>
+
+            <!-- Username -->
+            <div class="col-md-6">
+              <label for="userName" class="form-label">Username</label>
+              <input id="userName" formControlName="userName" type="text" class="form-control" 
+                     placeholder="Enter username"
+                     [class.is-invalid]="f['userName'].touched && f['userName'].invalid">
+              <div *ngIf="f['userName'].touched && f['userName'].invalid" class="invalid-feedback">
+                Username is required.
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6">
+              <label for="userEmail" class="form-label">Email</label>
+              <input id="userEmail" formControlName="userEmail" type="email" class="form-control" 
+                     placeholder="Enter email"
+                     [class.is-invalid]="f['userEmail'].touched && f['userEmail'].invalid || backendEmailError">
+              <div *ngIf="f['userEmail'].touched && f['userEmail'].invalid" class="invalid-feedback">
+                Valid Email is required.
+              </div>
+              <div *ngIf="backendEmailError" class="invalid-feedback d-block">
+                {{ backendEmailError }}
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="col-md-6">
+              <label for="userPhone" class="form-label">Phone</label>
+              <input id="userPhone" formControlName="userPhone" type="text" class="form-control" 
+                     placeholder="Enter phone number"
+                     [class.is-invalid]="f['userPhone'].touched && f['userPhone'].invalid || backendPhoneError">
+              <div *ngIf="f['userPhone'].touched && f['userPhone'].invalid" class="invalid-feedback">
+                Phone is required and must be 10 digits.
+              </div>
+              <div *ngIf="backendPhoneError" class="invalid-feedback d-block">
+                {{ backendPhoneError }}
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="col-md-6">
+              <label for="password" class="form-label">Password</label>
+              <div class="input-group">
+                <input [type]="showPassword ? 'text' : 'password'" 
+                       id="password"
+                       formControlName="password" 
+                       class="form-control" 
+                       placeholder="Enter password"
+                       [class.is-invalid]="f['password'].touched && f['password'].invalid">
+                <button type="button" class="btn btn-outline-secondary" (click)="togglePasswordVisibility()">
+                  <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+                </button>
+                <div *ngIf="f['password'].touched && f['password'].invalid" class="invalid-feedback">
+                  Password must be at least 8 characters and include uppercase, lowercase, number, and special character.
+                </div>
+              </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="col-md-6">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <div class="input-group">
+                <input [type]="showConfirmPassword ? 'text' : 'password'" 
+                       id="confirmPassword"
+                       formControlName="confirmPassword" 
+                       class="form-control" 
+                       placeholder="Confirm password"
+                       [class.is-invalid]="registerForm.errors?.['notMatching'] && f['confirmPassword'].touched">
+                <button type="button" class="btn btn-outline-secondary" (click)="toggleConfirmPasswordVisibility()">
+                  <i class="bi" [ngClass]="showConfirmPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+                </button>
+                <div *ngIf="registerForm.errors?.['notMatching'] && f['confirmPassword'].touched" class="invalid-feedback">
+                  Passwords do not match.
+                </div>
+              </div>
+            </div>
+
+            <!-- Referral Code -->
+            <div class="col-md-6">
+              <label for="refferalCode" class="form-label">Referral Code</label>
+              <input id="refferalCode" formControlName="refferalCode" type="text" class="form-control" 
+                     placeholder="Enter referral code"
+                     [class.is-invalid]="f['refferalCode'].touched && f['refferalCode'].invalid">
+              <div *ngIf="f['refferalCode'].touched && f['refferalCode'].invalid" class="invalid-feedback">
+                Referral Code is required.
+              </div>
+            </div>
+
+            <!-- Branch -->
+            <div class="col-md-6">
+              <label for="branch" class="form-label">Branch</label>
+              <input id="branch" formControlName="branch" type="text" class="form-control" 
+                     placeholder="Enter branch"
+                     [class.is-invalid]="f['branch'].touched && f['branch'].invalid">
+              <div *ngIf="f['branch'].touched && f['branch'].invalid" class="invalid-feedback">
+                Branch is required.
+              </div>
+            </div>
+
+            <!-- Bank Dropdown -->
+            <div class="col-12">
+              <label for="bankId" class="form-label">Bank</label>
+              <select id="bankId" formControlName="bankId" class="form-select"
+                      [class.is-invalid]="f['bankId'].touched && f['bankId'].invalid">
+                <option value="" disabled selected>Select Bank</option>
+                <option *ngFor="let bank of banks" [value]="bank.bankId">{{ bank.bankName }}</option>
+              </select>
+              <div *ngIf="f['bankId'].touched && f['bankId'].invalid" class="invalid-feedback">
+                Please select a bank.
+              </div>
+            </div>
+            
+          </form>
+        </div>
+        
+        <!-- Submit button -->
+        <div class="card-footer bg-light border-0 p-4">
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg d-flex align-items-center justify-content-center" 
+                    [disabled]="registerForm.invalid" (click)="register()">
+              <i class="bi bi-person-plus-fill me-2"></i>
+              Register Bank User
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
