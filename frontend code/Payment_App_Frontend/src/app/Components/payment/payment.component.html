@@ -27,7 +27,7 @@
 
                 <div>
                     <label class="form-label fw-semibold mb-1" style="font-size: 0.9rem; color: #333;">Pay To</label>
-                    <select class="form-select modern-input" formControlName="payeeAccountNumber">
+                    <select class="form-select modern-input" formControlName="payeeAccountNumber" required>
                         <option value="" disabled selected hidden>Select a Beneficiary</option>
                         <option *ngFor="let beneficiary of beneficiaries" [value]="beneficiary.accountNumber">
                             {{ beneficiary.beneficiaryName }}
@@ -35,9 +35,13 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn modern-btn w-100">
-                    Make Payment
-                </button>
+<button
+  type="submit"
+  class="btn btn-primary"
+  [disabled]="createPayment.invalid || createPayment.get('amount')?.value <= 0"
+>
+  Submit
+</button>
             </form>
         </div>
 

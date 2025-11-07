@@ -76,6 +76,13 @@ namespace Payment_Project_API.Services
                 throw new InvalidOperationException("A Bank User with this phone number already exists!");
             }
 
+            if (query.Any(bu => bu.UserName == bankUser.UserName))
+            {
+                throw new InvalidOperationException("A Bank User with this Username already exists!");
+            }
+
+
+
             bankUser.Password = _passwordHasher.HashPassword(bankUser, bankUser.Password);
 
             return await _bankUserRepository.Add(bankUser);

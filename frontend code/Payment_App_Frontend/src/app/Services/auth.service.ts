@@ -84,4 +84,8 @@ export class AuthService {
     this.roleSubject.next(null);
   }
 
+  isUsernameTaken(username: string): Observable<boolean> {
+  return this.http.get<boolean>(`${this.loginURL}/Auth/CheckUsername?username=${username}`);
+}
+
 }

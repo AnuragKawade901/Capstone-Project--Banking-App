@@ -40,6 +40,11 @@ export class ListClientsComponent implements OnInit {
     { id: 2, name: 'Declined' },
     { id: 3, name: 'pending' }
   ];
+  allClients: ClientUser[] = []; // full dataset
+pageNumber = 1;
+pageSize = 5;
+totalRecords = 0;
+
 
   constructor(private clientSvc: ClientRegisterService, private auth: AuthService, private notify: NotificationService ) { }
 
@@ -54,7 +59,10 @@ export class ListClientsComponent implements OnInit {
   fetchAllClients(params: string) {
     this.clientSvc.getClients(params).subscribe((data) => {
       console.log(data);
-      this.clients = data;
+      this.allClients = data;
+this.totalRecords = data.length;
+this.updatePagedClients();
+
       this.pending = data.filter(d => d.kycVierified == false && d.account==null).length;
       this.approved = data.filter(d => d.kycVierified == true).length;
       this.deleted = data.filter(d => d.kycVierified == false && d.account!=null).length;
@@ -63,6 +71,44 @@ export class ListClientsComponent implements OnInit {
         console.log(error);
       })
   }
+  updatePagedClients() {
+  const startIndex = (this.pageNumber - 1) * this.pageSize;
+  const endIndex = startIndex + this.pageSize;
+  this.clients = this.allClients.slice(startIndex, endIndex);
+}
+
+goToPage(page: number): void {
+  const newPage = Math.max(1, Math.min(page, this.totalPages));
+  if (newPage === this.pageNumber) return;
+
+  this.pageNumber = newPage;
+  this.updatePagedClients();
+}
+
+get totalPages(): number {
+  return Math.ceil(this.totalRecords / this.pageSize);
+}
+
+get pages(): number[] {
+  const totalPages = this.totalPages;
+  if (totalPages === 0) return [];
+
+  let start = Math.max(1, this.pageNumber - 2);
+  let end = Math.min(totalPages, this.pageNumber + 2);
+
+  if (end - start < 4) {
+    if (start === 1) end = Math.min(totalPages, start + 4);
+    if (end === totalPages) start = Math.max(1, end - 4);
+  }
+
+  const pageArray = [];
+  for (let i = start; i <= end; i++) {
+    pageArray.push(i);
+  }
+  return pageArray;
+}
+
+
 
   approveClient(client: ClientUser) {
     console.log(client);

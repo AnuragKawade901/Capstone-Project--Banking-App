@@ -73,6 +73,19 @@ namespace Payment_Project_API.Services
                 var employees = await _employeeService.GetEmployeesByClientId(disbursement.ClientId);
                 foreach (Employee emp in employees)
                 {
+                    if (emp.SalaryDisbursementDetails != null && emp.SalaryDisbursementDetails.Count > 0)
+                    {
+                        SalaryDisbursementDetails lastDetail = emp.SalaryDisbursementDetails?
+                        .OrderBy(x => x.DetailId) // replace 'Id' with your actual key or date field
+                        .LastOrDefault();
+
+
+                        var daysSinceLastDisbursement = (DateTime.UtcNow - lastDetail.SalaryDisbursement.DisbursementDate).TotalDays;
+                        if (daysSinceLastDisbursement <= 30)
+                        {
+                            throw new Exception($"Salary for Employee ID {emp.EmployeeId} has already been disbursed within the last 30 days.");
+                        }
+                    }
                     tAmount += emp.Salary;
                     disbursement.Employees.Add(emp);
                 }
@@ -85,6 +98,19 @@ namespace Payment_Project_API.Services
                 {
                     foreach (Employee emp in employees)
                     {
+                        if (emp.SalaryDisbursementDetails != null && emp.SalaryDisbursementDetails.Count > 0)
+                        {
+                            SalaryDisbursementDetails lastDetail = emp.SalaryDisbursementDetails?
+                            .OrderBy(x => x.DetailId) // replace 'Id' with your actual key or date field
+                            .LastOrDefault();
+
+
+                            var daysSinceLastDisbursement = (DateTime.UtcNow - lastDetail.SalaryDisbursement.DisbursementDate).TotalDays;
+                            if (daysSinceLastDisbursement <= 30)
+                            {
+                                throw new Exception($"Salary for Employee ID {emp.EmployeeId} has already been disbursed within the last 30 days.");
+                            }
+                        }
                         tAmount += emp.Salary;
                     }
                     disbursement.TotalAmount = tAmount;
@@ -137,8 +163,21 @@ namespace Payment_Project_API.Services
             {
                 try
                 {
+                    if (emp.SalaryDisbursementDetails != null && emp.SalaryDisbursementDetails.Count > 0)
+                    {
+                        SalaryDisbursementDetails lastDetail = emp.SalaryDisbursementDetails?
+                        .OrderBy(x => x.DetailId) // replace 'Id' with your actual key or date field
+                        .LastOrDefault();
 
-                    Account? employeeAccount = await _accountService.AccountExistsWithAccountNumber(emp.AccountNumber);
+                       
+                            var daysSinceLastDisbursement = (DateTime.UtcNow - lastDetail.SalaryDisbursement.DisbursementDate).TotalDays;
+                        if (daysSinceLastDisbursement <= 30)
+                        {
+                            throw new Exception($"Salary for Employee ID {emp.EmployeeId} has already been disbursed within the last 30 days.");
+                        }
+                    }
+
+                        Account? employeeAccount = await _accountService.AccountExistsWithAccountNumber(emp.AccountNumber);
                     if (emp.Salary > 0 && emp.Salary < 100000)
                     {
                         Transaction debitTransaction = await _accountService.DebitAccount(ClientAccountId, (double)emp.Salary, paymentId: null, disbursementId: disbursementId, emp.AccountNumber);
@@ -167,6 +206,7 @@ namespace Payment_Project_API.Services
                         }
 
                     }
+
                     else
                     {
                         SalaryDisbursementDetails detail = new SalaryDisbursementDetails

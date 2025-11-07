@@ -46,7 +46,7 @@ namespace Payment_Project_API.Repositories
             Bank? existingBank = await GetById(id);
             if (existingBank == null) return;
 
-            _dbContext.Banks.Remove(existingBank);
+            existingBank.IsActive = false;
             await _dbContext.SaveChangesAsync();
         }
     }

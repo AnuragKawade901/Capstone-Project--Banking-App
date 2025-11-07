@@ -37,6 +37,12 @@ export class ListPaymentComponent implements OnInit {
   approved!: number;
   rejected!: number;
 
+  allPayments: Payment[] = []; // full dataset
+pageNumber = 1;
+pageSize = 5;
+totalRecords = 0;
+
+
   statusOptions = [
     { id: 1, name: 'Approved' },
     { id: 2, name: 'Declined' },
@@ -63,7 +69,10 @@ export class ListPaymentComponent implements OnInit {
   fetchAllPayments(params: string) {
     this.paymentSvc.getAllPayments(params).subscribe((data) => {
       console.log(data);
-      this.payments = data;
+      this.allPayments = data;
+      this.totalRecords = data.length;
+      this.updatePagedPayments();
+
       this.totalPaymentAmount = data.reduce((sum, p) => sum + p.amount, 0);
       this.approved = data.filter(p => p.paymentStatusId == 1).length;
       this.rejected = data.filter(p => p.paymentStatusId == 2).length;
@@ -72,6 +81,44 @@ export class ListPaymentComponent implements OnInit {
       error => console.log(error)
     )
   }
+
+  updatePagedPayments() {
+  const startIndex = (this.pageNumber - 1) * this.pageSize;
+  const endIndex = startIndex + this.pageSize;
+  this.payments = this.allPayments.slice(startIndex, endIndex);
+}
+
+goToPage(page: number): void {
+  const newPage = Math.max(1, Math.min(page, this.totalPages));
+  if (newPage === this.pageNumber) return;
+
+  this.pageNumber = newPage;
+  this.updatePagedPayments();
+}
+
+get totalPages(): number {
+  return Math.ceil(this.totalRecords / this.pageSize);
+}
+
+get pages(): number[] {
+  const totalPages = this.totalPages;
+  if (totalPages === 0) return [];
+
+  let start = Math.max(1, this.pageNumber - 2);
+  let end = Math.min(totalPages, this.pageNumber + 2);
+
+  if (end - start < 4) {
+    if (start === 1) end = Math.min(totalPages, start + 4);
+    if (end === totalPages) start = Math.max(1, end - 4);
+  }
+
+  const pageArray = [];
+  for (let i = start; i <= end; i++) {
+    pageArray.push(i);
+  }
+  return pageArray;
+}
+
 
   approvePayment(payment: Payment) {
     console.log(payment);

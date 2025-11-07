@@ -115,6 +115,7 @@ export class ListAllEmployeesComponent implements OnInit {
 
     },
       (error) => {
+        this.notify.warning(error.error.detail  || "Insuffiencent Balance to approve payment");
         console.log(error);
       })
   }

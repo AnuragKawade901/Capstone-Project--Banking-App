@@ -35,6 +35,11 @@ export class TransactionComponent {
     { id: 2, name: 'Debit' },
     { id: 3, name: 'pending' }
   ];
+  allTransactions: TransactionDTO[] = []; // full dataset
+  pageNumber = 1;
+pageSize = 5;
+totalRecords = 0;
+ 
 
   clientOptions: { id: number, name: string }[] = [];
 
@@ -67,7 +72,10 @@ export class TransactionComponent {
   fetchTransactions(params: string) {
     this.transactionSvc.getAllTransaction(params).subscribe((data) => {
       console.log(data);
-      this.transactions = data;
+      this.allTransactions = data;
+      this.totalRecords = data.length;
+      this.updatePagedTransactions();
+
       let credit = data.filter(t => t.transactionTypeId == 1).reduce((sum, t) => sum + t.amount, 0);
       let debit = data.filter(t => t.transactionTypeId == 2).reduce((sum, t) => sum + t.amount, 0);
       this.totalTransactionAmount = credit - debit;
@@ -78,6 +86,43 @@ export class TransactionComponent {
 
     );
   }
+  updatePagedTransactions() {
+  const startIndex = (this.pageNumber - 1) * this.pageSize;
+  const endIndex = startIndex + this.pageSize;
+  this.transactions = this.allTransactions.slice(startIndex, endIndex);
+}
+
+goToPage(page: number): void {
+  const newPage = Math.max(1, Math.min(page, this.totalPages));
+  if (newPage === this.pageNumber) return;
+
+  this.pageNumber = newPage;
+  this.updatePagedTransactions();
+}
+
+get totalPages(): number {
+  return Math.ceil(this.totalRecords / this.pageSize);
+}
+
+get pages(): number[] {
+  const totalPages = this.totalPages;
+  if (totalPages === 0) return [];
+
+  let start = Math.max(1, this.pageNumber - 2);
+  let end = Math.min(totalPages, this.pageNumber + 2);
+
+  if (end - start < 4) {
+    if (start === 1) end = Math.min(totalPages, start + 4);
+    if (end === totalPages) start = Math.max(1, end - 4);
+  }
+
+  const pageArray = [];
+  for (let i = start; i <= end; i++) {
+    pageArray.push(i);
+  }
+  return pageArray;
+}
+
 
   fetchClients() {
     this.clientSvc.getClients("").subscribe((data) => {

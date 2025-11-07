@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentService } from '../../Services/payment.service';
 import { Payment } from '../../Models/Payment';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../Services/auth.service';
 import { ClientRegisterService } from '../../Services/client-register.service';
 import { Beneficiary } from '../../Models/Beneficiary';
@@ -35,7 +35,7 @@ export class PaymentComponent implements OnInit {
 
     this.createPayment = this.fb.group({
       payerAccountId: 0,
-      payeeAccountNumber: "",
+      payeeAccountNumber: ["", Validators.required],
       amount: 0
     })
     const user = this.auth.getLoggedInUser();

@@ -284,6 +284,33 @@
 
     </div>
   </div> <!-- End Card -->
+
+
+  <!-- Pagination Summary -->
+<p class="text-muted text-center mt-2" *ngIf="totalRecords > 0">
+  Showing {{ (pageNumber - 1) * pageSize + 1 }}–
+  {{ (pageNumber * pageSize) > totalRecords ? totalRecords : (pageNumber * pageSize) }} of {{ totalRecords }} clients
+</p>
+
+<!-- Pagination Controls -->
+<div class="d-flex justify-content-center mt-3" *ngIf="totalPages > 1">
+  <nav>
+    <ul class="pagination pagination-sm mb-0">
+      <li class="page-item" [class.disabled]="pageNumber === 1">
+        <button class="page-link" (click)="goToPage(pageNumber - 1)">Previous</button>
+      </li>
+
+      <li class="page-item" *ngFor="let page of pages" [class.active]="page === pageNumber">
+        <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+      </li>
+
+      <li class="page-item" [class.disabled]="pageNumber === totalPages">
+        <button class="page-link" (click)="goToPage(pageNumber + 1)">Next</button>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 </main>
 
 <!-- Modal remains outside the main container -->

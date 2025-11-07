@@ -152,6 +152,9 @@
               <div *ngIf="f['UserName'].touched && f['UserName'].invalid" class="invalid-feedback">
                 Username is required.
               </div>
+              <div *ngIf="f['UserName'].errors?.['duplicate']">
+                  This username is already registered.
+                </div>
             </div>
 
             <!-- Email -->

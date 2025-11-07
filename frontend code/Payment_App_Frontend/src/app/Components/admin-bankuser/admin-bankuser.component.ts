@@ -35,12 +35,11 @@ export class AdminComponent implements OnInit {
   pending!: number;
   approved!: number;
 
-  // Pagination
-  pageNumber = 1;
-  pageSize = 10;
-  totalRecords = 0;
-  totalPages = 0;
-  totalPagesArray: number[] = [];
+  allBankUsers: BankUser[] = []; // full dataset
+pageNumber = 1;
+pageSize = 5;
+totalRecords = 0;
+
 
   statusOptions!: { id: number, name: string }[];
 
@@ -70,8 +69,11 @@ export class AdminComponent implements OnInit {
   fetchBankUsers(params: string) {
     this.bankService.getAllBankUsers(params).subscribe((data) => {
       console.log(data);
-      this.banks = data;
-      this.totalBankUser = data.length;
+      this.allBankUsers = data;
+this.totalRecords = data.length;
+this.updatePagedBankUsers();
+
+      
       this.pending = data.filter(b => b.isActive == false).length;
       this.approved = data.filter(b => b.isActive == true).length;
     },
@@ -79,6 +81,46 @@ export class AdminComponent implements OnInit {
         console.log(error);
       })
   }
+
+  updatePagedBankUsers() {
+  const startIndex = (this.pageNumber - 1) * this.pageSize;
+  const endIndex = startIndex + this.pageSize;
+  this.banks = this.allBankUsers.slice(startIndex, endIndex);
+}
+
+goToPage(page: number): void {
+  const newPage = Math.max(1, Math.min(page, this.totalPages));
+  if (newPage === this.pageNumber) return;
+
+  this.pageNumber = newPage;
+  this.updatePagedBankUsers();
+}
+
+get totalPages(): number {
+  return Math.ceil(this.totalRecords / this.pageSize);
+}
+
+get pages(): number[] {
+  const totalPages = this.totalPages;
+  if (totalPages === 0) return [];
+
+  let start = Math.max(1, this.pageNumber - 2);
+  let end = Math.min(totalPages, this.pageNumber + 2);
+
+  if (end - start < 4) {
+    if (start === 1) end = Math.min(totalPages, start + 4);
+    if (end === totalPages) start = Math.max(1, end - 4);
+  }
+
+  const pageArray = [];
+  for (let i = start; i <= end; i++) {
+    pageArray.push(i);
+  }
+  return pageArray;
+}
+
+
+
 
   approveBankUser(bankUser: BankUser) {
     console.log(bankUser);

@@ -94,6 +94,9 @@ export class ClientRegisterComponent {
         else if (err.error.includes("phone")) {
           this.registerForm.get('UserPhone')?.setErrors({ duplicate: true });
         }
+        else if (err.error.includes("username")) {
+          this.registerForm.get('UserName')?.setErrors({ duplicate: true });
+        }
         else {
           this.notify.error(err.error); 
         }

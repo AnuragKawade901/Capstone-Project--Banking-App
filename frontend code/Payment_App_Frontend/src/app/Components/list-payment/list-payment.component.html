@@ -1,7 +1,5 @@
-<!-- <div class="mt-4 px-3 w-100"> -->
-
-  <!-- Breadcrumb -->
-  <!-- <nav aria-label="breadcrumb" class="mb-4">
+<!-- <div class="mt-4 px-3 w-100">
+  <nav aria-label="breadcrumb" class="mb-4">
     <ol class="breadcrumb mb-0">
       <li class="breadcrumb-item">
         <a [routerLink]="role === 'CLIENT_USER' ? '/client/home' : role === 'BANK_USER' ? '/bank/home' : '/admin/home'">
@@ -10,99 +8,101 @@
       </li>
       <li class="breadcrumb-item active" aria-current="page">Payments</li>
     </ol>
-  </nav> -->
-
-  <!-- Stats Overview -->
-  <!-- <div class="d-flex gap-3 flex-wrap mb-3">
-    <div class="stat-card">
+  </nav>
+  <div class="d-flex gap-3 flex-wrap mb-3">
+    <div class="bg-white p-3 shadow-sm rounded border w-100" style="max-width: 200px;">
       <div class="text-muted small">Total Payment Amount</div>
       <div class="fw-bold fs-5">₹ {{totalPaymentAmount ?? 0}}</div>
     </div>
-    <div class="stat-card">
+    <div class="bg-white p-3 shadow-sm rounded border w-100" style="max-width: 200px;">
       <div class="text-muted small">Pending</div>
       <div class="fw-bold fs-5 text-warning">{{pending ?? 0}}</div>
     </div>
-    <div class="stat-card">
+    <div class="bg-white p-3 shadow-sm rounded border w-100" style="max-width: 200px;">
       <div class="text-muted small">Approved</div>
       <div class="fw-bold fs-5 text-success">{{approved ?? 0}}</div>
     </div>
-    <div class="stat-card">
+    <div class="bg-white p-3 shadow-sm rounded border w-100" style="max-width: 200px;">
       <div class="text-muted small">Declined</div>
       <div class="fw-bold fs-5 text-danger">{{rejected ?? 0}}</div>
     </div>
-  </div> -->
-
-  <!-- Table Header & Add Button -->
-  <!-- <div class="d-flex justify-content-between align-items-center mb-3">
-    <h5 class="fw-bold mb-0" style="color: #000000;">ALL PAYMENTS</h5>
-<button *ngIf="role == 'CLIENT_USER'" class="btn-download-pdf" routerLink="/client/payment">
-  <i class="bi bi-plus-lg me-2"></i> Create payment
-</button>
   </div>
-  <hr /> -->
-
-  <!-- Filters and Download -->
-  <!-- <div class="mb-3 d-flex flex-wrap gap-2">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="fw-bold mb-0">ALL PAYMENTS</h5>
+    <button *ngIf="role == 'CLIENT_USER'" class="btn btn-create-payment" routerLink="/client/payment">
+      <i class="bi bi-plus-lg me-2"></i> Create payment
+    </button>
+  </div>
+  <hr>
+ 
+  <div class="mb-3 d-flex flex-wrap gap-2">
     <div ngbDropdown class="d-inline-block">
-      <div class="mb-3 d-flex flex-wrap gap-2">
-        <app-date-filter (dateFilter)="onDateFilter($event)"></app-date-filter>
+      <div class="mb-3 d-flex flex-wrap gap-2"> -->
+        <!-- Date and Time Filter -->
+        <!-- <app-date-filter (dateFilter)="onDateFilter($event)"></app-date-filter>
         <app-amount-filter (amountFilter)="onAmountFilter($event)"></app-amount-filter>
-        <app-status-filter [statusOptions]="statusOptions" (statusFilter)="onStatusFilter($event)"></app-status-filter>
-        <app-id-filter (idFilter)="fetchById($event)"></app-id-filter>
+        <app-status-filter [statusOptions]="statusOptions" (statusFilter)="onStatusFilter($event)"></app-status-filter> -->
+        <!-- <app-name-filter (nameFilter)="onNameFilter($event)"></app-name-filter> -->
+        <!-- <app-id-filter (idFilter)="fetchById($event)"></app-id-filter>
         <app-account-number-filter (accountFilter)="onAccountFilter($event)"></app-account-number-filter>
-<button class="btn-download-pdf" (click)="downloadPDF()">
-  <i class="fas fa-file-pdf me-1"></i> Download PDF
-</button>
-
+        <button class="btn btn-create-payment" (click)="downloadPDF()">
+          <i class="fas fa-file-pdf"></i> Download PDF
+        </button>
       </div>
     </div>
-  </div> -->
-
-  <!-- Payments Table -->
-  <!-- <div class="table-responsive bg-white shadow-sm table-wrapper" style="overflow-x: auto;">
-    <table class="table table-hover align-middle small mb-0">
-      <thead class="table-light">
-        <tr>
-          <th>#</th>
-          <th>Payer Name</th>
-          <th>Payer Account Number</th>
-          <th>Amount</th>
-          <th>Payee Account Number</th>
-          <th>Created At</th>
-          <th>Status</th>
-          <th *ngIf="role == 'BANK_USER'">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let payment of payments">
-          <td class="text-truncate">{{ payment.paymentId }}</td>
-          <td class="text-truncate" style="max-width: 160px;">
-            {{ payment.payerAccount?.clientUser?.userName }}
-          </td>
-          <td class="text-truncate" style="max-width: 140px;">
-            {{ payment.payerAccount?.accountNumber }}
-          </td>
-          <td class="text-truncate">{{ payment.amount | currency:'INR':'symbol'}}</td>
-          <td class="text-truncate" style="max-width: 160px;">
-            {{ payment.payeeAccountNumber }}
-          </td>
-          <td class="text-truncate" style="max-width: 140px;">
-            {{ payment.createdAt | date:'dd-MMM, h:mm a' }}
-          </td>
-          <td>
-            <span
-              class="badge"
-              [ngClass]="{
-                'badge-danger': payment.paymentStatusId == 4
-              }">
-              {{ payment.paymentStatus?.statusId | paymentStatus }}
-            </span>
-          </td>
-          <td *ngIf="role == 'BANK_USER' && payment.paymentStatusId==3">
-            <button class="btn btn-sm btn-success me-1" (click)="approvePayment(payment)">Approve -->
-<!-- Main content container -->
-<main class="container-fluid my-4 my-md-5 p-3 p-md-4">
-
+    <div class="table-wrapper bg-white rounded shadow-sm" style="overflow-x: auto;">
+      <table class="table table-hover align-middle small mb-0" style="min-width: 1000px;">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Payer Name</th>
+            <th>Payer Account Number</th>
+            <th>Amount</th>
+            <th>Payee Account Number</th>
+            <th>Created At</th>
+            <th>Status</th>
+            <th *ngIf="role == 'BANK_USER'">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let payment of payments">
+            <td class="text-truncate">{{ payment.paymentId }}</td>
+            <td class="text-truncate" style="max-width: 160px;">
+              {{ payment.payerAccount?.clientUser?.userName }}
+            </td>
+            <td class="text-truncate" style="max-width: 140px;">
+              {{ payment.payerAccount?.accountNumber }}
+            </td>
+            <td class="text-truncate">{{ payment.amount | currency:'INR':'symbol'}}</td>
+            <td class="text-truncate" style="max-width: 160px;">
+              {{ payment.payeeAccountNumber }}
+            </td>
+            <td class="text-truncate" style="max-width: 140px;">
+              {{ payment.createdAt | date:'dd-MMM, h:mm a' }}
+            </td>
+            <td>
+              <span class="badge rounded-pill bg-light text-dark border">
+                {{ payment.paymentStatus?.statusId | paymentStatus }}
+              </span>
+            </td>
+            <td *ngIf="role == 'BANK_USER' && payment.paymentStatusId==3">
+              <button class="btn btn-sm btn-success me-1" (click)="approvePayment(payment)">Approve</button>
+              <button class="btn btn-sm btn-outline-danger" (click)="openFormModal(payment)">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="payments?.length === 0" class="text-center p-3 text-muted">
+        No payment found.
+      </div>
+    </div>
+  </div>
+</div>
+<app-reject-modal #rejectModal [Parentid]="selectedPayment?.id"
+  (formSubmit)="handleFormSubmit($event)"></app-reject-modal> -->
+  <!-- Main content container - no top margin -->
+<main class="container-fluid p-3 p-md-4">
+ 
   <!-- 1. Breadcrumb Bar (Consistent Style) -->
   <nav aria-label="breadcrumb" class="bg-light p-3 rounded-3 mb-4 shadow-sm border">
     <ol class="breadcrumb mb-0">
@@ -114,82 +114,79 @@
       <li class="breadcrumb-item active" aria-current="page">Payments</li>
     </ol>
   </nav>
-
+ 
   <!-- 2. Summary Statistics Cards -->
-  <!-- Using a 4-column layout for your 4 stat cards -->
   <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-4 mb-4">
-
-    <!-- Total Payment Amount Card -->
+ 
+    <!-- Total Payment Amount Card (Info Card Style) -->
     <div class="col">
-      <div class="card h-100  border-0 shadow-sm">
-        <div class="card-body d-flex align-items-center gap-3 p-4">
-          <div class="stat-icon bg-primary-subtle text-primary">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body d-flex align-items-start gap-3 p-4">
+          <div class="stat-icon bg-success-subtle text-success">
             <i class="bi bi-currency-rupee"></i>
           </div>
           <div>
-           <h5 class="stat-value-tpac">{{ totalPaymentAmount | currency:'INR':'symbol':'1.0-0' }}</h5>
-            <p class="stat-label-tpac">Total Payment Amount</p>
+            <h5 class="info-card-value">{{totalPaymentAmount ?? 0 | currency:'INR':'symbol':'1.0-0'}}</h5>
+            <p class="info-card-label">Total Payment Amount</p>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Pending Card -->
+ 
+    <!-- Pending Card (Stat Card Style) -->
     <div class="col">
       <div class="card h-100 border-0 shadow-sm">
-        <div class="card-body d-flex align-items-center gap-3 p-4">
+        <div class="card-body d-flex align-items-start gap-3 p-4">
           <div class="stat-icon bg-warning-subtle text-warning">
             <i class="bi bi-hourglass-split"></i>
           </div>
           <div>
-            <h5 class="stat-value">{{ pending ?? 0 }}</h5>
+            <h5 class="stat-value">{{pending ?? 0}}</h5>
             <p class="stat-label">Pending</p>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Approved Card -->
+ 
+    <!-- Approved Card (Stat Card Style) -->
     <div class="col">
       <div class="card h-100 border-0 shadow-sm">
-        <div class="card-body d-flex align-items-center gap-3 p-4">
+        <div class="card-body d-flex align-items-start gap-3 p-4">
           <div class="stat-icon bg-success-subtle text-success">
             <i class="bi bi-check-circle-fill"></i>
           </div>
           <div>
-            <h5 class="stat-value">{{ approved ?? 0 }}</h5>
+            <h5 class="stat-value">{{approved ?? 0}}</h5>
             <p class="stat-label">Approved</p>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Declined Card -->
+ 
+    <!-- Declined Card (Stat Card Style) -->
     <div class="col">
       <div class="card h-100 border-0 shadow-sm">
-        <div class="card-body d-flex align-items-center gap-3 p-4">
+        <div class="card-body d-flex align-items-start gap-3 p-4">
           <div class="stat-icon bg-danger-subtle text-danger">
             <i class="bi bi-x-circle-fill"></i>
           </div>
           <div>
-            <h5 class="stat-value">{{ rejected ?? 0 }}</h5>
+            <h5 class="stat-value">{{rejected ?? 0}}</h5>
             <p class="stat-label">Declined</p>
           </div>
         </div>
       </div>
     </div>
-
   </div> <!-- End of Summary Row -->
-
+ 
   <!-- 3. Page Header & Primary Action -->
   <div class="d-flex justify-content-between align-items-center mb-3 pt-3">
     <h2 class="h4 fw-normal mb-0">All Payments</h2>
-    <!-- "Create Payment" button, styled as primary action -->
     <button *ngIf="role == 'CLIENT_USER'" class="btn btn-primary" routerLink="/client/payment">
-      <i class="bi bi-plus-lg me-1"></i> Create Payment
+      <i class="bi bi-plus-lg me-1"></i> Create payment
     </button>
   </div>
-
+ 
   <!-- 4. Filter Bar -->
   <div class="bg-light p-3 rounded-3 mb-4 border d-flex flex-wrap align-items-center gap-2">
     <!-- Filter components -->
@@ -198,96 +195,111 @@
     <app-status-filter [statusOptions]="statusOptions" (statusFilter)="onStatusFilter($event)"></app-status-filter>
     <app-id-filter (idFilter)="fetchById($event)"></app-id-filter>
     <app-account-number-filter (accountFilter)="onAccountFilter($event)"></app-account-number-filter>
-
-    <!-- Download Button (styled consistently, pushed to right) -->
+ 
+    <!-- Download Button -->
     <button class="btn btn-outline-secondary ms-auto" (click)="downloadPDF()">
       <i class="bi bi-download me-1"></i> Download PDF
     </button>
   </div>
-
+ 
   <!-- 5. Data Table -->
   <div class="card shadow-sm border-0">
     <div class="card-body p-0">
-
-      <div *ngIf="payments.length > 0; else noDataFound">
-        <div class="table-responsive  rounded-3">
-          <table class="table table-hover align-middle small mb-0">
-            <thead class="table-light">
-              <tr>
-                <th scope="col" class="ps-4">ID</th>
-                <th scope="col">Payer Name</th>
-                <th scope="col">Payer Account</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Payee Account</th>
-                <th scope="col">Created At</th>
-                <th scope="col">Status</th>
-                <th scope="col" *ngIf="role == 'BANK_USER'" class="text-end pe-4">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let payment of payments">
-                <td class="ps-4 fw-bold">{{ payment.paymentId }}</td>
-                <td>{{ payment.payerAccount?.clientUser?.userName }}</td>
-                <td>{{ payment.payerAccount?.accountNumber }}</td>
-                <td class="fw-bold">{{ payment.amount | currency:'INR':'symbol'}}</td>
-                <td>{{ payment.payeeAccountNumber }}</td>
-                <td>{{ payment.createdAt | date:'dd-MMM, h:mm a' }}</td>
-                <td>
-                  <!-- 
-                    NEW: Using consistent subtle badges for status
-                    Assuming: 1=Approved, 2=??, 3=Pending, 4=Declined
-                    Please adjust IDs as needed.
-                  -->
-                  <span *ngIf="payment.paymentStatusId == 3"
-                    class="badge bg-warning-subtle text-warning-emphasis rounded-pill">
-                    Pending
-                  </span>
-                  <span *ngIf="payment.paymentStatusId == 1 || payment.paymentStatusId == 2"
-                    class="badge bg-success-subtle text-success-emphasis rounded-pill">
-                    Approved
-                  </span>
-                  <span *ngIf="payment.paymentStatusId == 4"
-                    class="badge bg-danger-subtle text-danger-emphasis rounded-pill">
-                    Declined
-                  </span>
-                </td>
-                
-                <!-- NEW: Icon-based buttons, matching bank-users page -->
-                <td *ngIf="role == 'BANK_USER'" class="text-end pe-4">
-                  <div *ngIf="payment.paymentStatusId == 3" class="btn-group btn-group-sm" role="group">
-                    <button class="btn btn-outline-success d-flex align-items-center"
-                            (click)="approvePayment(payment)">
-                      <i class="bi bi-check-lg me-1"></i>
-                      Approve
-                    </button>
-                    <!-- Added a Reject button for consistency -->
-                    <!-- <button class="btn btn-outline-danger d-flex align-items-center"
-                            (click)="rejectPayment(payment)"> 
-                      <i class="bi bi-x-lg me-1"></i>
-                      Reject
-                    </button> -->
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div> <!-- End of *ngIf -->
-
-      <!-- "No data" message template -->
-      <ng-template #noDataFound>
-        <div class="text-center p-5 text-muted">
-          <i class="bi bi-info-circle fs-3 d-block mb-2"></i>
-          No payments found.
-        </div>
-      </ng-template>
-
+ 
+      <div class="table-responsive rounded-3">
+        <table class="table table-hover align-middle small mb-0">
+          <thead class="table-light">
+            <tr>
+              <th scope="col" class="ps-4">#</th>
+              <th scope="col">Payer Name</th>
+              <th scope="col">Payer Account</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Payee Account</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Status</th>
+              <th scope="col" *ngIf="role == 'BANK_USER'" class="pe-4">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let payment of payments; let i=index">
+              <td class="ps-4">{{ payment.paymentId }}</td>
+              <td>{{ payment.payerAccount?.clientUser?.userName }}</td>
+              <td>{{ payment.payerAccount?.accountNumber }}</td>
+              <td class="fw-bold">{{ payment.amount | currency:'INR':'symbol'}}</td>
+              <td>{{ payment.payeeAccountNumber }}</td>
+              <td>{{ payment.createdAt | date:'dd-MMM, h:mm a' }}</td>
+              <td>
+                <!-- Standardized Subtle Badges -->
+                <span *ngIf="payment.paymentStatusId == 1"
+                  class="badge bg-success-subtle text-success-emphasis rounded-pill">
+                  Approved
+                </span>
+                <span *ngIf="payment.paymentStatusId == 3"
+                  class="badge bg-warning-subtle text-warning-emphasis rounded-pill">
+                  Pending
+                </span>
+                <span *ngIf="payment.paymentStatusId == 4"
+                  class="badge bg-danger-subtle text-danger-emphasis rounded-pill">
+                  Declined
+                </span>
+                 <span *ngIf="payment.paymentStatusId != 1 && payment.paymentStatusId != 3 && payment.paymentStatusId != 4"
+                  class="badge bg-secondary-subtle text-secondary-emphasis rounded-pill">
+                  {{ payment.paymentStatus?.statusId | paymentStatus }}
+                </span>
+              </td>
+              <td *ngIf="role == 'BANK_USER' && payment.paymentStatusId==3" class="pe-4">
+                <!-- Standardized Icon Buttons -->
+                <div class="btn-group btn-group-sm" role="group">
+                  <button class="btn btn-outline-success d-flex align-items-center" (click)="approvePayment(payment)">
+                    <i class="bi bi-check-lg me-1"></i> Approve
+                  </button>
+                  <button class="btn btn-outline-danger d-flex align-items-center" (click)="openFormModal(payment)">
+                    <i class="bi bi-x-lg me-1"></i> Reject
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+ 
+      <!-- No Data Message -->
+      <div *ngIf="payments?.length === 0" class="text-center p-5 text-muted">
+        <i class="bi bi-info-circle fs-3 d-block mb-2"></i>
+        No payment found.
+      </div>
+ 
     </div>
-  </div> <!-- End of Card -->
+  </div> <!-- End Card -->
 
-  <!-- 
-    Pagination is not included as requested. 
-    You would add the <nav> block here if you needed it.
-  -->
+   <!-- Pagination Summary -->
+<p class="text-muted text-center mt-2" *ngIf="totalRecords > 0">
+  Showing {{ (pageNumber - 1) * pageSize + 1 }}–
+  {{ (pageNumber * pageSize) > totalRecords ? totalRecords : (pageNumber * pageSize) }} of {{ totalRecords }} payments
+</p>
+
+<!-- Pagination Controls -->
+<div class="d-flex justify-content-center mt-3" *ngIf="totalPages > 1">
+  <nav>
+    <ul class="pagination pagination-sm mb-0">
+      <li class="page-item" [class.disabled]="pageNumber === 1">
+        <button class="page-link" (click)="goToPage(pageNumber - 1)">Previous</button>
+      </li>
+
+      <li class="page-item" *ngFor="let page of pages" [class.active]="page === pageNumber">
+        <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+      </li>
+
+      <li class="page-item" [class.disabled]="pageNumber === totalPages">
+        <button class="page-link" (click)="goToPage(pageNumber + 1)">Next</button>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 
 </main>
+ 
+<!-- Your modal component remains unchanged -->
+<app-reject-modal #rejectModal [Parentid]="selectedPayment?.id"
+  (formSubmit)="handleFormSubmit($event)"></app-reject-modal>

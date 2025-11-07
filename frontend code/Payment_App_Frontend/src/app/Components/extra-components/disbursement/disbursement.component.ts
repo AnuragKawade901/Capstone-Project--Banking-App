@@ -35,6 +35,13 @@ export class DisbursementComponent implements OnInit {
   approved!: number;
   declined!: number;
 
+  allDisbursements: SalaryDisbursement[] = []; // full dataset
+  pageNumber = 1;
+  pageSize = 5;
+  totalRecords = 0;
+
+
+
 
   statusOptions = [
     { id: 1, name: 'Approved' },
@@ -64,7 +71,10 @@ export class DisbursementComponent implements OnInit {
       console.log(data);
       // const pendingPayments = data.filter(e => e.paymentStatusId == 3);
       // this.payments = pendingPayments;
-      this.disbursements = data;
+     this.allDisbursements = data;
+    this.totalRecords = data.length;
+    this.updatePagedDisbursements();
+
       this.totalDisbursementAmount = data.reduce((sum, d) => sum + d.totalAmount, 0);
       this.approved = data.filter(d => d.disbursementStatusId == 1).length;
       this.declined = data.filter(d => d.disbursementStatusId == 2).length;
@@ -73,6 +83,44 @@ export class DisbursementComponent implements OnInit {
       error => console.log(error)
     )
   }
+  updatePagedDisbursements() {
+  const startIndex = (this.pageNumber - 1) * this.pageSize;
+  const endIndex = startIndex + this.pageSize;
+  this.disbursements = this.allDisbursements.slice(startIndex, endIndex);
+}
+
+goToPage(page: number): void {
+  const newPage = Math.max(1, Math.min(page, this.totalPages));
+  if (newPage === this.pageNumber) return;
+
+  this.pageNumber = newPage;
+  this.updatePagedDisbursements();
+}
+
+get totalPages(): number {
+  return Math.ceil(this.totalRecords / this.pageSize);
+}
+
+get pages(): number[] {
+  const totalPages = this.totalPages;
+  if (totalPages === 0) return [];
+
+  let start = Math.max(1, this.pageNumber - 2);
+  let end = Math.min(totalPages, this.pageNumber + 2);
+
+  if (end - start < 4) {
+    if (start === 1) end = Math.min(totalPages, start + 4);
+    if (end === totalPages) start = Math.max(1, end - 4);
+  }
+
+  const pageArray = [];
+  for (let i = start; i <= end; i++) {
+    pageArray.push(i);
+  }
+  return pageArray;
+}
+
+
 
   approveDisbursement(disbursement: SalaryDisbursement) {
     console.log(disbursement);
@@ -83,7 +131,7 @@ export class DisbursementComponent implements OnInit {
       this.fetchAllPayments(params);
     },
       (error) => {
-        this.notify.warning("Insufficient Bank Balance!!!!");
+        this.notify.warning(error.error.detail  || "Insuffiencent Balance to approve payment");
         console.log(error);
       })
   }

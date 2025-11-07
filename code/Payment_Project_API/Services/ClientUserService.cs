@@ -88,7 +88,10 @@ namespace Payment_Project_API.Services
             {
                 throw new InvalidOperationException("A Client User with this phone number already exists!");
             }
-
+            if (query.Any(cu => cu.UserName == user.UserName))
+            {
+                throw new InvalidOperationException("A Client User with same username Already Exisits!");
+            }
             BankUser? bankUser = await _bankUserService.GetRandomBankUser(user.BankId);
             if (bankUser == null) user.BankUserId = null;
             else user.BankUserId = bankUser.UserId;

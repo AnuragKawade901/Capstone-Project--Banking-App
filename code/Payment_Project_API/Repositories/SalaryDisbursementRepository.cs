@@ -28,7 +28,7 @@ namespace Payment_Project_API.Repositories
             return await _dbContext.SalaryDisbursements
                 .Include(s => s.ClientUser).ThenInclude(u => u.Account)
                 .Include(s => s.DisbursementDetails).ThenInclude(d=>d.Employee)
-                .Include(s => s.Employees)
+                .Include(s => s.Employees).ThenInclude(e => e.SalaryDisbursementDetails).ThenInclude(s => s.SalaryDisbursement)
                 .FirstOrDefaultAsync(s => s.SalaryDisbursementId == id);
         }
 

@@ -17,7 +17,7 @@ namespace Payment_Project_API.Repositories
         {
             return _dbContext.Employees
                              .Include(e => e.ClientUser)
-                             .Include(e => e.SalaryDisbursementDetails)
+                             .Include(e => e.SalaryDisbursementDetails).ThenInclude(s => s.SalaryDisbursement)
                              .AsQueryable();
         }
 
@@ -30,7 +30,7 @@ namespace Payment_Project_API.Repositories
 
         public async Task<Employee?> GetById(int id)
         {
-            return await _dbContext.Employees.Include(e => e.ClientUser).FirstOrDefaultAsync(e => e.EmployeeId.Equals(id));
+            return await _dbContext.Employees.Include(e => e.ClientUser).Include(e => e.SalaryDisbursementDetails).ThenInclude(s => s.SalaryDisbursement).FirstOrDefaultAsync(e => e.EmployeeId.Equals(id));
         }
 
         public async Task<Employee?> Update(Employee employee)
