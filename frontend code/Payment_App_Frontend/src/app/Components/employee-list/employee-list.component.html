@@ -1,0 +1,126 @@
+<div class="container my-4">
+
+   <h2 class="section-title">My Employees</h2>
+
+  <!-- CSV Upload -->
+  <div class="row g-3 mb-3">
+    <!-- Add Employees -->
+    <div class="col-md-6">
+      <div class="input-group">
+        <input class="form-control" type="file" (change)="onCSVSelected($event)" accept=".csv" />
+        <button class="btn btn-primary" [disabled]="!csvFile">
+          <i class="fas fa-file-upload"></i> Add Employees via CSV
+        </button>
+      </div>
+    </div>
+
+    <!-- Update Employees -->
+    <div class="col-md-6">
+      <div class="input-group">
+        <input class="form-control" type="file" (change)="onUpdateCSVFileSelect($event)" accept=".csv" />
+        <button class="btn btn-warning" (click)="uploadUpdateCSVByClient()" [disabled]="!updateCSVFile">
+          <i class="fas fa-sync-alt"></i> Update Employees via CSV
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="text-center my-4">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2">Loading employees...</p>
+  </div>
+
+  <!-- Employee Section -->
+  <div *ngIf="!loading">
+
+    <div *ngIf="employees.length === 0" class="alert alert-secondary text-center">
+      No employees found.
+    </div>
+
+    <!-- Filters -->
+    <div *ngIf="employees.length > 0" class="filters">
+      <input type="text" placeholder="Name" [(ngModel)]="filterName" />
+      <input type="text" placeholder="Account Number" [(ngModel)]="filterAccountNumber" />
+      <input type="text" placeholder="Bank Name" [(ngModel)]="filterBankName" />
+      <input type="text" placeholder="IFSC" [(ngModel)]="filterIFSC" />
+      <input type="number" placeholder="Salary" [(ngModel)]="filterSalary" />
+
+      <button class="btn btn-primary btn-filter" (click)="applyFilters()">
+        <i class="fas fa-filter"></i> Filter
+      </button>
+      <button class="btn btn-secondary btn-filter" (click)="resetFilters()">
+        <i class="fas fa-redo"></i> Reset
+      </button>
+    </div>
+
+    <!-- Employee Table-->
+    <div class="employees-list">
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Account Number</th>
+            <th>Bank Name</th>
+            <th>IFSC</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of employees; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ e.employeeName }}</td>
+            <td>{{ e.accountNumber }}</td>
+            <td>{{ e.bankName }}</td>
+            <td>{{ e.ifsc }}</td>
+            <td>{{ e.salary }}</td>
+            <td>
+              <button class="btn btn-sm btn-warning me-1" (click)="startEdit(e)">Update</button>
+              <button class="btn btn-sm btn-danger" (click)="deleteEmployee(e.employeeId)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Edit Form  -->
+    <div *ngIf="editingEmployee" class="card bg-dark text-white mt-4 mx-auto p-3" style="max-width: 650px;">
+      <div class="card-body">
+        <h4 class="card-title text-center text-primary mb-3">Edit Employee</h4>
+        <form (ngSubmit)="saveEdit()">
+          <div class="mb-2">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" [(ngModel)]="editingEmployee.employeeName" name="employeeName" required />
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Account Number</label>
+            <input type="text" class="form-control" [(ngModel)]="editingEmployee.accountNumber" name="accountNumber" required />
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Bank Name</label>
+            <input type="text" class="form-control" [(ngModel)]="editingEmployee.bankName" name="bankName" required />
+          </div>
+          <div class="mb-2">
+            <label class="form-label">IFSC</label>
+            <input type="text" class="form-control" [(ngModel)]="editingEmployee.ifsc" name="ifsc" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Salary</label>
+            <input type="number" class="form-control" [(ngModel)]="editingEmployee.salary" name="salary" required />
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary me-2">Save</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<!-- <div class="bg-light p-4 border-end h-100">
+  <h5 class="fw-bold mb-4">Registration Steps</h5>
+  <ul class="list-unstyled">
+    <li class="mb-3">
+      <div [ngClass]="currentStep === 1 ? 'fw-bold text-primary' : 'text-muted'">
+        1. Personal Details
+      </div>
+    </li>
+    <li>
+      <div [ngClass]="currentStep === 2 ? 'fw-bold text-primary' : 'text-muted'">
+        2. Upload Documents
+      </div>
+    </li>
+  </ul>
+</div> -->
+<!-- 
+  We wrap your steps component in our standard card.
+  Adding 'h-100' (height 100%) will make it fill the 
+  vertical space of its parent column.
+-->
+<div class="card shadow-sm border-0 h-100">
+  
+  <!-- Standard light card header -->
+  <div class="card-header bg-light border-0 p-3">
+    <h6 class="fw-bold mb-0">Registration Steps</h6>
+  </div>
+  
+  <div class="card-body p-4">
+    <!-- 
+      We can create a much cleaner stepper list 
+      using simple Bootstrap utilities.
+    -->
+    <ul class="list-unstyled">
+      
+      <!-- Step 1 -->
+      <li class="d-flex mb-4">
+        <!-- The step circle -->
+        <div class="d-flex align-items-center justify-content-center rounded-circle border border-2"
+             [ngClass]="currentStep === 1 ? 'border-primary' : 'border-light'"
+             style="width: 2.5rem; height: 2.5rem; flex-shrink: 0;">
+          <span class="fw-bold fs-5" [ngClass]="currentStep === 1 ? 'text-primary' : 'text-muted'">
+            1
+          </span>
+        </div>
+        <!-- The step text -->
+        <div class="ms-3">
+          <div class="fw-bold" [ngClass]="currentStep === 1 ? 'text-primary' : 'text-dark'">
+            Personal Details
+          </div>
+          <div class="small text-muted">Provide your name, email, etc.</div>
+        </div>
+      </li>
+
+      <!-- Step 2 -->
+      <li class="d-flex">
+        <!-- The step circle -->
+        <div class="d-flex align-items-center justify-content-center rounded-circle border border-2"
+             [ngClass]="currentStep === 2 ? 'border-primary' : 'border-light'"
+             style="width: 2.5rem; height: 2.5rem; flex-shrink: 0;">
+          <span class="fw-bold fs-5" [ngClass]="currentStep === 2 ? 'text-primary' : 'text-muted'">
+            2
+          </span>
+        </div>
+        <!-- The step text -->
+        <div class="ms-3">
+          <div class="fw-bold" [ngClass]="currentStep === 2 ? 'text-primary' : 'text-muted'">
+            Upload Documents
+          </div>
+          <div class="small text-muted">Verify your identity.</div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</div>

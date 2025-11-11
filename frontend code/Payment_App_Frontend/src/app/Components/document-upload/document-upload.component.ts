@@ -1,0 +1,126 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { DocumentUploadService } from '../../Services/document.service';
+import { DocumentDTO } from '../../DTO/DocumentDTO';
+import { ProofType, DocProofType } from '../../Models/ProofType';
+import { AuthService } from '../../Services/auth.service';
+import { NotificationService } from '../../Services/notification.service';
+
+@Component({
+  selector: 'app-document-upload',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './document-upload.component.html',
+  styleUrls: ['./document-upload.component.css']
+})
+export class DocumentUploadComponent implements OnInit {
+
+  uploadForm: FormGroup;
+  proofTypes: ProofType[] = [];
+  clientId!: number;
+  documentFields = ['Document1'];
+  previewUrls: { [key: string]: string | ArrayBuffer | null } = {};
+
+  constructor(
+    private fb: FormBuilder,
+    private docService: DocumentUploadService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private auth: AuthService,
+    private notify: NotificationService 
+  ) {
+    // Initialize form with 4 document sub-groups
+    const group: any = {};
+    this.documentFields.forEach(doc => {
+      group[doc] = this.fb.group({
+        DocumentName: ['', Validators.required],
+        ProofTypeId: [null, Validators.required],
+        File: [null, Validators.required]
+      });
+    });
+    this.uploadForm = this.fb.group(group);
+
+    // Proof types
+    this.proofTypes = [
+      { TypeId: 1, Type: DocProofType.IDENTITY_PROOF },
+      { TypeId: 2, Type: DocProofType.ADDRESS_PROOF },
+      { TypeId: 3, Type: DocProofType.DATE_OF_BIRTH_PROOF },
+      { TypeId: 4, Type: DocProofType.PHOTOGRAPH },
+      { TypeId: 5, Type: DocProofType.PAN_CARD },
+      { TypeId: 6, Type: DocProofType.OTHER }
+    ];
+  }
+
+  ngOnInit() {
+    this.clientId = this.auth.getUserId() ?? 0;
+
+  }
+
+  getFormGroup(docField: string): FormGroup {
+    return this.uploadForm.get(docField) as FormGroup;
+  }
+
+  onFileSelected(event: any, docField: string) {
+    const file = event.target.files[0];
+    if (file) {
+      this.getFormGroup(docField).patchValue({ File: file });
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.previewUrls[docField] = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  isImage(url: string | ArrayBuffer | null): boolean {
+    return typeof url === 'string' && url.startsWith('data:image');
+  }
+
+  isPdf(url: string | ArrayBuffer | null): boolean {
+    return typeof url === 'string' && url.startsWith('data:application/pdf');
+  }
+
+
+  uploadAllDocuments() {
+    if (this.documentFields.some(doc => this.getFormGroup(doc).invalid)) {
+      this.notify.error('Please fill all fields and select files for all documents.');
+      return;
+    }
+
+    const uploadObservables = this.documentFields.map(doc => {
+      const formGroup = this.getFormGroup(doc);
+      const formValue = formGroup.value;
+      const dto: DocumentDTO = {
+        DocumentName: formValue['DocumentName'],
+        ProofTypeId: formValue['ProofTypeId'],
+        ClientId: this.clientId
+      };
+      const file: File = formValue['File'];
+      return this.docService.uploadDocument(dto, file);
+    });
+
+    Promise.all(uploadObservables.map(obs => obs.toPromise()))
+      .then(() => {
+        this.notify.success('All documents uploaded successfully!');
+        this.router.navigate([`/login`]);
+      })
+      .catch(err => {
+        console.error(err);
+        this.notify.error('One or more document uploads failed.');
+      });
+  }
+
+  resetDoc(doc: string) {
+    const fg = this.getFormGroup(doc);
+    fg.reset();
+    delete this.previewUrls[doc];
+  }
+
+  resetAll() {
+    this.uploadForm.reset();
+    this.previewUrls = {};
+  }
+}

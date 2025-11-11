@@ -10,3 +10,7 @@
 *.user
 
 # (Add any other folders you want to ignore, like 'node_modules/' if you're using Angular/React)
+/code/Payment_Project_AP/obj/Debug/net8.0/Payment_Project_AP.AssemblyInfo.cs
+/code/Payment_Project_AP/obj/Debug/net8.0/Payment_Project_AP.AssemblyInfoInputs.cache
+/code/Payment_Project_AP/obj/Debug/net8.0/rpswa.dswa.cache.json
+/.gitignore

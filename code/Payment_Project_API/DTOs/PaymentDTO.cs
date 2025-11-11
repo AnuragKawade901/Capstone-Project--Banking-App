@@ -1,0 +1,15 @@
+﻿using Payment_Project_API.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Payment_Project_API.DTOs
+{
+    public class PaymentDTO
+    {
+        public int PayerAccountId { get; set; }
+        public string PayeeAccountNumber { get; set; }
+        [Required(ErrorMessage = "Amount is Required!")]
+        [DataType(DataType.Currency)]
+        public double Amount { get; set; }
+    }
+}

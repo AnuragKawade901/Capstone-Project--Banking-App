@@ -1,0 +1,209 @@
+<!-- <div class="mt-4 px-3 w-100"> -->
+
+  <!-- Breadcrumb -->
+  <!-- <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a routerLink="/admin/home">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Banks</li>
+    </ol>
+  </nav>
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="fw-bold mb-0">ALL BANKS</h5>
+    <button class="btn btn-edit-teal d-flex align-items-center" routerLink="/admin/abc">
+      <i class="bi bi-plus-lg me-2 icon-teal"></i> Add Bank
+    </button>
+  </div>
+  <hr> -->
+
+  <!-- Filters Section -->
+  <!-- <div class="mb-3">
+    <div class="d-flex flex-wrap gap-2">
+      <app-name-filter (nameFilter)="onNameFilter($event)"></app-name-filter>
+      <app-boolean-filter [statusOptions]="statusOptions"
+        (booleanFilter)="onBooleanFilter($event)"></app-boolean-filter>
+    </div>
+  </div> -->
+
+  <!-- Banks Table -->
+  <!-- <div class="table-responsive bg-white rounded shadow-sm py-2" style="overflow-x:auto;">
+    <table class="table table-hover align-middle small mb-0" style="min-width: 800px;">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Bank Name</th>
+          <th>IFSC</th>
+          <th>Users</th>
+          <th>Accounts</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bank of banks ; let i=index">
+          <td class="text-truncate">{{ i+1 }}</td>
+          <td class="text-truncate" style="max-width: 200px;">{{ bank.bankName }}</td>
+          <td class="text-truncate" style="max-width: 200px;">{{ bank.ifsc }}</td>
+          <td class="text-truncate" style="max-width: 200px;">{{ bank?.users?.length || 0 }}</td>
+          <td class="text-truncate" style="max-width: 200px;">{{ bank?.accounts?.length }}</td>
+          <td>
+            <button class="btn btn-sm btn-edit-teal me-1" (click)="editBank(bank)">Edit</button> -->
+            <!-- <button class="btn btn-sm btn-outline-danger" (click)="deleteBank(bank.bankId)">Delete</button> -->
+          <!-- </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="banks.length === 0" class="text-center p-3 text-muted">
+      No banks found.
+    </div>
+  </div> -->
+
+  <!-- Edit Bank Form -->
+  <!-- <div *ngIf="selectedBank" class="card mt-4 shadow-sm" style="border-radius: 0.75rem;">
+    <div class="card-header bg-white" style="border-bottom: none;">
+      <h6 class="mb-0 fw-bold text-teal">Edit Bank (ID: {{ selectedBank.bankId }})</h6>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="updateBank()">
+        <div class="mb-3">
+          <label class="form-label">Bank Name</label>
+          <input type="text" class="form-control" [(ngModel)]="bankDto.bankName" name="bankName" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">IFSC</label>
+          <input type="text" class="form-control" [(ngModel)]="bankDto.ifsc" name="ifsc" required>
+        </div>
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-edit-teal">Update</button>
+          <button type="button" class="btn btn-outline-dark" (click)="selectedBank = null">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+<!-- Main content container -->
+<main class="container-fluid p-3 p-md-4">
+
+  <!-- 1. Breadcrumb Bar -->
+  <nav aria-label="breadcrumb" class="bg-light p-3 rounded-3 mb-4 shadow-sm border">
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a routerLink="/admin/home">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Banks</li>
+    </ol>
+  </nav>
+
+  <!-- 2. Page Header & Primary Action -->
+  <div class="d-flex justify-content-between align-items-center mb-3 pt-3">
+    <h2 class="h4 fw-normal mb-0">All Banks</h2>
+    <button class="btn btn-primary" routerLink="/admin/abc">
+      <i class="bi bi-plus-lg me-1"></i> Add Bank
+    </button>
+  </div>
+
+  <!-- 3. Filter Bar -->
+  <div class="bg-light p-3 rounded-3 mb-4 border d-flex flex-wrap gap-2">
+    <app-name-filter (nameFilter)="onNameFilter($event)"></app-name-filter>
+    <app-boolean-filter [statusOptions]="statusOptions" (booleanFilter)="onBooleanFilter($event)"></app-boolean-filter>
+  </div>
+
+  <!-- 4. Data Table -->
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+
+      <!-- Loading Indicator -->
+      <div *ngIf="loading" class="text-center p-5 text-muted">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class.="mt-2">Loading banks...</p>
+      </div>
+
+      <!-- Table -->
+      <div *ngIf="!loading && banks.length > 0" class="table-responsive rounded-3">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              
+              <th scope="col">Bank Name</th>
+              <th scope="col">IFSC</th>
+              <th scope="col">Users</th>
+              <th scope="col">Accounts</th>
+              <th scope="col" class="text-end pe-4">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bank of banks ; let i=index">
+              
+              <td>{{ bank.bankName }}</td>
+              <td>{{ bank.ifsc }}</td>
+              <td>{{ bank?.users?.length || 0 }}</td>
+              <td>{{ bank?.accounts?.length }}</td>
+              <td class="text-end pe-4">
+                <button class="btn btn-sm btn-outline-secondary" (click)="editBank(bank)">
+                  <i class="bi bi-pencil me-1"></i> Edit
+                </button>
+              <button class="btn btn-sm btn-outline-danger" (click)="deleteBank(bank.bankId)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- No Data Message -->
+      <div *ngIf="!loading && banks.length === 0" class="text-center p-5 text-muted">
+        <i class="bi bi-info-circle fs-3 d-block mb-2"></i>
+        No banks found.
+      </div>
+
+    </div>
+
+    <!-- 5. Pagination (Inside the card-footer) -->
+    <div *ngIf="!loading && totalRecords > pageSize" class="card-footer bg-light border-0">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center mb-0">
+          <li class="page-item" [class.disabled]="pageNumber === 1">
+            <a class="page-link" (click)="goToPage(pageNumber - 1)" href="javascript:void(0)">Previous</a>
+          </li>
+          <li class="page-item" *ngFor="let page of pages" [class.active]="pageNumber === page">
+            <a class="page-link" (click)="goToPage(page)" href="javascript:void(0)">{{ page }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="pageNumber === totalPages">
+            <a class="page-link" (click)="goToPage(pageNumber + 1)" href="javascript:void(0)">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div> <!-- End of Card -->
+
+
+  <!-- 6. Edit Bank Form -->
+  <div *ngIf="selectedBank" class="row justify-content-center mt-4">
+    <div class="col-lg-8">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-light border-0">
+          <h6 class="fw-bold mb-0">Edit Bank (ID: {{ selectedBank.bankId }})</h6>
+        </div>
+        <div class="card-body p-4">
+          <form (ngSubmit)="updateBank()">
+            <div class="mb-3">
+              <label class="form-label">Bank Name</label>
+              <input type="text" class="form-control" [(ngModel)]="bankDto.bankName" name="bankName" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">IFSC</label>
+              <input type="text" class="form-control" [(ngModel)]="bankDto.ifsc" name="ifsc" required>
+            </div>
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-lg me-1"></i> Update
+              </button>
+              <button type="button" class="btn btn-outline-secondary" (click)="selectedBank = null">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

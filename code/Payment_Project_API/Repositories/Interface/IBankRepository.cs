@@ -1,0 +1,18 @@
+﻿using Payment_Project_API.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace Payment_Project_API.Repositories.Interface
+{
+    public interface IBankRepository
+    {
+        public IQueryable<Bank> GetAll();
+
+        public Task<Bank?> GetById(int id);
+
+        public Task<Bank> Add(Bank bank);
+
+        public Task<Bank?> Update(Bank bank);
+
+        public Task DeleteById(int id);
+    }
+}

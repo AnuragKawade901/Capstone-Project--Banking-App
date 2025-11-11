@@ -1,0 +1,77 @@
+/* landingpage/landingpage-styles.css */
+:host {
+  --dark-bg: #12101b;
+  --card-bg: #1d1b2a;
+  --card-border: #3c3a4a;
+  --primary-purple: #7a5af8;
+  --text-light: #fff;
+  --text-secondary: #ccc;
+}
+
+:host {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  line-height: 1.6;
+  display: block;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw; 
+  margin-right: -50vw;
+  overflow-x: hidden; 
+  box-sizing: border-box;
+  scrollbar-width: none; 
+  padding-bottom: 0 !important; 
+  margin-bottom: 0 !important; 
+  padding-top: 0; 
+  margin-bottom: -50px !important; 
+}
+
+:host::-webkit-scrollbar {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  color: var(--text-light);
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+section {
+  padding: 5rem 2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+:host ::ng-deep section {
+  padding: 5rem 0;
+  margin: 0;
+  width: 100%;
+  margin-bottom: 0;
+}
+

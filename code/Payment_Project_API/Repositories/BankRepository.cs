@@ -1,0 +1,53 @@
+﻿using Payment_Project_API.Data;
+using Payment_Project_API.Models;
+using Microsoft.EntityFrameworkCore;
+using Payment_Project_API.Repositories.Interface;
+
+namespace Payment_Project_API.Repositories
+{
+    public class BankRepository : IBankRepository
+    {
+        private readonly BankingPaymentsDBContext _dbContext;
+
+        public BankRepository(BankingPaymentsDBContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+        public IQueryable<Bank> GetAll()
+        {
+            return _dbContext.Banks.Include(b=>b.Accounts).Include(b=>b.Users).AsQueryable();
+        }
+
+        public async Task<Bank?> GetById(int id)
+        {
+            return await _dbContext.Banks.Include(b=>b.Accounts).Include(b=>b.Users).FirstOrDefaultAsync(b=>b.BankId.Equals(id));
+        }
+
+        public async Task<Bank> Add(Bank bank)
+        {
+            await _dbContext.Banks.AddAsync(bank);
+            await _dbContext.SaveChangesAsync();
+            return bank;
+        }
+
+        public async Task<Bank?> Update(Bank bank)
+        {
+            Bank? existingBank = await GetById(bank.BankId);
+            if(existingBank == null) return null;
+            existingBank.BankName = bank.BankName;
+            existingBank.IFSC = bank.IFSC;
+            existingBank.IsActive = bank.IsActive;
+            await _dbContext.SaveChangesAsync();
+            return existingBank;
+        }
+
+        public async Task DeleteById(int id)
+        {
+            Bank? existingBank = await GetById(id);
+            if (existingBank == null) return;
+
+            existingBank.IsActive = false;
+            await _dbContext.SaveChangesAsync();
+        }
+    }
+}

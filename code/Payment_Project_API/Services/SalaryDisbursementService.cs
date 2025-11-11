@@ -1,0 +1,256 @@
+﻿using Payment_Project_API.Data;
+using Payment_Project_API.DTOs;
+using Payment_Project_API.Models;
+using Microsoft.EntityFrameworkCore;
+using Payment_Project_API.Repositories.Interface;
+using Payment_Project_API.Services.Interface;
+
+namespace Payment_Project_API.Services
+{
+    public class SalaryDisbursementService : ISalaryDisbursementService
+    {
+        private readonly ISalaryDisbursementRepository _salaryDisbursementRepository;
+        private readonly ISalaryDisbursementDetailsRepository _salaryDisbursementDetailsRepository;
+        private readonly IAccountService _accountService;
+        private readonly ITransactionRepository _transactionRepository;
+        private readonly IEmployeeService _employeeService;
+        private readonly IEmailService _emailService;
+        private readonly BankingPaymentsDBContext _dbContext;
+
+
+        public SalaryDisbursementService(ISalaryDisbursementRepository salaryDisbursementRepository, IAccountService accountService, BankingPaymentsDBContext dBContext, ITransactionRepository transactionRepository, ISalaryDisbursementDetailsRepository detailsRepository, IEmployeeService employeeService, IEmailService emailService)
+        {
+            _salaryDisbursementRepository = salaryDisbursementRepository;
+            _accountService = accountService;
+            _dbContext = dBContext;
+            _transactionRepository = transactionRepository;
+            _salaryDisbursementDetailsRepository = detailsRepository;
+            _employeeService = employeeService;
+            _emailService = emailService;
+        }
+
+        public async Task<IEnumerable<SalaryDisbursement>> GetAll(
+             int? clientId,
+             decimal? minAmount,
+             decimal? maxAmount,
+             DateTime? disbursementFrom,
+             DateTime? disbursementTo,
+             int? disbursementStatusId,
+             bool? allEmployees,
+             int? pageNumber,
+            int? pageSize)
+        {
+            var query = _salaryDisbursementRepository.GetAll();
+
+            if (clientId.HasValue)
+                query = query.Where(sd => sd.ClientId == clientId.Value);
+            if (minAmount.HasValue)
+                query = query.Where(sd => sd.TotalAmount >= minAmount.Value);
+            if (maxAmount.HasValue)
+                query = query.Where(sd => sd.TotalAmount <= maxAmount.Value);
+            if (disbursementFrom.HasValue)
+                query = query.Where(sd => sd.DisbursementDate >= disbursementFrom.Value);
+            if (disbursementTo.HasValue)
+                query = query.Where(sd => sd.DisbursementDate <= disbursementTo.Value);
+            if (disbursementStatusId.HasValue)
+                query = query.Where(sd => sd.DisbursementStatusId == disbursementStatusId.Value);
+            if (allEmployees.HasValue)
+                query = query.Where(sd => sd.AllEmployees == allEmployees.Value);
+
+            return query;
+        }
+
+        public async Task<SalaryDisbursement?> GetById(int id)
+        {
+            return await _salaryDisbursementRepository.GetById(id);
+        }
+        public async Task<SalaryDisbursement> Add(SalaryDisbursement disbursement, ICollection<int> ids)
+        {
+            decimal tAmount = 0;
+            if (disbursement.AllEmployees)
+            {
+                //gives reference error should get all the employees from db
+                var employees = await _employeeService.GetEmployeesByClientId(disbursement.ClientId);
+                foreach (Employee emp in employees)
+                {
+                    if (emp.SalaryDisbursementDetails != null && emp.SalaryDisbursementDetails.Count > 0)
+                    {
+                        SalaryDisbursementDetails lastDetail = emp.SalaryDisbursementDetails?
+                        .OrderBy(x => x.DetailId) // replace 'Id' with your actual key or date field
+                        .LastOrDefault();
+
+
+                        var daysSinceLastDisbursement = (DateTime.UtcNow - lastDetail.SalaryDisbursement.DisbursementDate).TotalDays;
+                        if (daysSinceLastDisbursement <= 30)
+                        {
+                            throw new Exception($"Salary for Employee ID {emp.EmployeeId} has already been disbursed within the last 30 days.");
+                        }
+                    }
+                    tAmount += emp.Salary;
+                    disbursement.Employees.Add(emp);
+                }
+                disbursement.TotalAmount = tAmount;
+            }
+            else
+            {
+                var employees = await _employeeService.GetEmployeesByIDs(ids);
+                if (employees.Any())
+                {
+                    foreach (Employee emp in employees)
+                    {
+                        if (emp.SalaryDisbursementDetails != null && emp.SalaryDisbursementDetails.Count > 0)
+                        {
+                            SalaryDisbursementDetails lastDetail = emp.SalaryDisbursementDetails?
+                            .OrderBy(x => x.DetailId) // replace 'Id' with your actual key or date field
+                            .LastOrDefault();
+
+
+                            var daysSinceLastDisbursement = (DateTime.UtcNow - lastDetail.SalaryDisbursement.DisbursementDate).TotalDays;
+                            if (daysSinceLastDisbursement <= 30)
+                            {
+                                throw new Exception($"Salary for Employee ID {emp.EmployeeId} has already been disbursed within the last 30 days.");
+                            }
+                        }
+                        tAmount += emp.Salary;
+                    }
+                    disbursement.TotalAmount = tAmount;
+                }
+            }
+
+            SalaryDisbursement added = await _salaryDisbursementRepository.Add(disbursement);
+
+            SalaryDisbursement salary = await GetById(added.SalaryDisbursementId);
+
+            string subject = $"Disbursement Id ({salary.SalaryDisbursementId}) has been created Your Action awaits";
+            string body =
+                        $"""
+                        Salary Disbursement Id ({salary.SalaryDisbursementId}) has been created by {salary?.ClientUser?.UserName ?? "an user"}.
+                        with amount {salary.TotalAmount}.
+                        """;
+            await _emailService.SendEmailToClientAsync((int)salary?.ClientUser?.BankUserId, subject, body);
+
+            return added;
+        }
+        public async Task<SalaryDisbursement?> Update(SalaryDisbursement disbursement)
+        {
+            return await _salaryDisbursementRepository.Update(disbursement);
+        }
+        public async Task DeleteById(int id)
+        {
+            await _salaryDisbursementRepository.DeleteById(id);
+        }
+
+
+        public async Task<SalaryDisbursement> ApproveSalaryDisbursement(int disbursementId)
+        {
+            SalaryDisbursement? salaryDisbursement = await _salaryDisbursementRepository.GetById(disbursementId);
+
+            if (salaryDisbursement == null) throw new NullReferenceException("did not find this salary disbursement!");
+
+            int ClientAccountId = salaryDisbursement.ClientUser.Account.AccountId;
+            Account? ClientAccount = await _accountService.GetById(ClientAccountId);
+
+            if (ClientAccount.Balance < (double)salaryDisbursement.TotalAmount)
+            {
+                salaryDisbursement.DisbursementStatusId = 2;
+                throw new Exception("insufficient Balance!");
+            }
+
+            var processedDetails = new List<SalaryDisbursementDetails>();
+            double totalDebited = 0;
+
+            foreach (Employee emp in salaryDisbursement.Employees)
+            {
+                try
+                {
+                    if (emp.SalaryDisbursementDetails != null && emp.SalaryDisbursementDetails.Count > 0)
+                    {
+                        SalaryDisbursementDetails lastDetail = emp.SalaryDisbursementDetails?
+                        .OrderBy(x => x.DetailId) // replace 'Id' with your actual key or date field
+                        .LastOrDefault();
+
+                       
+                            var daysSinceLastDisbursement = (DateTime.UtcNow - lastDetail.SalaryDisbursement.DisbursementDate).TotalDays;
+                        if (daysSinceLastDisbursement <= 30)
+                        {
+                            throw new Exception($"Salary for Employee ID {emp.EmployeeId} has already been disbursed within the last 30 days.");
+                        }
+                    }
+
+                        Account? employeeAccount = await _accountService.AccountExistsWithAccountNumber(emp.AccountNumber);
+                    if (emp.Salary > 0 && emp.Salary < 100000)
+                    {
+                        Transaction debitTransaction = await _accountService.DebitAccount(ClientAccountId, (double)emp.Salary, paymentId: null, disbursementId: disbursementId, emp.AccountNumber);
+                        totalDebited += (double)emp.Salary;
+                        if (employeeAccount != null)
+                        {
+                            Transaction creditTransaction = await _accountService.CreditAccount(employeeAccount.AccountId, emp.Salary, paymentId: null, disbursementId: disbursementId, ClientAccount.AccountNumber);
+                        }
+                        SalaryDisbursementDetails detail = new SalaryDisbursementDetails
+                        {
+                            SalaryDisbursementId = salaryDisbursement.SalaryDisbursementId,
+                            EmployeeId = emp.EmployeeId,
+                            Amount = emp.Salary,
+                            Success = true,
+                            TransactionId = debitTransaction.TransactionId
+                        };
+
+                        SalaryDisbursementDetails addedDetail = await _salaryDisbursementDetailsRepository.Add(detail);
+                        processedDetails.Add(addedDetail);
+
+                        if (employeeAccount != null)
+                        {
+                            string subject = $"Salary Credited for Employee {emp.EmployeeId}";
+                            string body = $"Your account ({employeeAccount.AccountNumber}) has been credited with Rs {emp.Salary}.";
+                            await _emailService.SendEmailToClientAsync((int)employeeAccount.ClientId, subject, body);
+                        }
+
+                    }
+
+                    else
+                    {
+                        SalaryDisbursementDetails detail = new SalaryDisbursementDetails
+                        {
+                            SalaryDisbursementId = salaryDisbursement.SalaryDisbursementId,
+                            EmployeeId = emp.EmployeeId,
+                            Amount = emp.Salary,
+                            Success = false,
+                            TransactionId = null
+                        };
+
+                        SalaryDisbursementDetails addedDetail = await _salaryDisbursementDetailsRepository.Add(detail);
+                        processedDetails.Add(addedDetail);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+            }
+            salaryDisbursement.TotalAmount = (decimal)totalDebited;
+            salaryDisbursement.DisbursementStatusId = processedDetails.Any() ? 1 : 2;
+            salaryDisbursement.DisbursementDetails = processedDetails;
+
+            SalaryDisbursement updatedDisbursement = await _salaryDisbursementRepository.Update(salaryDisbursement);
+            return updatedDisbursement;
+
+        }
+
+        public async Task<SalaryDisbursement> RejectSalaryDisbursement(int Id, string reason)
+        {
+            SalaryDisbursement? disbursement = await _salaryDisbursementRepository.GetById(Id);
+            if (disbursement == null) throw new NullReferenceException("No Payment of id :" + Id);
+
+            disbursement.DisbursementStatusId = 2;
+
+            string subject = $"Salary Disbursement ID {Id} was Rejected!";
+            string body = reason;
+
+            await _emailService.SendEmailToClientAsync((int)disbursement.ClientId, subject, body);
+
+            SalaryDisbursement? updatedPayment = await _salaryDisbursementRepository.Update(disbursement);
+            return updatedPayment;
+        }
+    }
+}
