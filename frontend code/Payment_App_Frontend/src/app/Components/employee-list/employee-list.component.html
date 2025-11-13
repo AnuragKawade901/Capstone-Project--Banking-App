@@ -2,9 +2,7 @@
 
    <h2 class="section-title">My Employees</h2>
 
-  <!-- CSV Upload -->
   <div class="row g-3 mb-3">
-    <!-- Add Employees -->
     <div class="col-md-6">
       <div class="input-group">
         <input class="form-control" type="file" (change)="onCSVSelected($event)" accept=".csv" />
@@ -14,7 +12,6 @@
       </div>
     </div>
 
-    <!-- Update Employees -->
     <div class="col-md-6">
       <div class="input-group">
         <input class="form-control" type="file" (change)="onUpdateCSVFileSelect($event)" accept=".csv" />
@@ -27,7 +24,6 @@
 
   <hr />
 
-  <!-- Loading -->
   <div *ngIf="loading" class="text-center my-4">
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
@@ -35,14 +31,12 @@
     <p class="mt-2">Loading employees...</p>
   </div>
 
-  <!-- Employee Section -->
   <div *ngIf="!loading">
 
     <div *ngIf="employees.length === 0" class="alert alert-secondary text-center">
       No employees found.
     </div>
 
-    <!-- Filters -->
     <div *ngIf="employees.length > 0" class="filters">
       <input type="text" placeholder="Name" [(ngModel)]="filterName" />
       <input type="text" placeholder="Account Number" [(ngModel)]="filterAccountNumber" />
@@ -58,7 +52,6 @@
       </button>
     </div>
 
-    <!-- Employee Table-->
     <div class="employees-list">
       <table class="doc-table">
         <thead>
@@ -89,7 +82,6 @@
       </table>
     </div>
 
-    <!-- Edit Form  -->
     <div *ngIf="editingEmployee" class="card bg-dark text-white mt-4 mx-auto p-3" style="max-width: 650px;">
       <div class="card-body">
         <h4 class="card-title text-center text-primary mb-3">Edit Employee</h4>

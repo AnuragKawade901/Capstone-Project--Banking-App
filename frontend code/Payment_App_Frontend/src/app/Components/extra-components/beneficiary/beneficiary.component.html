@@ -1,81 +1,6 @@
-<!-- <div class="mt-4 px-3 w-100">
-  <nav aria-label="breadcrumb" class="mb-4">
-    <ol class="breadcrumb mb-0">
-      <li class="breadcrumb-item"><a routerLink="/client/home">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Beneficiaries</li>
-    </ol>
-  </nav>
 
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h5 class="fw-bold mb-0">ALL BENEFICIARIES</h5>
-<button class="btn btn-download-pdf" routerLink="create">
-  <i class="bi bi-plus-lg me-2"></i> Add Beneficiary
-</button>
-
-  </div>
-  <hr>
-
-  <div class="mb-3 d-flex flex-wrap gap-2">
-    <div ngbDropdown class="d-inline-block">
-      <div class="mb-3 d-flex flex-wrap gap-2"> -->
-        <!-- Filters if needed -->
-        <!-- <app-name-filter (nameFilter)="onNameFilter($event)"></app-name-filter>
-        <app-id-filter (idFilter)="fetchById($event)"></app-id-filter>
-        <app-account-number-filter (accountFilter)="onAccountFilter($event)"></app-account-number-filter>
-<button class="btn btn-download-pdf" (click)="downloadPDF()">
-  <i class="fas fa-file-pdf"></i> Download PDF
-</button>
-
-      </div>
-
-      <div class="table-wrapper bg-white rounded shadow-sm" style="overflow-x: auto;">
-        <table class="table table-hover align-middle small mb-0" style="min-width: 1000px;">
-          <thead class="table-light">
-            <tr>
-              <th>#</th>
-              <th>Beneficiary Name</th>
-              <th>Account Number</th>
-              <th>Bank Name</th>
-              <th>IFSC</th>
-              <th>Client ID</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let beneficiary of beneficiaries; let i=index">
-              <td class="text-truncate">{{ i+1 }}</td>
-              <td class="text-truncate" style="max-width: 160px;">
-                {{ beneficiary.beneficiaryName }}
-              </td>
-              <td class="text-truncate" style="max-width: 160px;">
-                {{ beneficiary.accountNumber }}
-              </td>
-              <td class="text-truncate" style="max-width: 160px;">
-                {{ beneficiary.bankName }}
-              </td>
-              <td class="text-truncate" style="max-width: 120px;">
-                {{ beneficiary.ifsc }}
-              </td>
-              <td class="text-truncate">{{ beneficiary.clientId }}</td>
-              <td> -->
-                <!-- <button class="btn btn-sm btn-primary me-1" RouterLink="/edit">Edit</button> -->
-                <!-- <button class="btn btn-sm btn-outline-danger" (click)="deleteBeneficiary(beneficiary)">Delete</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div *ngIf="beneficiaries?.length === 0" class="text-center p-3 text-muted">
-          No Beneficiaries found.
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- Main content container - no top margin -->
 <main class="container-fluid p-3 p-md-4">
 
-  <!-- 1. Breadcrumb Bar -->
   <nav aria-label="breadcrumb" class="bg-light p-3 rounded-3 mb-4 shadow-sm border">
     <ol class="breadcrumb mb-0">
       <li class="breadcrumb-item"><a routerLink="/client/home">Home</a></li>
@@ -83,7 +8,6 @@
     </ol>
   </nav>
 
-  <!-- 2. Page Header -->
   <div class="d-flex justify-content-between align-items-center mb-3 pt-3">
     <h2 class="h4 fw-normal mb-0">All Beneficiaries</h2>
     <button class="btn btn-primary d-flex align-items-center" routerLink="create">
@@ -91,20 +15,16 @@
     </button>
   </div>
 
-  <!-- 3. Filter Bar -->
   <div class="bg-light p-3 rounded-3 mb-4 border d-flex flex-wrap align-items-center gap-2">
-    <!-- Filters -->
     <app-name-filter (nameFilter)="onNameFilter($event)"></app-name-filter>
     <app-id-filter (idFilter)="fetchById($event)"></app-id-filter>
     <app-account-number-filter (accountFilter)="onAccountFilter($event)"></app-account-number-filter>
 
-    <!-- Download Button -->
     <button class="btn btn-outline-secondary d-flex align-items-center ms-auto" (click)="downloadPDF()">
       <i class="bi bi-download me-1"></i> Download PDF
     </button>
   </div>
 
-  <!-- 4. Beneficiaries Table -->
   <div class="card shadow-sm border-0">
     <div class="card-body p-0">
 
@@ -130,7 +50,6 @@
               <td>{{ beneficiary.ifsc }}</td>
               <td>{{ beneficiary.clientId }}</td>
               <td class="pe-4">
-                <!-- Standardized icon button -->
                 <button class="btn btn-sm btn-outline-danger d-flex align-items-center"
                   (click)="deleteBeneficiary(beneficiary)">
                   <i class="bi bi-trash me-1"></i> Delete
@@ -141,15 +60,12 @@
         </table>
       </div>
 
-      <!-- 
-        Using your original, correct *ngIf logic for the "No Data" message.
-      -->
       <div *ngIf="beneficiaries?.length === 0" class="text-center p-5 text-muted">
         <i class="bi bi-info-circle fs-3 d-block mb-2"></i>
         No Beneficiaries found.
       </div>
 
     </div>
-  </div> <!-- End Card -->
+  </div> 
 
 </main>

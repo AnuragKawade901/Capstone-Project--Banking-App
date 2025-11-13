@@ -1,4 +1,4 @@
----------------- Client Buttons ----------------
+
 .doc-table button {
   background: #7a5af8;
   color: #fff;
@@ -15,7 +15,7 @@
   transform: translateY(-1px);
 }
 
-/* ---------------- Documents Table ---------------- */
+
 .doc-table {
   width: 100%;
   border-collapse: collapse;
@@ -54,7 +54,7 @@
   background: #1f1c2f;
 }
 
-/* ---------------- No Data Text ---------------- */
+
 .no-data {
   text-align: center;
   color: #ccc;

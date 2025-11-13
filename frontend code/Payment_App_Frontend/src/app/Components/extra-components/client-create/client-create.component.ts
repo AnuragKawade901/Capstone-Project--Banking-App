@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Standalone components
 import { RegistrationSidebarComponent } from '../registration-sidebar/registration-sidebar.component';
 import { ClientRegisterComponent } from '../../client-register/client-register.component';
 import { DocumentUploadComponent } from '../../document-upload/document-upload.component';

@@ -103,22 +103,17 @@ export class BankUserHomeComponent implements OnInit {
     }
   };
 
-  /** 1. Clients by Status (Active vs Inactive) */
   clientsChartData!: ChartData<'doughnut'>;
   clientsChartType: 'doughnut' = 'doughnut';
 
-  /** 2. Payments Overview (Approved, Declined, Pending) */
   paymentsChartData!: ChartData<'doughnut'>;
   paymentsChartType: 'doughnut' = 'doughnut';
 
-  /** 3. Client Growth (Line Chart over time) */
   clientGrowthData!: ChartData<'line'>;
 
-  /** 4. Branch-Wise Clients (Bar Chart) */
   branchChartData!: ChartData<'bar'>;
   branchChartType: 'bar' = 'bar';
 
-  /** ------------------- Chart Setup Methods ------------------- **/
 
   setupClientsChart() {
     const active = this.clients.filter(c => c.kycVierified).length;
@@ -153,7 +148,6 @@ setupClientGrowthChart() {
     return;
   }
 
-  // Map to store counts per day
   const dayMap: Record<string, number> = {};
 
   this.clients.forEach(c => {
@@ -164,10 +158,8 @@ setupClientGrowthChart() {
     }
   });
 
-  // Sort the dates
   const sortedDays = Object.keys(dayMap).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
-  // Prepare chart data
   this.clientGrowthData = {
     labels: sortedDays.map(d => {
       const dt = new Date(d);
@@ -186,7 +178,6 @@ setupClientGrowthChart() {
 
 
   setupBranchChart() {
-    // Example: Count clients per branch
     const branchMap: any = {};
     this.clients.forEach(c => {
       const branch = c.bankUser.branch ?? 'Unknown';
