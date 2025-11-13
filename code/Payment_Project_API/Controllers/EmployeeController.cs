@@ -166,14 +166,14 @@ namespace Payment_Project_API.Controllers
             if (employeeDtos == null || employeeDtos.Count() == 0)
                 return BadRequest("No employees found in CSV.");
 
-            // Get existing employees of the client
+            // get existing employees of the client
             var existingEmployees = (await _employeeService.GetEmployeesByClientId(clientId)).ToList();
 
             var updatedCount = 0;
 
             foreach (var dto in employeeDtos)
             {
-                // Match by account number or employee name (or another unique field)
+                // match by account number or employee name (or another unique field)
                 var emp = existingEmployees.FirstOrDefault(e => e.AccountNumber == dto.AccountNumber);
                 if (emp != null)
                 {

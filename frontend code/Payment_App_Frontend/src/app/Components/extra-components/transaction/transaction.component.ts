@@ -246,16 +246,6 @@ get pages(): number[] {
 
     doc.save(`Transactions_User_${this.userId}.pdf`);
   }
-  
-
-
-
-  // getEmployeeAccountByTXnId(id:number){
-  //   let detail = this.transactions[id].salaryDisbursement?.disbursementDetails?.find(d=>d.transactionId==id);
-  //   if(detail){
-  //     return detail.
-  //   }
-  // }
 
   getBeneficiaryFromTxn(txn: Transaction) {
 

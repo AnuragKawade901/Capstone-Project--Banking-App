@@ -76,7 +76,7 @@ namespace Payment_Project_API.Services
                     if (emp.SalaryDisbursementDetails != null && emp.SalaryDisbursementDetails.Count > 0)
                     {
                         SalaryDisbursementDetails lastDetail = emp.SalaryDisbursementDetails?
-                        .OrderBy(x => x.DetailId) // replace 'Id' with your actual key or date field
+                        .OrderBy(x => x.DetailId) 
                         .LastOrDefault();
 
 
@@ -101,7 +101,7 @@ namespace Payment_Project_API.Services
                         if (emp.SalaryDisbursementDetails != null && emp.SalaryDisbursementDetails.Count > 0)
                         {
                             SalaryDisbursementDetails lastDetail = emp.SalaryDisbursementDetails?
-                            .OrderBy(x => x.DetailId) // replace 'Id' with your actual key or date field
+                            .OrderBy(x => x.DetailId) 
                             .LastOrDefault();
 
 

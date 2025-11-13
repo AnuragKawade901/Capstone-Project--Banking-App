@@ -46,7 +46,6 @@ export class BankUserProfileComponent implements OnInit {
         this.bankUser = data;
         console.log('Bank User:', data);
 
-        // Fetch clients and payments only after bank user is loaded
         this.fetchClients();
         this.fetchPayments();
       },
@@ -59,7 +58,6 @@ export class BankUserProfileComponent implements OnInit {
   fetchClients() {
     this.clientSvc.getClients('').subscribe({
       next: (data) => {
-        // Filter clients belonging to this bank user
         this.clients = data.filter(c => c.bankUserId === this.bankUser?.userId);
         this.totalClients = this.clients.length;
       },
@@ -72,7 +70,6 @@ export class BankUserProfileComponent implements OnInit {
   fetchPayments() {
     this.paymentSvc.getAllPayments('').subscribe({
       next: (data) => {
-        // Filter payments for this bank user’s clients
         const clientIds = this.clients.map(c => c.userId);
         this.payments = data.filter(p => clientIds.includes(p.payerAccountId));
         this.totalPayments = this.payments.length;

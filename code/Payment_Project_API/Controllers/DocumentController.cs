@@ -147,15 +147,15 @@ namespace Payment_Project_API.Controllers
 
             Document addedDocument = await _documentService.Add(document);
 
-            // Get client
+            // get client
             ClientUser client = await _clientUserService.GetById(dto.ClientId);
             if (client == null)
                 return NotFound($"Client with id {dto.ClientId} not found!");
 
-            // Assign DocumentId to ClientUser
+            // assign DocumentId to ClientUser
             client.Documents.Add(addedDocument);
 
-            // Update client in DB
+            // update client in DB
             await _clientUserService.Update(client);
             _logger.LogInformation("Documnet was uploaded!");
 

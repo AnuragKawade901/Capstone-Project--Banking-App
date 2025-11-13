@@ -1,87 +1,7 @@
-<!-- <div class="mt-4 px-3 w-100"> -->
 
-  <!-- Breadcrumb -->
-  <!-- <nav aria-label="breadcrumb" class="mb-4">
-    <ol class="breadcrumb mb-0">
-      <li class="breadcrumb-item"><a routerLink="/adminHome">Home</a></li>
-      <li class="breadcrumb-item"><a routerLink="/banks">Banks</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Register Bank</li>
-    </ol>
-  </nav> -->
-
-  <!-- Header -->
-  <!-- <div class="d-flex justify-content-between align-items-center mb-3">
-    <h5 class="fw-bold mb-0">BANK REGISTER</h5>
-  </div>
-  <hr> -->
-
-  <!-- Loading -->
-  <!-- <div *ngIf="loading" class="loading text-center py-5">
-    <div class="spinner-border text-primary" role="status"></div>
-    <p class="mt-3">Loading Bank Registration...</p>
-  </div> -->
-
-  <!-- Form -->
-  <!-- <div *ngIf="!loading" class="container d-flex justify-content-center mt-3">
-    <form #bankForm="ngForm" (ngSubmit)="onSubmit()" class="w-75 p-4 rounded shadow-sm bg-white">
-      
-      <div class="row g-3">
-        <!-- Bank Name -->
-        <!-- <div class="col-md-12">
-          <label class="form-label fw-semibold">Bank Name</label>
-          <input
-            type="text"
-            id="bankName"
-            name="bankName"
-            class="form-control"
-            [(ngModel)]="bankDto.bankName"
-            required
-          />
-          <div *ngIf="bankForm.submitted && !bankDto.bankName" class="text-danger small mt-1">
-            Bank Name is required.
-          </div>
-        </div> --> -->
-
-        <!-- IFSC Code -->
-        <!-- <div class="col-md-12">
-          <label class="form-label fw-semibold">IFSC Code</label>
-          <input
-            type="text"
-            id="ifsc"
-            name="ifsc"
-            class="form-control"
-            [(ngModel)]="bankDto.ifsc"
-            required
-          />
-          <div *ngIf="bankForm.submitted && !bankDto.ifsc" class="text-danger small mt-1">
-            IFSC Code is required.
-          </div>
-        </div>
-      </div> -->
-
-      <!-- Submit Button -->
-      <!-- <div class="mt-4 text-center">
-        <button
-          type="submit"
-          class="btn btn-primary w-50"
-          [disabled]="!bankForm.form.valid"
-        >
-          Register Bank
-        </button>
-      </div> -->
-
-      <!-- Response Message -->
-      <!-- <div *ngIf="responseMessage" class="alert alert-info mt-4 text-center">
-        {{ responseMessage }}
-      </div>
-    </form>
-  </div>
-
-</div> -->
-<!-- Main content container -->
 <main class="container-fluid my-4 my-md-5 p-3 p-md-4">
 
-  <!-- 1. Breadcrumb Bar -->
+
   <nav aria-label="breadcrumb" class="bg-light p-3 rounded-3 mb-4 shadow-sm border">
     <ol class="breadcrumb mb-0">
       <li class="breadcrumb-item"><a routerLink="/adminHome">Home</a></li>
@@ -90,13 +10,11 @@
     </ol>
   </nav>
 
-  <!-- 2. Page Header -->
+  
   <div class="d-flex justify-content-between align-items-center mb-3 pt-3">
     <h2 class="h4 fw-normal mb-0">Register New Bank</h2>
   </div>
 
-  <!-- 3. Loading Indicator -->
-  <!-- A cleaner, centered loading message -->
   <div *ngIf="loading" class="text-center p-5">
     <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
       <span class="visually-hidden">Loading...</span>
@@ -104,22 +22,18 @@
     <p class="mt-3 text-muted">Loading Bank Registration...</p>
   </div>
 
-  <!-- 4. Form -->
-  <!-- 
-    This centers the form on the page using a responsive grid.
-    It will be 100% width on small screens and 50% (col-lg-6) on large screens.
-  -->
+  
   <div *ngIf="!loading" class="row justify-content-center">
     <div class="col-lg-6">
       
-      <!-- Styled as a standard 'card' -->
+     
       <div class="card shadow-sm border-0">
         <div class="card-body p-4 p-md-5">
           
           <form #bankForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="row g-3">
               
-              <!-- Bank Name -->
+  
               <div class="col-12">
                 <label for="bankName" class="form-label">Bank Name</label>
                 <input
@@ -132,14 +46,14 @@
                   #bankNameField="ngModel"
                   [class.is-invalid]="bankNameField.invalid && (bankNameField.dirty || bankNameField.touched || bankForm.submitted)"
                 />
-                <!-- Improved validation message -->
+
                 <div *ngIf="bankNameField.invalid && (bankNameField.dirty || bankNameField.touched || bankForm.submitted)" 
                      class="invalid-feedback">
                   Bank Name is required.
                 </div>
               </div>
 
-              <!-- IFSC Code -->
+
               <div class="col-12">
                 <label for="ifsc" class="form-label">IFSC Code</label>
                 <input
@@ -152,7 +66,7 @@
                   #ifscField="ngModel"
                   [class.is-invalid]="ifscField.invalid && (ifscField.dirty || ifscField.touched || bankForm.submitted)"
                 />
-                <!-- Improved validation message -->
+                
                 <div *ngIf="ifscField.invalid && (ifscField.dirty || ifscField.touched || bankForm.submitted)" 
                      class="invalid-feedback">
                   IFSC Code is required.
@@ -160,7 +74,7 @@
               </div>
             </div>
 
-            <!-- Submit Button -->
+          
             <div class="mt-4 text-center d-grid">
               <button
                 type="submit"
@@ -172,7 +86,7 @@
               </button>
             </div>
 
-            <!-- Response Message -->
+           
             <div *ngIf="responseMessage" class="alert alert-info mt-4 text-center">
               {{ responseMessage }}
             </div>

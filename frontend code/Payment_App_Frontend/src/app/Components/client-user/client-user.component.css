@@ -1,4 +1,3 @@
-/* ---------------- Body & Container ---------------- */
 html, body {
   height: 100%;
   margin: 0;
@@ -13,7 +12,6 @@ html, body {
   width: 100%;
 }
 
-/* ---------------- Sidebar ---------------- */
 .dashboard-sidebar {
   width: 320px;
   flex-shrink: 0;   
@@ -57,7 +55,6 @@ html, body {
   box-shadow: 0 5px 15px rgba(122, 90, 248, 0.6);
 }
 
-/* ---------------- Main Content ---------------- */
 .dashboard-main {
   flex-grow: 1;
   display: flex;
@@ -119,7 +116,6 @@ html, body {
 }
 
 
-/* ---------------- Dashboard Content ---------------- */
 .dashboard-content {
   background: linear-gradient(135deg, #2e2a46, #1f1c2f);
   flex-grow: 1;
@@ -140,7 +136,6 @@ html, body {
 }
 
 
-/* ---------------- Active Sidebar Button ---------------- */
 .btn-dashboard.active-btn {
   background: #7a5af8;
   color: #fff;
@@ -149,7 +144,6 @@ html, body {
 }
 
 
-/* ---------------- Animations ---------------- */
 @keyframes fadeIn {
   0% {opacity: 0; transform: translateY(20px);}
   100% {opacity: 1; transform: translateY(0);}

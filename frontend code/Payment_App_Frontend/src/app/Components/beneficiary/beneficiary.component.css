@@ -48,10 +48,10 @@
 
 .table td, 
 .table th {
-  white-space: nowrap;     /* prevent wrapping */
-  overflow: hidden;        /* hide overflow */
-  text-overflow: ellipsis; /* add ... */
-  max-width: 180px;        /* control width */
+  white-space: nowrap;     
+  overflow: hidden;        
+  text-overflow: ellipsis; 
+  max-width: 180px;        
 }
 
 .table-responsive {
@@ -76,15 +76,15 @@
 
 .breadcrumb a {
   text-decoration: none;
-  color: inherit;   /* inherit text color */
+  color: inherit;   
 }
 
 .breadcrumb a:hover {
-  text-decoration: underline; /* subtle hover effect */
+  text-decoration: underline; 
 }
 
 
-/* Page numbers */
+
 .pagination-modern .page-item .page-link {
   min-width: 40px;
   height: 40px;
@@ -97,7 +97,7 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* Hover effect */
+
 .pagination-modern .page-item .page-link:hover {
   background-color: #0d6efd;
   color: #fff;
@@ -105,7 +105,7 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Active page */
+
 .pagination-modern .page-item.active .page-link {
   background-color: #0d6efd;
   color: #fff;
@@ -115,7 +115,7 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Disabled buttons */
+
 .pagination-modern .page-item.disabled .page-link {
   background-color: #e9ecef;
   color: #6c757d;
@@ -124,7 +124,7 @@
   box-shadow: none;
 }
 
-/* Responsive for small screens */
+
 @media (max-width: 576px) {
   .pagination-modern .page-item .page-link {
     min-width: 32px;
